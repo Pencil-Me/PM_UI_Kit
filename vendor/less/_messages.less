@@ -1,0 +1,40 @@
+.message-bar {
+  @loc-color:@grey;
+  padding:@font-size/2px;
+  border:1px @loc-color solid;
+  background: fade(darken(@loc-color, 20%),50%);
+  .border-radius(5px,5px,5px,5px);
+  color:@loc-color;
+  &-error {
+    @loc-color:@red;
+    padding:@font-size/2px;
+    border:1px @loc-color solid;
+    background: fade(darken(@loc-color, 20%),50%);
+    .border-radius(5px,5px,5px,5px);
+    color:@loc-color;
+  }
+  &-info {
+    @loc-color:lighten(@primary,20%);
+    padding:@font-size/2px;
+    border:1px @loc-color solid;
+    background: fade(darken(@loc-color, 20%),50%);
+    .border-radius(5px,5px,5px,5px);
+    color:@loc-color;
+  }
+  &-warning {
+    @loc-color:@yellow;
+    padding:@font-size/2px;
+    border:1px @loc-color solid;
+    background: fade(darken(@loc-color, 20%),50%);
+    .border-radius(5px,5px,5px,5px);
+    color:@loc-color;
+  }
+  &-success {
+    @loc-color:@green;
+    padding:@font-size/2px;
+    border:1px @loc-color solid;
+    background: fade(darken(@loc-color, 20%),50%);
+    .border-radius(5px,5px,5px,5px);
+    color:@loc-color;
+  }
+}

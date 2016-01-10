@@ -1,0 +1,94 @@
+.table {
+  width: 100%;
+  background: fade(lighten(@primary,40%),90%);
+  margin: 1em 0;
+  border: 1px solid @primary;
+  box-shadow: none;
+  border-radius: 5px;
+  text-align: left;
+  color: @primary;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow:hidden;
+  tr {
+    td {
+      text-align: inherit;
+      padding: .92857143em .71428571em;
+      vertical-align: inherit;
+      font-weight: inherit;
+      text-transform: none;
+      border-left: 1px solid @primary;
+      border-bottom: 1px solid @primary;
+      &:first-child {
+        border-left:none;
+      }
+      &.error {
+        background: fade(lighten(@red, 20%),40%);
+        color: @red;
+      }
+      &.success {
+        background: fade(lighten(@green, 20%),40%);
+        color: @green;
+      }
+      &.warning {
+        background: fade(lighten(@yellow, 20%),40%);
+        color: @yellow;
+      }
+      &.disabled {
+        background: lighten(@grey-2, 10%);
+        color: @grey-2;
+      }
+    }
+    &:last-of-type td {
+      border-bottom:none;
+    }
+
+    &.error {
+      td {
+        background: fade(lighten(@red, 20%),40%);
+        color: @red;
+      }
+    }
+    &.warning {
+      td {
+        background: fade(lighten(@yellow, 20%),40%);
+        color: @yellow;
+      }
+    }
+    &.success {
+      td {
+        background: fade(lighten(@green, 20%),40%);
+        color: @green;
+      }
+    }
+    &.disabled {
+      td {
+        background: lighten(@grey-2, 10%);
+        color: @grey-2;
+      }
+    }
+  }
+  thead {
+    th {
+      cursor: auto;
+      background: lighten(@primary,10%);
+      text-align: inherit;
+      color: lighten(@primary,40%);
+      padding: .92857143em .71428571em;
+      vertical-align: inherit;
+      font-weight: 700;
+      text-transform: none;
+      border-bottom: 1px solid @primary;
+      border-left: 1px solid @primary;
+      &:first-child {
+        border-left:none;
+      }
+    }
+  }
+
+  &.striped {
+    tr:nth-child(2n) {
+      background: lighten(@primary,30%);
+    }
+  }
+}

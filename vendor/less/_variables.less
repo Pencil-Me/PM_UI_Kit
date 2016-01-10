@@ -1,0 +1,61 @@
+// templatesettings
+// colors
+@blue:#094e7a;
+@lightblue: #a2acf5;
+@orange:#e87524;
+@green: #1ae828;
+@red: #e82531;
+@yellow: #e8ca2e;
+@white:#FFFFFF;
+@black:#000000;
+
+@grey:    lighten(@black,50%);
+@grey-2:  lighten(@black,70%);
+@grey-3:  lighten(@black,90%);
+
+@base:          @blue;
+@complement1:   spin(@base, 180);
+@complement2:   darken(spin(@base, 180), 5%);
+@lighten1:      lighten(@base, 15%);
+@lighten2:      lighten(@base, 30%);
+@subtle1:       lighten(spin(@base, 5), 10%);
+@subtle2:       lighten(spin(@base, 10), 20%);
+@subtle3:       darken(spin(@base, -5), 10%);
+@subtle4:       darken(spin(@base, -10), 20%);
+
+@font-size:     18;                 // Your base font-size in pixels
+@max-width:     1400;
+@gutter:        @font-size*2;         // The gutter-width of your grid in pixels
+@em:            @font-size;
+
+@primary: @orange;
+@secondary: lighten(spin(@primary, 180), 5%);
+@tertiary: #fc6e51;
+@quaternary: #48cfad;
+
+@font-family: 'Lato', sans-serif;
+
+// media breakpoints
+@mobile-up: ~"(min-width: 480px)";
+@tablet-up: ~"(min-width: 768px)";
+@small-desktop-up: ~"(min-width: 1026px)";
+
+@micro-mobile-only: ~"(max-width: 479px)";
+@mobile-only: ~"(min-width: 480px) and (max-width: 767px)";
+@tablet-only: ~"(min-width: 768px) and (max-width: 1025px)";
+@small-desktop-only: ~"(min-width: 1026px) and (max-width: 1199px)";
+@desktop-only: ~"(min-width: 1200px)";
+
+@small-desktop-down: ~"(max-width: 1199px)";
+@tablet-down: ~"(max-width: 1025px)";
+@mobile-down: ~"(max-width: 767px)";
+
+@ie8-10: ~"screen\0";
+
+@retina: ~" only screen and (-webkit-min-device-pixel-ratio: 2),
+            only screen and (   min--moz-device-pixel-ratio: 2), /* Looks like a bug, so may want to add: */
+            only screen and (   -moz-min-device-pixel-ratio: 2),
+            only screen and (     -o-min-device-pixel-ratio: 2/1),
+            only screen and (        min-device-pixel-ratio: 2),
+            only screen and (                min-resolution: 192dpi),
+            only screen and (                min-resolution: 2dppx)";

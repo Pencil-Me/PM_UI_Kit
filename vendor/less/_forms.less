@@ -1,0 +1,559 @@
+input[type=text], input[type=email], input[type=search], input[type=password] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+input {
+  line-height: normal;
+}
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.label {
+  font-weight: 500;
+  font-style: normal;
+  line-height: 2.5em;
+}
+.input {
+  position: relative;
+  font-weight: 400;
+  font-style: normal;
+  color: fade(@primary,90%);
+
+  font-size: 1em;
+
+  input {
+    &:not([type=submit]):not([type=file]) {
+      margin: 0;
+      max-width: 100%;
+      outline: 0;
+      -webkit-tap-highlight-color: rgba(255,255,255,0);
+
+      text-align: left;
+      line-height: 1.2142em;
+      color: @primary;
+
+      padding: .67861429em 1em;
+
+      background: fade(lighten(@primary,40%),90%);
+      border: 1px solid darken(@primary,10%);
+      border-radius: 5px;
+
+      -webkit-transition: box-shadow .3s ease,border-color .3s ease,background 0.5s ease;
+      transition: box-shadow .3s ease,border-color .3s ease,background 0.5s ease;
+      box-shadow: none;
+
+      &::-webkit-input-placeholder {
+        color: fade(@primary,50%);
+      }
+      &:-moz-placeholder { /* Firefox 18- */
+        color: fade(@primary,50%);
+      }
+      &::-moz-placeholder {  /* Firefox 19+ */
+        color: fade(@primary,50%);
+      }
+      &:-ms-input-placeholder {
+        color: fade(@primary,50%);
+      }
+      &:focus,&:active,&.filled {
+        border-color: @primary;
+        box-shadow: 0 0 5px 1px @primary;
+        background: lighten(@primary,50%);
+        color: @primary;
+      }
+    }
+  }
+  &.icon {
+    position: relative;
+    [data-icon] {
+      position: absolute;
+      left: .67861429em;
+      top:1em;
+      line-height:100%;
+      z-index: 1;
+    }
+
+    input {
+      &:not([type=submit]):not([type=file]) {
+        padding-left:2em;
+      }
+    }
+  }
+
+  &.error {
+    input {
+      &:not([type=submit]):not([type=file]) {
+        border-color: @red;
+        box-shadow: 0 0 5px 1px @red;
+        background: lighten(@red,30%);
+        color: @red;
+
+        &::-webkit-input-placeholder {
+          color: fade(@red,50%);
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+          color: fade(@red,50%);
+        }
+        &::-moz-placeholder {  /* Firefox 19+ */
+          color: fade(@red,50%);
+        }
+        &:-ms-input-placeholder {
+          color: fade(@red,50%);
+        }
+
+        &:focus,&:active,&.filled {
+          border-color: @primary;
+          box-shadow: 0 0 5px 1px @primary;
+          background: lighten(@primary,50%);
+          color: @primary;
+        }
+      }
+    }
+  }
+
+
+  &.full-width {
+    width:100%;
+    input {
+      width:100%;
+    }
+  }
+
+  & input[type=date] {
+    line-height: 1.1142em !important;
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      display: none;
+    }
+  }
+}
+
+.select {
+  .select-field {
+    //border:none;
+    //border-radius: 0;
+    font-size: 1em;
+
+    margin: 0;
+    max-width: 100%;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+
+    text-align: left;
+    line-height: 1.2142em;
+    color: @primary;
+
+    padding: .67861429em 1em;
+
+    background: fade(lighten(@primary,40%),90%);
+    border: 1px solid darken(@primary,10%);
+    border-radius: 5px;
+
+    -webkit-transition: box-shadow .3s ease,border-color .3s ease,background 0.5s ease;
+    transition: box-shadow .3s ease,border-color .3s ease,background 0.5s ease;
+    box-shadow: none;
+
+    position: relative;
+
+    &:after {
+      content:'<>';
+      color:@primary;
+      -webkit-transform:rotate(90deg);
+      -moz-transform:rotate(90deg);
+      -ms-transform:rotate(90deg);
+      transform:rotate(90deg);
+      right:.67861429em;
+      top:.67861429em;
+      padding:0 0 2px;
+      position:absolute;
+      pointer-events:none;
+    }
+
+    &:focus,&:active,&:hover,&.filled {
+      border-color: @primary;
+      box-shadow: 0 0 5px 1px @primary;
+      background: lighten(@primary,50%);
+      color: @primary;
+    }
+  }
+  .menu {
+    width:100%;
+    z-index:99;
+    position:absolute;
+    top: 2.6142em;
+    left: 0;
+    background:lighten(@primary,20%);
+    color:darken(@primary,10%);
+    border: none;
+    border-top:1px solid darken(@primary,10%);
+    .item {
+      padding:.5em 1em .5em 1em;
+      &:hover {
+        background: darken(@primary,20%);
+        color: @primary;
+      }
+      &.active {
+        background: darken(@primary,10%);
+        color:lighten(@primary,10%);
+      }
+    }
+    &.hidden {
+      display:none;
+    }
+  }
+  &.error {
+    .select-field {
+      border-color: @red;
+      box-shadow: 0 0 5px 1px @red;
+      background: lighten(@red,30%);
+      color: @red;
+    }
+  }
+
+  select {
+    display:none;
+    //border:none;
+    //border-radius: 0;
+    font-size: 1em;
+
+    margin: 0;
+    max-width: 100%;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+
+    text-align: left;
+    line-height: 1.2142em;
+    color: @primary;
+
+    padding: .67861429em 1em;
+
+    background: fade(lighten(@primary,40%),90%);
+    border: 1px solid darken(@primary,10%);
+    border-radius: 5px;
+
+    -webkit-transition: box-shadow .3s ease,border-color .3s ease,background 0.5s ease;
+    transition: box-shadow .3s ease,border-color .3s ease,background 0.5s ease;
+    box-shadow: none;
+
+    option {
+      background:lighten(@primary,20%);
+      color:darken(@primary,10%);
+      border: none;
+      border-top:1px solid darken(@primary,10%);
+      padding:.5em 1em .5em 1em;
+    }
+    &:focus,&:active,&:hover,&.filled {
+      border-color: @primary;
+      box-shadow: 0 0 5px 1px @primary;
+      background: lighten(@primary,50%);
+      color: @primary;
+    }
+  }
+
+  &.error {
+    select {
+      border-color: @red;
+      box-shadow: 0 0 5px 1px @red;
+      background: lighten(@red,30%);
+      color: @red;
+    }
+  }
+  &.full-width {
+    width:100%;
+    select {
+      width:100%;
+
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      &::-ms-expand {
+        display:none;
+      }
+    }
+  }
+  &.full-width:after {
+    content:'<>';
+    color:@primary;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:.67861429em;
+    top:.67861429em;
+    padding:0 0 2px;
+    position:absolute;
+    pointer-events:none;
+  }
+}
+
+.textarea {
+  textarea {
+    overflow: auto;
+    font: inherit;
+    font-size: 1em;
+
+    margin: 0;
+    max-width: 100%;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+
+    text-align: left;
+    line-height: 1.2142em;
+    color: @primary;
+
+    padding: .67861429em 1em;
+
+    background: fade(lighten(@primary,40%),90%);
+    border: 1px solid darken(@primary,10%);
+    border-radius: 5px;
+
+    -webkit-transition: box-shadow .3s ease,border-color .3s ease,background 0.5s ease;
+    transition: box-shadow .3s ease,border-color .3s ease,background 0.5s ease;
+    box-shadow: none;
+
+    &:focus,&:active,&:hover,&.filled {
+      border-color: @primary;
+      box-shadow: 0 0 5px 1px @primary;
+      background: lighten(@primary,50%);
+      color: @primary;
+    }
+  }
+
+  &.error {
+    textarea {
+      border-color: @red;
+      box-shadow: 0 0 5px 1px @red;
+      background: lighten(@red,30%);
+      color: @red;
+    }
+  }
+
+  &.full-width {
+    width:100%;
+    textarea {
+      width:100%;
+    }
+  }
+}
+
+.radio {
+  margin: @font-size/2.5px 0;
+  input[type=radio] {
+    width: @font-size*1.4px;
+    height: @font-size*1.4px;
+    display:none;
+  }
+  &:before {
+    position: absolute;
+    top: 3px;
+    left:0;
+    content:'';
+    display: block;
+    width: @font-size*1.4px;
+    height: @font-size*1.4px;
+    background: #fcfff4;
+
+    background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+
+    -webkit-border-radius: @font-size*2px;
+    -moz-border-radius: @font-size*2px;
+    border-radius: @font-size*2px;
+
+    -webkit-box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
+    box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
+  }
+
+  label {
+    padding-left:@font-size+@font-size*1px;
+    line-height:@font-size+@font-size/2px;
+    margin:@font-size/2px 0;
+    &:hover {
+      color: lighten(@primary,40%);
+      span:after {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+        filter: alpha(opacity=30);
+        opacity: 0.5;
+      }
+    }
+    &:active {
+      transition: color .2s ease;
+      color: lighten(@primary,15%);
+    }
+  }
+  label span {
+    width: @font-size*1px;
+    height: @font-size*1px;
+    position: absolute;
+    left: @font-size*0.1px;
+    top: @font-size*0.1px;
+    &:before {
+      content: '';
+      cursor: pointer;
+      position: absolute;
+      width: @font-size*1px;
+      height: @font-size*1px;
+
+      -webkit-border-radius: @font-size*2px;
+      -moz-border-radius: @font-size*2px;
+      border-radius: @font-size*2px;
+      left: 2px;
+      top: 2px;
+
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 1);
+      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 1);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 1);
+
+      background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+      background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+      background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+      background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+      background: linear-gradient(top, #222 0%, #45484d 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222', endColorstr='#45484d', GradientType=0);
+    }
+    &:after {
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      opacity: 0;
+      content: '';
+      position: absolute;
+      width: @font-size*0.6px;
+      height: @font-size*0.6px;
+      background: @primary;
+
+      background: -webkit-linear-gradient(top, darken(@primary,10%) 0%, lighten(@primary,20%) 100%);
+      background: -moz-linear-gradient(top, darken(@primary,10%) 0%, lighten(@primary,20%) 100%);
+      background: -o-linear-gradient(top, darken(@primary,10%) 0%, lighten(@primary,20%) 100%);
+      background: -ms-linear-gradient(top, darken(@primary,10%) 0%, lighten(@primary,20%) 100%);
+      background: linear-gradient(top, darken(@primary,10%) 0%, lighten(@primary,20%) 100%);
+
+      -webkit-border-radius: @font-size*2px;
+      -moz-border-radius: @font-size*2px;
+      border-radius: @font-size*2px;
+      top: @font-size*0.3px;
+      left: @font-size*0.3px;
+      z-index:2;
+
+      -webkit-box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
+      -moz-box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
+      box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
+    }
+    &:hover::after {
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+      filter: alpha(opacity=30);
+      opacity: 0.3;
+    }
+  }
+
+  input[type=radio]:checked + label span:after {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+  }
+
+  &.type2 {
+    input[type=radio] {
+
+    }
+  }
+  &.type3 {
+    input[type=radio] {
+
+    }
+  }
+}
+
+.checkbox {
+  margin: @font-size/2.5px 0;
+  position: relative;
+  input[type="checkbox"] {
+    width: @font-size*1.4px;
+    height: @font-size*1.4px;
+    display:none;
+  }
+  label {
+    padding-left:@font-size+@font-size*1px;
+    line-height:@font-size+@font-size/2px;
+    &:hover {
+      color: lighten(@primary,40%);
+      span:after {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+        filter: alpha(opacity=30);
+        opacity: 0.5;
+      }
+    }
+    &:active {
+      transition: color .2s ease;
+      color: lighten(@primary,15%);
+    }
+  }
+  label span {
+    position: absolute;
+    width: @font-size*1.4px;
+    height: @font-size*1.4px;
+    left:0;
+    top: 0;
+    border-radius: 4px;
+
+    -webkit-box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
+    box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
+    background: #fcfff4;
+
+    background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+    &:after {
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      opacity: 0;
+      content: '';
+      position: absolute;
+      width: @font-size*0.9px;
+      height: @font-size*0.6px;
+      background: transparent;
+      top: @font-size*0.25px;
+      left: @font-size*0.3px;
+      border: 3px solid #333;
+      border-top: none;
+      border-right: none;
+
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+    }
+    &:hover::after {
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+      filter: alpha(opacity=30);
+      opacity: 0.5;
+    }
+  }
+  input[type="checkbox"]:checked + label span:after {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+  }
+
+  &.type2 {
+    input[type=checkbox] {
+
+    }
+  }
+  &.type3 {
+    input[type=checkbox] {
+
+    }
+  }
+}

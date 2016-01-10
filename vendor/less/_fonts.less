@@ -1,0 +1,276 @@
+html {
+  font-family: sans-serif;
+}
+[data-icon]:before {
+  font-style: normal;
+  .font-size(@font-size*1.2);
+}
+
+::selection {
+  background: @primary; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: @primary; /* Gecko Browsers */
+}
+
+/*---------------------------------
+	HEADINGS
+-----------------------------------*/
+
+h1,h2,h3,h4,h5,h6{
+  font-weight:bold;
+  line-height:140%;
+}
+
+h1{
+  font-size:3.5em;
+  margin:10px 0 10px 0;
+}
+
+h2{
+  font-size:3em;
+  margin:10px 0 10px 0;
+}
+
+h3{
+  font-size:2.5em;
+  margin:10px 0 10px 0;
+  line-height:130%;
+}
+
+h4{
+  font-size:2em;
+  margin:10px 0 10px 0;
+}
+
+h5{
+  font-size:1.5em;
+  margin:10px 0 10px 0;
+}
+
+h6{
+  font-size:1.2em;
+  margin:10px 0 5px 0;
+}
+
+
+/*---------------------------------
+	PARAGRAPHS
+-----------------------------------*/
+
+p{
+  margin:10px 0;
+}
+
+
+/*---------------------------------
+	PRE & CODE
+-----------------------------------*/
+code{
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  .font-size(@font-size);
+
+  padding:3px;
+
+  color:#518BAB;
+}
+
+pre{
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  .font-size(@font-size);
+
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+
+  margin: 0 0 0 0;
+  padding:5px 5px 3px 5px;
+
+  background:#fff;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+  -webkit-box-shadow:inset 0 0 7px rgba(0,0,0,0.2);
+  -moz-box-shadow:inset 0 0 7px rgba(0,0,0,0.2);
+  box-shadow:inset 0 0 7px rgba(0,0,0,0.2);
+  border:1px solid #ddd;
+}
+
+
+/*---------------------------------
+	Text-transformations
+-----------------------------------*/
+
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
+.align-left {
+  text-align: left;
+}
+
+
+.text-medium {
+  font-size: 1em;
+}
+
+
+.text-grey {
+  color:@grey;
+}
+.text-primary {
+  color:@primary;
+}
+.text-secundary {
+  color:@secondary;
+}
+.text-success {
+  color:@green;
+}
+.text-error {
+  color:@red;
+}
+
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-line-through {
+  text-decoration: line-through;
+}
+
+
+.text-italic {
+  font-style: italic;
+}
+
+
+
+blockquote {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-style: italic;
+  margin: 30px 30px 30px 0;
+  padding: 20px 0 0 20px;
+  border-left: 5px solid @grey-2;
+  p {
+    &:first-child {
+      display: inline;
+      &:before {
+        font-style: normal;
+        color: @grey-2;
+        content: open-quote;
+        font-size: 4em;
+        line-height: 0;
+        margin-right: 0.1em;
+        vertical-align: -0.4em;
+      }
+    }
+
+  }
+  footer {
+    font-size: 1rem;
+    text-align: right;
+    font-style: normal;
+    color: @grey;
+    &:before {
+      content:'- ';
+    }
+  }
+
+  &.small {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    padding: 10px 0 0 20px;
+    p:first-child:before {
+      font-size: 3em;
+    }
+  }
+}
+
+a {
+  transition: color .5s ease;
+  /* unvisited link */
+  &:link {
+    color: lighten(@secondary,30%);
+  }
+
+  /* visited link */
+  &:visited {
+    color: lighten(@secondary,25%);
+  }
+
+  /* mouse over link */
+  &:hover {
+    color: lighten(@secondary,40%);
+  }
+
+  /* selected link */
+  &:active {
+    transition: color .2s ease;
+    color: lighten(@secondary,15%);
+  }
+}
+
+
+
+body {
+  quotes: '"' '"';
+  @media @mobile-down {
+    quotes: '"' '"';
+  }
+}
+:lang(en),:lang(es),:lang(nl) {
+  quotes: '\201C' '\201D';
+  @media @mobile-down {
+    quotes: '"' '"';
+  }
+}
+:lang(sv) {
+  quotes: '\201D' '\201D';
+  @media @mobile-down {
+    quotes: '"' '"';
+  }
+}
+:lang(fr),:lang(it) {
+  quotes: '\00AB' '\00BB';
+  @media @mobile-down {
+    quotes: '"' '"';
+  }
+}
+:lang(pl) {
+  quotes: "\201E" "\201C";
+  @media @mobile-down {
+    quotes: '"' '"';
+  }
+}
+:lang(de) {
+  quotes: "\201E" "\201C";
+  @media @mobile-down {
+    quotes: '"' '"';
+  }
+}
+
+
+.text-huge {
+  .font-size(@font-size*2);
+}
+.text-big {
+  .font-size(@font-size*1.5);
+}
+.text-medium {
+  .font-size(@font-size*1.2);
+}
+.text-small {
+  .font-size(@font-size*0.8);
+}
+
+.text-with-subtitle {
+}
+
+.text-grey {
+}

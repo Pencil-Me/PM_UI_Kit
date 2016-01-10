@@ -1,0 +1,106 @@
+.border-radius(@topleft: 0, @topright: 0, @bottomright: 0, @bottomleft: 0 ) {
+  -moz-border-radius:@topleft @topright @bottomright @bottomleft; /* Firefox - old syntax */
+  -webkit-border-radius:@topleft @topright @bottomright @bottomleft; /* Safari, Chrome - old syntax */
+  border-radius:@topleft @topright @bottomright @bottomleft;
+
+  -moz-background-clip:    padding;
+  -webkit-background-clip: padding-box;
+  background-clip:         padding-box;
+}
+
+.roundcorners(@radius: 0 ) {
+  -moz-border-radius: @radius; /* Firefox - old syntax */
+  -webkit-border-radius: @radius; /* Safari, Chrome - old syntax */
+  border-radius: @radius; /* all new browser, W3C standard */
+
+  -moz-background-clip:    padding;
+  -webkit-background-clip: padding-box;
+  background-clip:         padding-box;
+}
+
+.rotate(@deg: 0) {
+  -webkit-transform: rotate(@deg);
+  -moz-transform: 	 rotate(@deg);
+  -ms-transform:     rotate(@deg);
+  -o-transform: 	 rotate(@deg);
+  transform:         rotate(@deg);
+}
+
+.box-shadow(@h:0,@v:0,@blur:0,@spread:0,@color:#000) {
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+.opacity (@opacity: 0.5) {
+  -webkit-opacity: 	@opacity;
+  -moz-opacity: 	@opacity;
+  opacity: 		    @opacity;
+}
+
+.gradient (@startColor: #eee, @endColor: white) {
+  background-color: @startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+  background: -webkit-linear-gradient(top, @startColor, @endColor);
+  background: -moz-linear-gradient(top, @startColor, @endColor);
+  background: -ms-linear-gradient(top, @startColor, @endColor);
+  background: -o-linear-gradient(top, @startColor, @endColor);
+  background: linear-gradient(to bottom, @startColor, @endColor);
+}
+
+.horizontal-gradient (@startColor: #eee, @endColor: white) {
+  background-color: @startColor;
+  background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+  background-image: -webkit-linear-gradient(left, @startColor, @endColor);
+  background-image: -moz-linear-gradient(left, @startColor, @endColor);
+  background-image: -ms-linear-gradient(left, @startColor, @endColor);
+  background-image: -o-linear-gradient(left, @startColor, @endColor);
+  background-image: linear-gradient(to right, @startColor, @endColor);
+}
+
+.transition (@prop: all, @time: 1s, @ease: linear) {
+  -webkit-transition: @prop @time @ease;
+  -moz-transition: @prop @time @ease;
+  -o-transition: @prop @time @ease;
+  -ms-transition: @prop @time @ease;
+  transition: @prop @time @ease;
+}
+
+.lighten1(@base){
+  @color: lighten(spin(@base, 5), 10%);
+}
+.lighten2(@base){
+  @color: lighten(spin(@base, 10), 20%);
+}
+.darker1(@base){
+  @color: darken(spin(@base, -5), 10%);
+}
+.darker2(@base){
+  @color: darken(spin(@base, -10), 20%);
+}
+
+.transform (@key: scale(1.05)) {
+  -webkit-transform: @key;
+  -moz-transform: @key;
+  -ms-transform: @key;
+  -o-transform: @key;
+  transform: @key;
+}
+
+.fourpointgradient (@startColor: #eee, @endColor: white) {
+  background-color: @startColor;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, @startColor), color-stop(10%, @endColor), color-stop(90%, @endColor), color-stop(100%, @startColor));
+  background: -webkit-linear-gradient(left, color-stop(0%,@startColor), color-stop(10%,@endColor), color-stop(90%,@endColor), color-stop(100%,@startColor));
+  background: -moz-linear-gradient(left, @startColor 0%, @endColor 10%, @endColor 90%, @startColor 100%);
+  background: -ms-linear-gradient(left, @startColor 0%, @endColor 10%, @endColor 90%, @startColor 100%);
+  background: -o-linear-gradient(left, @startColor 0%, @endColor 10%, @endColor 90%, @startColor 100%);
+  background: linear-gradient(to right, @startColor 0%, @endColor 10%, @endColor 90%, @startColor 100%);
+}
+
+.font-size(@pxValue:@font-size){
+  @remValue: (@pxValue / 10);
+  font-size: ~"@{pxValue}px";   /* Internet Explorer 6/7/8 + Opera Mini */
+  font-size: ~"@{remValue}rem"; /* Other browsers */
+}
+
+

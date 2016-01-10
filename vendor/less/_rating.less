@@ -1,0 +1,21 @@
+.rating {
+  .rate {
+    display: inline-block;
+    background: lighten(@primary,20%);
+    width:1em;
+    height:1em;
+    margin:0;
+    margin-right:0.2em;
+    &:hover, &.active {
+      background: @primary;
+    }
+  }
+  &.small .rate {
+    width:0.8em;
+    height:0.8em;
+  }
+  &.big .rate {
+    width:1.5em;
+    height:1.5em;
+  }
+}

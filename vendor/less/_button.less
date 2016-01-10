@@ -1,0 +1,478 @@
+.button {
+  @btncolor:lighten(@primary,10%);
+
+  display: inline-block;
+  padding: 0.6em 1.6em;
+  background: @btncolor;
+  .border-radius(5px,5px,5px,5px);
+  border-style:solid;
+  border-color:darken(@btncolor, 15%);
+  border-width:1px;
+  .font-size();
+  color: lighten(@btncolor,30%);
+  transition: background .5s ease, color .5s ease, opacity .5s ease;
+  * {
+    transition: background .5s ease, color .5s ease, opacity .5s ease;
+  }
+  &:hover {
+    background: darken(@btncolor, 5%);
+    color: lighten(@btncolor,35%);
+    border-color:darken(@btncolor, 20%);
+  }
+  &:active {
+    background: darken(@btncolor, 10%);
+    color: lighten(@btncolor,30%);
+    border-color:darken(@btncolor, 15%);
+    padding: 0.5em 1.5em;
+    margin: 0.1em;
+  }
+  &:focus {outline:0;}
+
+  &.fluid {
+    width:100%;
+  }
+
+  &.labeled {
+    padding: 0;
+    overflow: hidden;
+    * {
+      padding: 0.6em 1.6em;
+      display: table-cell;
+      &:first-child {
+        background: darken(@btncolor, 15%);
+        .border-radius(5px,0,0,5px)
+      }
+      &:last-child {
+        .border-radius(0,5px,5px,0)
+      }
+    }
+    &:hover * {
+      background: darken(@btncolor, 5%);
+      &:first-child {
+        background: darken(@btncolor, 15%);
+      }
+    }
+    &:active {
+      padding: 0;
+      * {
+        padding: 0.5em 1.5em;
+        background: darken(@btncolor, 10%);
+        &:first-child {
+          background: darken(@btncolor, 20%);
+        }
+      }
+    }
+  }
+
+  &.circular {
+    padding: 0.6em;
+    .border-radius(50%,50%,50%,50%);
+    &:active {
+      padding: 0.5em;
+      margin: 0.1em;
+    }
+  }
+
+  /* sizing */
+  &.button-huge {
+    .font-size(@font-size*2);
+  }
+  &.button-big {;
+    .font-size(@font-size*1.5);
+  }
+  &.button-small {
+    .font-size(@font-size*0.8);
+  }
+
+  /* coloring */
+  &.button-primary {
+    background: @primary;
+    border-color:darken(@primary, 15%);
+    color: darken(@white, 1%);
+    &:hover {
+      color: @white;
+      background: darken(@primary, 5%);
+      border-color:darken(@primary, 10%);
+    }
+    &.labeled {
+      * {
+        &:first-child {
+          background: darken(@primary, 15%);
+        }
+      }
+      &:hover * {
+        background: darken(@primary, 5%);
+        &:first-child {
+          background: darken(@primary, 15%);
+        }
+      }
+      &:active {
+        * {
+          background: darken(@primary, 10%);
+          &:first-child {
+            background: darken(@primary, 20%);
+          }
+        }
+      }
+    }
+  }
+  &.button-secondary {
+    background: @secondary;
+    border-color:darken(@secondary, 15%);
+    color: darken(@white, 1%);
+    &:hover {
+      color: @white;
+      background: darken(@secondary, 5%);
+      border-color:darken(@secondary, 10%);
+    }
+    &.labeled {
+      * {
+        &:first-child {
+          background: darken(@secondary, 15%);
+        }
+      }
+      &:hover * {
+        background: darken(@secondary, 5%);
+        &:first-child {
+          background: darken(@secondary, 15%);
+        }
+      }
+      &:active {
+        * {
+          background: darken(@secondary, 10%);
+          &:first-child {
+            background: darken(@secondary, 20%);
+          }
+        }
+      }
+    }
+  }
+  &.button-white {
+    background: @white;
+    border-color:darken(@white, 15%);
+    &:hover {
+      background: darken(@white, 5%);
+    }
+    &.labeled {
+      * {
+        &:first-child {
+          background: darken(@white, 15%);
+        }
+      }
+      &:hover * {
+        background: darken(@white, 5%);
+        &:first-child {
+          background: darken(@white, 15%);
+        }
+      }
+      &:active {
+        * {
+          background: darken(@white, 10%);
+          &:first-child {
+            background: darken(@white, 20%);
+          }
+        }
+      }
+    }
+  }
+  &.button-grey {
+    background: @grey-2;
+    color: darken(@white, 1%);
+    border-color:darken(@grey-2, 15%);
+    &:hover {
+      color: @white;
+      background: darken(@grey-2, 5%);
+      border-color:darken(@grey-2, 10%);
+    }
+    &.labeled {
+      * {
+        &:first-child {
+          background: darken(@grey-2, 15%);
+        }
+      }
+      &:hover * {
+        background: darken(@grey-2, 5%);
+        &:first-child {
+          background: darken(@grey-2, 15%);
+        }
+      }
+      &:active {
+        * {
+          background: darken(@grey-2, 10%);
+          &:first-child {
+            background: darken(@grey-2, 20%);
+          }
+        }
+      }
+    }
+  }
+  &.button-green {
+    background: @green;
+    border-color:darken(@green, 15%);
+    color: darken(@white, 1%);
+    &:hover {
+      color: @white;
+      background: darken(@green, 5%);
+      border-color:darken(@green, 10%);
+    }
+    &.labeled {
+      * {
+        &:first-child {
+          background: darken(@green, 15%);
+        }
+      }
+      &:hover * {
+        background: darken(@green, 5%);
+        &:first-child {
+          background: darken(@green, 15%);
+        }
+      }
+      &:active {
+        * {
+          background: darken(@green, 10%);
+          &:first-child {
+            background: darken(@green, 20%);
+          }
+        }
+      }
+    }
+  }
+  &.button-red {
+    background: @red;
+    color: darken(@white, 1%);
+    border-color:darken(@red, 15%);
+    &:hover {
+      color: @white;
+      background: darken(@red, 10%);
+      border-color:darken(@red, 10%);
+    }
+    &.labeled {
+      * {
+        &:first-child {
+          background: darken(@red, 15%);
+        }
+      }
+      &:hover * {
+        background: darken(@red, 5%);
+        &:first-child {
+          background: darken(@red, 15%);
+        }
+      }
+      &:active {
+        * {
+          background: darken(@red, 10%);
+          &:first-child {
+            background: darken(@red, 20%);
+          }
+        }
+      }
+    }
+  }
+  &.button-transparent {
+    background: @btncolor;
+    opacity: 0.5;
+    &:hover {
+      background: @btncolor;
+      opacity: 0.9;
+    }
+    &.labeled {
+      * {
+        &:first-child {
+          background: darken(@btncolor, 10%);
+        }
+      }
+      &:hover * {
+        background: @btncolor;
+        &:first-child {
+          background: darken(@btncolor, 10%);
+        }
+      }
+      &:active {
+        * {
+          background: @btncolor;
+          &:first-child {
+            background: darken(@btncolor, 10%);
+          }
+        }
+      }
+    }
+  }
+  &.button-disabled {
+    background: lighten(@grey-2, 15%);
+    color: lighten(@grey-2, 5%);
+    border-color:lighten(@grey-2, 0%);
+    pointer-events: none;
+    &:hover {
+      cursor:not-allowed;
+      background: lighten(@grey-2, 15%);
+      color: lighten(@grey-2, 5%);
+    }
+    &.labeled {
+      * {
+        &:first-child {
+          background: lighten(@grey-2, 12%);
+        }
+      }
+      &:hover * {
+        background: lighten(@grey-2, 15%);
+        &:first-child {
+          background: lighten(@grey-2, 12%);
+        }
+      }
+      &:active {
+        * {
+          background: lighten(@grey-2, 15%);
+          &:first-child {
+            background: lighten(@grey-2, 12%);
+          }
+        }
+      }
+    }
+  }
+
+
+  &.button-caps {
+    text-transform: uppercase;
+  }
+
+  &.button-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  &.button-outline {
+
+    .button-outliner(@loc-btn-color:@btncolor) {
+      border-color: @loc-btn-color;
+      color: @loc-btn-color;
+      &:hover, &:hover * {
+        border-color: lighten(@loc-btn-color,5%);
+        color: lighten(@loc-btn-color,5%);
+      }
+      &:active, &:active * {
+        border-color: darken(@loc-btn-color, 10%);
+        color: darken(@loc-btn-color, 10%);
+      }
+    }
+
+    @loc-btn-color: @btncolor;
+    background: none;
+    border-width: 3px;
+    border-color: @loc-btn-color;
+    color: @loc-btn-color;
+    .border-radius(10px,10px,10px,10px);
+    .button-outliner(@loc-btn-color);
+    &:hover, &:hover *, * {
+      background: none !important;
+    }
+
+    &.button-disabled,&.button-disabled * {
+      opacity: 0.5;
+      @loc-btn-color: darken(@grey-2, 15%);
+      border-color: @loc-btn-color;
+      color: @loc-btn-color;
+      &:hover, &:hover *,
+      &:active, &:active * {
+        border-color: @loc-btn-color;
+        color: @loc-btn-color;
+      }
+    }
+    &.button-primary, &.button-primary * {
+      .button-outliner(@primary);
+    }
+    &.button-secondary, &.button-secondary * {
+      .button-outliner(@secondary);
+    }
+    &.button-grey, &.button-grey * {
+      .button-outliner(@grey-2);
+    }
+    &.button-white, &.button-white * {
+      .button-outliner(@white);
+    }
+    &.button-green, &.button-green * {
+      .button-outliner(@green);
+    }
+    &.button-red, &.button-red * {
+      .button-outliner(@red);
+    }
+  }
+}
+
+.button-group {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  list-style: none;
+  font-size: 0;
+  li {
+    display: inline-block;
+    .button {
+      margin:0;
+      border-radius: 0;
+      &:active {
+        padding: 0.5em 1.6em;
+        margin: 0.1em 0;
+      }
+    }
+    &:first-child .button {
+      .border-radius(5px,0,0,5px);
+      &:active {
+        padding: 0.5em 1.6em 0.5em 1.5em;
+        margin: 0.1em 0 0.1em 0.1em;
+      }
+    }
+    &:last-of-type .button {
+      .border-radius(0,5px,5px,0);
+      &:active {
+        padding: 0.5em 1.5em 0.5em 1.5em;
+        margin: 0.1em 0.1em 0.1em 0;
+      }
+    }
+  }
+
+  &.vertical {
+    li {
+      display: block;
+      .button {
+        display: block;
+        width:100%;
+        margin:0;
+        border-radius: 0;
+        &:active {
+          width: 94.9%;
+          padding: 0.6em 1.5em;
+          margin: 0 0.1em;
+        }
+      }
+      &:first-child .button {
+        .border-radius(5px,5px,0,0);
+        &:active {
+          padding: 0.5em 1.5em 0.6em 1.5em;
+          margin: 0.1em 0.1em 0 0.1em;
+        }
+      }
+      &:last-of-type .button {
+        .border-radius(0,0,5px,5px);
+        &:active {
+          padding: 0.6em 1.5em 0.5em 1.5em;
+          margin: 0 0.1em 0.1em 0.1em;
+        }
+      }
+    }
+
+  }
+}
+
+.btn-navbar {
+  .btn {
+    font-size: (11/16) + em;
+  }
+  .active {
+    background: @primary;
+    color: @white;
+    &:hover {
+      background: darken(@primary, 5%);
+    }
+  }
+}
