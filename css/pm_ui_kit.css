@@ -484,6 +484,9 @@ pre {
 .text-italic {
   font-style: italic;
 }
+.text-center {
+  text-align: center;
+}
 blockquote {
   font-size: 2rem;
   line-height: 2rem;
