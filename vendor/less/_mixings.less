@@ -103,4 +103,12 @@
   font-size: ~"@{remValue}rem"; /* Other browsers */
 }
 
+.text-glow (@x: 0px, @blur: 5px, @color: rgba(0,0,0,0.2)) {
+  text-shadow:    -1*@x 0 @blur @color,
+  0 @x    @blur @color,
+  @x 0    @blur @color,
+    0 -1*@x @blur @color;
+}
+
+
 

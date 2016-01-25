@@ -311,6 +311,23 @@ html {
 a {
   text-decoration: none;
 }
+/*Using width or height tags to resize images in your markup can create a problem in Internet Explorer browsers. If your reader is viewing an email
+in-browser, and that email happens to have fluid images in it, they’ll look pretty ugly as they resize. Using -ms-interpolation-mode:bicubic; ensures
+that your images look a little better.*/
+img {
+  -ms-interpolation-mode: bicubic;
+}
+div,
+p,
+a,
+li,
+td {
+  /* Big fonts */
+  /* in iPhone*/
+  -webkit-text-size-adjust: none;
+  /* on IE for Windows Phone 8.1, Internet Explorer for Windows Phone supports "-webkit-text-size-adjust"*/
+  -ms-text-size-adjust: none;
+}
 body {
   font-family: 'Lato', sans-serif;
   color: #f2af80;
@@ -328,6 +345,9 @@ body {
   background: linear-gradient(to bottom, #512609, #0d507f);
   background-size: cover;
 }
+header {
+  width: 100%;
+}
 .wrapper {
   display: block;
   max-width: 1400px;
@@ -336,9 +356,6 @@ body {
 .section {
   padding: 36px;
 }
-section {
-  border-bottom: 1px solid #e6e6e6;
-}
 [data-icon] {
   margin-right: 0.5em;
 }
@@ -346,7 +363,7 @@ img {
   max-width: 100%;
 }
 html {
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 [data-icon]:before {
   font-style: normal;
@@ -374,6 +391,12 @@ h5,
 h6 {
   font-weight: bold;
   line-height: 140%;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Lato', sans-serif;
 }
 h1 {
   font-size: 3.5em;
@@ -445,6 +468,33 @@ pre {
   box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.2);
   border: 1px solid #ddd;
 }
+xmp {
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  font-size: 9px;
+  /* Internet Explorer 6/7/8 + Opera Mini */
+  font-size: 0.9rem;
+  /* Other browsers */
+  white-space: pre-wrap;
+  /* css-3 */
+  white-space: -moz-pre-wrap !important;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+  margin: 0 0 0 0;
+  padding: 18px;
+  background: #fff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+}
 /*---------------------------------
 	Text-transformations
 -----------------------------------*/
@@ -459,6 +509,9 @@ pre {
 }
 .text-medium {
   font-size: 1em;
+}
+.text-black {
+  color: #000000;
 }
 .text-grey {
   color: #808080;
@@ -622,6 +675,9 @@ body {
   font-size: 1.44rem;
   /* Other browsers */
 }
+.text-grey {
+  color: #808080;
+}
 @media print {
   * {
     background: none !important;
@@ -655,6 +711,7 @@ body {
 }
 .button {
   display: inline-block;
+  position: relative;
   padding: 0.6em 1.6em;
   background: #ed9252;
   -moz-border-radius: 5px 5px 5px 5px;
@@ -673,24 +730,26 @@ body {
   font-size: 1.8rem;
   /* Other browsers */
   color: #fbe9dd;
-  transition: background .5s ease, color .5s ease, opacity .5s ease;
+  transition: background .5s ease, color .5s ease, opacity .5s ease, transform .5s ease;
   /* sizing */
   /* coloring */
 }
 .button * {
-  transition: background .5s ease, color .5s ease, opacity .5s ease;
+  transition: background .5s ease, color .5s ease, opacity .5s ease, transform .5s ease;
 }
 .button:hover {
   background: #ea843b;
   color: #fef8f4;
   border-color: #c45d15;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
 .button:active {
   background: #e87524;
   color: #fbe9dd;
   border-color: #db6817;
-  padding: 0.5em 1.5em;
-  margin: 0.1em;
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
 }
 .button:focus {
   outline: 0;
@@ -2162,10 +2221,6 @@ textarea {
     margin-left: 2.57142857%;
   }
 }
-.row {
-  margin-left: -2.57142857%;
-  /* gutter */
-}
 .nogutter.row {
   margin-left: 0;
 }
@@ -3270,7 +3325,174 @@ body {
   background-clip: padding-box;
   color: #1ae828;
 }
-/* Empty Elements */
+.nav {
+  display: inline-block;
+  width: auto;
+  height: 40px;
+  max-height: 40px;
+}
+.nav nav {
+  position: relative;
+  z-index: 9;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 2em;
+  font-size: 18px;
+  padding-top: 0;
+}
+.nav nav .active,
+.nav nav .active > a {
+  color: #FFFFFF;
+  text-shadow: -3px 0 3px rgba(255, 255, 255, 0.3), 0 3px 3px rgba(255, 255, 255, 0.3), 3px 0 3px rgba(255, 255, 255, 0.3), 0 -3px 3px rgba(255, 255, 255, 0.3);
+}
+.nav nav a {
+  display: block;
+}
+.nav nav > ul {
+  padding: 0;
+  height: 35px;
+  max-height: 35px;
+  width: 100%;
+  text-align: center;
+  z-index: 9;
+}
+.nav nav > ul > li {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  z-index: 9;
+}
+.nav nav > ul > li > a {
+  height: 38px;
+  max-height: 38px;
+  padding: 0 1em;
+  background-color: #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#fbe9dd));
+  background: -webkit-linear-gradient(top, #ffffff, #fbe9dd);
+  background: -moz-linear-gradient(top, #ffffff, #fbe9dd);
+  background: -ms-linear-gradient(top, #ffffff, #fbe9dd);
+  background: -o-linear-gradient(top, #ffffff, #fbe9dd);
+  background: linear-gradient(to bottom, #ffffff, #fbe9dd);
+  border: 1px solid #fbe9dd;
+  display: block;
+  z-index: 8;
+  position: relative;
+  color: #e87524;
+  text-transform: uppercase;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  -ms-transition: all 1s linear;
+  transition: all 1s linear;
+}
+.nav nav > ul > li > ul {
+  padding: 0;
+  padding-top: 15px;
+  width: 100%;
+  text-align: center;
+  display: none;
+  position: absolute;
+  z-index: 7;
+  top: 2em;
+  left: 0;
+  background: #000;
+}
+.nav nav > ul > li > ul > li {
+  display: block;
+  text-align: center;
+}
+.nav nav > ul > li > ul > li > a {
+  height: 38px;
+  max-height: 38px;
+  padding: 0 1em;
+  background-color: #000;
+  background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#333));
+  background: -webkit-linear-gradient(top, #000, #333);
+  background: -moz-linear-gradient(top, #000, #333);
+  background: -ms-linear-gradient(top, #000, #333);
+  background: -o-linear-gradient(top, #000, #333);
+  background: linear-gradient(to bottom, #000, #333);
+  border: 1px solid #333;
+  display: block;
+  z-index: 8;
+  position: relative;
+  color: #e87524;
+  text-transform: uppercase;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  -ms-transition: all 1s linear;
+  transition: all 1s linear;
+}
+.nav nav > ul > li > ul > li > a:hover {
+  background-color: #e87524;
+  background: -webkit-gradient(linear, left top, left bottom, from(#e87524), to(#ff8c2b));
+  background: -webkit-linear-gradient(top, #e87524, #ff8c2b);
+  background: -moz-linear-gradient(top, #e87524, #ff8c2b);
+  background: -ms-linear-gradient(top, #e87524, #ff8c2b);
+  background: -o-linear-gradient(top, #e87524, #ff8c2b);
+  background: linear-gradient(to bottom, #e87524, #ff8c2b);
+  -webkit-box-shadow: 0 0 0 0 #000;
+  -moz-box-shadow: 0 0 0 0 #000;
+  box-shadow: 0 0 0 0 #000;
+  border: 1px solid #c1621e;
+  height: 38px;
+  max-height: 38px;
+  color: #FFFFFF;
+  text-shadow: -3px 0 3px rgba(255, 255, 255, 0.3), 0 3px 3px rgba(255, 255, 255, 0.3), 3px 0 3px rgba(255, 255, 255, 0.3), 0 -3px 3px rgba(255, 255, 255, 0.3);
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  -ms-transition: all 1s linear;
+  transition: all 1s linear;
+  font-size: 1.1em;
+}
+.nav nav > ul > li:hover > a {
+  background-color: #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
+  background: -webkit-linear-gradient(top, #ffffff, #ffffff);
+  background: -moz-linear-gradient(top, #ffffff, #ffffff);
+  background: -ms-linear-gradient(top, #ffffff, #ffffff);
+  background: -o-linear-gradient(top, #ffffff, #ffffff);
+  background: linear-gradient(to bottom, #ffffff, #ffffff);
+  -webkit-box-shadow: 0 0 0 0 #000;
+  -moz-box-shadow: 0 0 0 0 #000;
+  box-shadow: 0 0 0 0 #000;
+  border: 1px solid #ffffff;
+  color: #fbe9dd;
+  -webkit-transition: all 1s linear;
+  -moz-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  -ms-transition: all 1s linear;
+  transition: all 1s linear;
+}
+.nav nav > ul > li:hover ul {
+  display: block;
+}
+* {
+  margin: 0;
+}
+body {
+  height: 100%;
+}
+main {
+  min-height: 100%;
+  margin: 0 auto -270px;
+  /* the bottom margin is the negative value of the footer's height */
+}
+footer,
+.push {
+  height: 270px;
+  /* '.push' must be the same height as 'footer' */
+}
+.debug {
+  /* Empty Elements */
+  /* Empty Attributes */
+  /* Deprecated Elements */
+  /* Deprecated Attributes */
+  /* Proposed Deprecated Elements */
+  /* Proposed Deprecated Attributes */
+}
 .debug div:empty,
 .debug span:empty,
 .debug li:empty,
@@ -3280,7 +3502,6 @@ body {
   padding: 20px;
   border: 5px dotted yellow !important;
 }
-/* Empty Attributes */
 .debug *[alt=""],
 .debug *[title=""],
 .debug *[class=""],
@@ -3288,7 +3509,6 @@ body {
 .debug a[href=""] {
   border: 5px solid yellow !important;
 }
-/* Deprecated Elements */
 .debug applet,
 .debug basefont,
 .debug center,
@@ -3301,7 +3521,6 @@ body {
 .debug u {
   border: 5px dotted red !important;
 }
-/* Deprecated Attributes */
 .debug *[background],
 .debug *[bgcolor],
 .debug *[clear],
@@ -3332,15 +3551,16 @@ body {
 .debug li[type] {
   border: 5px solid red !important;
 }
-/* Proposed Deprecated Elements */
 .debug input[type="button"],
 .debug big,
 .debug tt {
   border: 5px dotted #33FF00 !important;
 }
-/* Proposed Deprecated Attributes */
 .debug *[border],
 .debug table[cellpadding],
 .debug table[cellspacing] {
   border: 5px solid #33FF00 !important;
+}
+section {
+  border-bottom: 1px solid #e6e6e6;
 }

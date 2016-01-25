@@ -2,6 +2,7 @@
   @btncolor:lighten(@primary,10%);
 
   display: inline-block;
+  position: relative;
   padding: 0.6em 1.6em;
   background: @btncolor;
   .border-radius(5px,5px,5px,5px);
@@ -10,21 +11,23 @@
   border-width:1px;
   .font-size();
   color: lighten(@btncolor,30%);
-  transition: background .5s ease, color .5s ease, opacity .5s ease;
+  transition: background .5s ease, color .5s ease, opacity .5s ease, transform .5s ease;
   * {
-    transition: background .5s ease, color .5s ease, opacity .5s ease;
+    transition: background .5s ease, color .5s ease, opacity .5s ease, transform .5s ease;
   }
   &:hover {
     background: darken(@btncolor, 5%);
     color: lighten(@btncolor,35%);
     border-color:darken(@btncolor, 20%);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
   }
   &:active {
     background: darken(@btncolor, 10%);
     color: lighten(@btncolor,30%);
     border-color:darken(@btncolor, 15%);
-    padding: 0.5em 1.5em;
-    margin: 0.1em;
+    -webkit-transform: scale(.95);
+    transform: scale(.95);
   }
   &:focus {outline:0;}
 

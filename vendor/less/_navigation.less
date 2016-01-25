@@ -1,0 +1,102 @@
+.nav {
+  display: inline-block;
+  width: auto;
+
+  height: 40px;
+  max-height: 40px;
+  nav {
+    position: relative;
+    z-index: 9;
+    margin: 0 auto;
+    text-align: center;
+    & .active, & .active > a {
+      color: @white;
+      .text-glow(3px, 3px, fade(@white,30%));
+    }
+    line-height: 2em;
+    font-size: @font-size*1px;
+    padding-top: 0;
+    & a {
+      display: block;
+    }
+    & > ul {
+      padding: 0;
+      height: 35px;
+      max-height: 35px;
+      width: 100%;
+      text-align: center;
+      z-index: 9;
+      & > li {
+        display: inline-block;
+        text-align: center;
+        vertical-align: top;
+        z-index: 9;
+        & > a {
+          height: 38px;
+          max-height: 38px;
+          padding: 0 1em;
+          .gradient(lighten(@primary,50%),lighten(@primary,40%));
+          border: 1px solid lighten(@primary,40%);
+          display: block;
+          z-index: 8;
+          position: relative;
+          color: @primary;
+          text-transform: uppercase;
+          .transition();
+        }
+        & > ul {
+          padding: 0;
+          padding-top: 15px;
+          width: 100%;
+          text-align: center;
+          display: none;
+          position: absolute;
+          z-index: 7;
+          top: 2em;
+          left: 0;
+          background: #000;
+          & > li {
+            display: block;
+            text-align: center;
+            & > a {
+              height: 38px;
+              max-height: 38px;
+              padding: 0 1em;
+              .gradient(#000, #333);
+              border: 1px solid #333;
+              display: block;
+              z-index: 8;
+              position: relative;
+              color: @primary;
+              text-transform: uppercase;
+              .transition();
+            }
+            & > a:hover {
+              .gradient(@primary, @primary*1.2);
+              .box-shadow();
+              border: 1px solid @primary/1.2;
+              height: 38px;
+              max-height: 38px;
+              color: @white;
+              .text-glow(3px, 3px, rgba(255, 255, 255, 0.3));
+              .transition();
+              font-size: 1.1em;
+            }
+          }
+        }
+        &:hover {
+          & > a {
+            .gradient( lighten(@primary,70%), lighten(@primary,60%));
+            .box-shadow();
+            border: 1px solid lighten(@primary,60%);
+            color: lighten(@primary,40%);
+            .transition();
+          }
+          & ul {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

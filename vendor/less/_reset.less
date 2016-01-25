@@ -47,3 +47,18 @@ html {font-size: 62.5%;} /*switching to base 10 for the ease of calculations (de
 * {position:relative;}
 *, *:before, *:after {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
 a {text-decoration:none;}
+
+/*Using width or height tags to resize images in your markup can create a problem in Internet Explorer browsers. If your reader is viewing an email
+in-browser, and that email happens to have fluid images in it, they’ll look pretty ugly as they resize. Using -ms-interpolation-mode:bicubic; ensures
+that your images look a little better.*/
+img{
+  -ms-interpolation-mode:bicubic;
+}
+
+div, p, a, li, td {
+  /* Big fonts */
+  /* in iPhone*/
+  -webkit-text-size-adjust:none;
+  /* on IE for Windows Phone 8.1, Internet Explorer for Windows Phone supports "-webkit-text-size-adjust"*/
+  -ms-text-size-adjust:none;
+}
