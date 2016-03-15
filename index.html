@@ -18,7 +18,28 @@
 </head>
 <body>
 <main>
-    <div class="wrapper">
+
+    <nav class="nav vertical sidenav">
+        <ul>
+            <li class=""><a href="#home">Home</a></li>
+            <li class=""><a href="#navigation">Navigation</a></li>
+            <li class=""><a href="#text_modifers">Text modifiers</a></li>
+            <li class=""><a href="#blockquotes">Blockquotes</a></li>
+            <li class=""><a href="#headings">Headings</a></li>
+            <li class=""><a href="#buttons">Buttons</a></li>
+            <li class=""><a href="#typography">Typography sizes</a></li>
+            <li class=""><a href="#forms">Forms</a></li>
+            <li class=""><a href="#tables">Tables</a></li>
+            <li class=""><a href="#tabs">Tabs</a></li>
+            <li class=""><a href="#rating">Rating</a></li>
+            <li class=""><a href="#images">Images</a></li>
+            <li class=""><a href="#loaders">Loaders</a></li>
+            <li class=""><a href="#colors">Colors</a></li>
+            <li class=""><a href="#messages">Messages</a></li>
+        </ul>
+    </nav>
+
+    <div class="wrapper" id="home">
 
         <section class="section">
             <div class="align-center">
@@ -28,12 +49,33 @@
                         PM-UI-Kit<br>
                         a LESS Libary
                     </h1>
-                    <h2 class="text-small text-grey">v 0.1</h2>
+                    <h2 class="text-small text-grey">v 0.11</h2>
                 </div>
             </div>
         </section>
 
-        <section class="section">
+
+        <section class="section" id="navigation">
+            <h2 class="text-big">Navigation</h2>
+            <nav class="nav">
+                <ul>
+                    <li class="active"><a>Default</a>
+                        <ul>
+                            <li class="active"><a>Default</a></li>
+                            <li class=""><a>Default</a>
+                                <ul>
+                                    <li class="active"><a>Default</a></li>
+                                    <li class=""><a>Default</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class=""><a>Default</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <section class="section" id="text_modifers">
             <h2 class="text-big">Text modifiers</h2>
             <div class="row">
                 <div class="col-xs-12 col-md-6 col-lg-6">
@@ -169,8 +211,7 @@
 
         </section>
 
-
-        <section class="section">
+        <section class="section" id="blockquotes">
             <h2 class="text-big">Blockquotes</h2>
             <div class="row">
                 <div class="col-xs-12 col-md-6 col-lg-6">
@@ -200,7 +241,7 @@
         </section>
 
 
-        <section class="section">
+        <section class="section" id="headings">
             <h2 class="text-big">Headings 1–6</h2>
 
             <!-- Headings 1–6 -->
@@ -214,7 +255,7 @@
         </section>
 
 
-        <section class="section">
+        <section class="section" id="buttons">
             <h2 class="text-big">Buttons</h2>
             <h2 class="text-medium text-grey">Button colors</h2>
             <div class="row">
@@ -342,7 +383,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="typography">
             <h2 class="text-big">Typography sizes</h2>
 
             <h3 class="text-medium text-grey text-with-subtitle">Text huge</h3>
@@ -370,7 +411,7 @@
             </ul>
         </section>
 
-        <section class="section">
+        <section class="section" id="forms">
             <h2 class="text-big">Forms</h2>
 
             <h2 class="text-medium text-grey">Input Fields</h2>
@@ -599,7 +640,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="tables">
             <h2 class="text-big">Tables</h2>
             <div class="row">
                 <div class="col-xs-12 col-md-6 col-lg-6">
@@ -826,7 +867,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="tabs">
             <div class="row">
                 <div class="col-xs-12 col-md-6 col-lg-6">
                     <h2 class="text-big">Tabs</h2>
@@ -851,7 +892,7 @@
                 </div>
             </div>
         </section>
-        <section class="section">
+        <section class="section" id="rating">
 
             <div class="row">
                 <div class="col-xs-12 col-md-6 col-lg-6">
@@ -885,7 +926,7 @@
         </section>
 
 
-        <section class="section">
+        <section class="section" id="images">
             <h2 class="text-big">Image modifiers</h2>
             <div class="row">
                 <div class="col-xs-12 col-md-6 col-lg-6">
@@ -919,7 +960,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="loaders">
             <h2 class="text-big">Loaders</h2>
 
             <h2 class="text-medium text-grey">Button toogle Loading animation</h2>
@@ -938,7 +979,7 @@
 
         </section>
 
-        <section class="section">
+        <section class="section" id="colors">
             <h2 class="text-big">Colors</h2>
             <h3 class="text-medium text-grey">Brand colors ( primary / secondary )</h3>
             <div class="row nogutter">
@@ -1081,7 +1122,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="messages">
             <h2 class="text-big">Message bars</h2>
             <div class="message-bar">
                 <h3 class="text-huge text-with-subtitle">Everything in its right place</h3>
@@ -1107,6 +1148,7 @@
 
             <h2 class="text-big">Latest changes</h2>
                     <pre><code class="language-css">
+                        /* 15/03/2016 */ - added navigation
                         /* 10/01/2016 */ - finished first release
                     </code></pre>
         </section>
@@ -1121,7 +1163,7 @@
             <p>
                 PM UIkit<br>
                 a LESS library<br>
-                <span class="text-small text-grey">v 0.1</span>
+                <span class="text-small text-grey">v 0.11</span>
             </p>
 
             <p class="text-grey">

@@ -82,6 +82,16 @@ module.exports = function(grunt) {
                     dest: 'img/'                  // Destination path prefix
                 }]
             }
+        },
+        cmq: {
+            options: {
+                log: false
+            },
+            your_target: {
+                files: {
+                    'tmp': ['test/*.css']
+                }
+            }
         }
 
     });
@@ -92,6 +102,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-resize-crop');
     grunt.loadNpmTasks('grunt-imagemagick');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-combine-media-queries');
 
     grunt.registerTask('default', ['uglify','less','cssmin']);
     grunt.registerTask('image', ['resize_crop:image_group','imagemagick-resize','imagemin:dynamic']);

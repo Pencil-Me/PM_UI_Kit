@@ -1,0 +1,21 @@
+{
+  "name": "PM-UI-Kit",
+  "creator": "Johannes Kromer",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XXXX/XXXXXX.git"
+  },
+  "author": "Johannes Kromer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wkda/marketing-landing-pages/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt-combine-media-queries": "^1.0.20"
+  },
+  "homepage": "https://github.com/XXXX/XXXXXX#readme",
+  "keywords": []
+}
