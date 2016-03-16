@@ -69,10 +69,14 @@
 
   &.circular {
     padding: 0.6em;
+    min-width: 50px;
     .border-radius(50%,50%,50%,50%);
     &:active {
       padding: 0.5em;
       margin: 0.1em;
+    }
+    [data-icon] {
+      margin-right: 0;
     }
   }
 
@@ -446,6 +450,9 @@
           width: 94.9%;
           padding: 0.6em 1.5em;
           margin: 0 0.1em;
+        }
+        [data-icon] {
+          margin-right: 0;
         }
       }
       &:first-child .button {

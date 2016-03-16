@@ -18,9 +18,13 @@
 </head>
 <body>
 <main>
+    <nav class="nav vertical sidenav xs-toggle z-index">
+        <div class="show-menu burger">
+            <label for="show-menu">Show Menu</label>
+        </div>
+        <input class="show-menu" type="checkbox" id="show-menu" role="button">
 
-    <nav class="nav vertical sidenav">
-        <ul>
+        <ul id="menu">
             <li class=""><a href="#home">Home</a></li>
             <li class=""><a href="#navigation">Navigation</a></li>
             <li class=""><a href="#text_modifers">Text modifiers</a></li>
@@ -57,22 +61,101 @@
 
         <section class="section" id="navigation">
             <h2 class="text-big">Navigation</h2>
-            <nav class="nav">
+            <nav class="nav mb-md">
+                <div class="show-menu burger">
+                    <label for="show-menu2">Show Menu</label>
+                </div>
+                <input class="show-menu" type="checkbox" id="show-menu2" role="button">
                 <ul>
-                    <li class="active"><a>Default</a>
+                    <li class="active"><a href="javascript:void(0)">Home</a></li>
+                    <li><a href="javascript:void(0)">About</a>
+                        <div class="show-menu arrow"><label for="show-menu1.1">Show Menu</label></div>
+                        <input class="show-menu" type="checkbox" id="show-menu1.1" role="button">
                         <ul>
-                            <li class="active"><a>Default</a></li>
-                            <li class=""><a>Default</a>
-                                <ul>
-                                    <li class="active"><a>Default</a></li>
-                                    <li class=""><a>Default</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="javascript:void(0)">Who We Are</a></li>
+                            <li><a href="javascript:void(0)">What We Do</a> </li>
                         </ul>
                     </li>
-                    <li class=""><a>Default</a></li>
+                    <li><a href="javascript:void(0)">Portfolio</a>
+                        <div class="show-menu arrow"><label for="show-menu1.2">Show Menu</label></div>
+                        <input class="show-menu" type="checkbox" id="show-menu1.2" role="button">
+                        <ul>
+                            <li><a href="javascript:void(0)">Photography</a></li>
+                            <li><a href="javascript:void(0)">Web-Design</a>
+                                <div class="show-menu arrow"><label for="show-menu1.3">Show Menu</label></div>
+                                <input class="show-menu" type="checkbox" id="show-menu1.3" role="button">
+                                <ul>
+                                    <li><a href="javascript:void(0)">UI Design</a></li>
+                                    <li><a href="javascript:void(0)">UX Design</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0)">Illustration</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0)">News</a></li>
+                    <li><a href="javascript:void(0)">Contact</a></li>
                 </ul>
             </nav>
+            <div class="clear"></div>
+
+            <nav class="nav fullsize">
+                <div class="show-menu burger">
+                    <label for="show-menu3">Show Menu</label>
+                </div>
+                <input class="show-menu" type="checkbox" id="show-menu3" role="button">
+
+                <ul>
+                    <li class="active"><a href="javascript:void(0)">Home</a></li>
+                    <li><a href="javascript:void(0)">About</a>
+                        <div class="show-menu arrow"><label for="show-menu2.1">Show Menu</label></div>
+                        <input class="show-menu" type="checkbox" id="show-menu2.1" role="button">
+                        <ul>
+                            <li><a href="javascript:void(0)">Who We Are</a></li>
+                            <li><a href="javascript:void(0)">What We Do</a> </li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0)">Portfolio</a>
+                        <div class="show-menu arrow"><label for="show-menu2.2">Show Menu</label></div>
+                        <input class="show-menu" type="checkbox" id="show-menu2.2" role="button">
+                        <ul>
+                            <li><a href="javascript:void(0)">Photography</a></li>
+                            <li><a href="javascript:void(0)">Web-Design</a>
+                                <div class="show-menu arrow"><label for="show-menu2.3">Show Menu</label></div>
+                                <input class="show-menu" type="checkbox" id="show-menu2.3" role="button">
+                                <ul>
+                                    <li><a href="javascript:void(0)">UI Design</a></li>
+                                    <li><a href="javascript:void(0)">UX Design</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0)">Illustration</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0)">News</a></li>
+                    <li><a href="javascript:void(0)">Contact</a></li>
+                </ul>
+                <ul class="navbar-right">
+                    <li><a href="javascript:void(0)">Link</a></li>
+                    <li><a href="javascript:void(0)">Dropdown</a>
+                        <div class="show-menu arrow"><label for="show-menu3.1">Show Menu</label></div>
+                        <input class="show-menu" type="checkbox" id="show-menu3.1" role="button">
+                        <ul>
+                            <li><a href="javascript:void(0)">Action</a></li>
+                            <li><a href="javascript:void(0)">Another action</a></li>
+                            <li><a href="javascript:void(0)">Something else here</a>
+                                <div class="show-menu arrow"><label for="show-menu3.2">Show Menu</label></div>
+                                <input class="show-menu" type="checkbox" id="show-menu3.2" role="button">
+                                <ul>
+                                    <li><a href="javascript:void(0)">UI Design</a></li>
+                                    <li><a href="javascript:void(0)">UX Design</a></li>
+                                </ul>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="javascript:void(0)">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="clear"></div>
         </section>
 
         <section class="section" id="text_modifers">

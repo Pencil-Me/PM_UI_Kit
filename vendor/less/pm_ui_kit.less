@@ -1,7 +1,7 @@
-@import "_reset";
+@import "reset";
+@import "variables";
+@import "mixings";
 
-@import "_variables";
-@import "_mixings";
 @import "_basic";
 @import "_fonts";
 @import "_print";
@@ -19,13 +19,17 @@
 @import "_messages";
 @import "_navigation";
 @import "_stickyfooter";
-
+@import "_blockquote";
 
 @import "_debug";
 
-.wrapper {
-  margin-left: 200px;
+
+@media @tablet-up {
+  .wrapper {
+    margin-left: 200px;
+  }
 }
+
 section.section {
   border-bottom: 1px solid @grey-3;
 }

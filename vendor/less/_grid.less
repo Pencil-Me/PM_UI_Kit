@@ -525,10 +525,57 @@
 .row {
   margin-left: -100% * @gutter/@max-width; /* gutter */
 }
+.xxs,.xs,.sm,.md,.lg {
+  &-visible{
+    width:0;
+    height:0;
+    overflow:hidden;
+    opacity: 0;
+    max-height: 0;
+  }
+}
+
+.hidden {
+  width:0;
+  height:0;
+  overflow:hidden;
+  opacity: 0;
+  max-height: 0;
+}
+
+.mb {
+  &-xs {
+    margin-bottom: 4px;
+  }
+  &-sm {
+    margin-bottom: 8px;
+  }
+  &-md {
+    margin-bottom: 15px;
+  }
+  &-lg {
+    margin-bottom: 30px;
+  }
+}
 
 // Helper
 @media @micro-mobile-only {
   .xxs {
+    &-hidden {
+      width:0;
+      height:0;
+      overflow:hidden;
+      opacity: 0;
+      max-height: 0;
+    }
+    &-visible{
+      display:inherit;
+      width:inherit;
+      height:inherit;
+      overflow:inherit;
+      opacity: inherit;
+      max-height: inherit;
+    }
     &-row {
       margin-left: @font-size*-1px;
       margin-right: @font-size*-1px;
@@ -557,6 +604,21 @@
 }
 @media @mobile-down {
   .xs {
+    &-hidden {
+      width:0;
+      height:0;
+      overflow:hidden;
+      opacity: 0;
+      max-height: 0;
+    }
+    &-visible{
+      display:inherit;
+      width:inherit;
+      height:inherit;
+      overflow:inherit;
+      opacity: inherit;
+      max-height: inherit;
+    }
     &-row {
       margin-left: @font-size*-1px;
       margin-right: @font-size*-1px;
@@ -585,6 +647,21 @@
 }
 @media @tablet-only {
   .sm {
+    &-hidden {
+      width:0;
+      height:0;
+      overflow:hidden;
+      opacity: 0;
+      max-height: 0;
+    }
+    &-visible{
+      display:inherit;
+      width:inherit;
+      height:inherit;
+      overflow:inherit;
+      opacity: inherit;
+      max-height: inherit;
+    }
     &-row {
       margin-left: @font-size*-1px;
       margin-right: @font-size*-1px;
@@ -613,6 +690,15 @@
 }
 @media @small-desktop-only {
   .md {
+    &-hidden {
+      width:0;
+      height:0;
+      overflow:hidden;
+      opacity: 0;
+    }
+    &-visible{
+      display:inherit;
+    }
     &-row {
       margin-left: @font-size*-1px;
       margin-right: @font-size*-1px;
@@ -641,6 +727,15 @@
 }
 @media @desktop-only {
   .lg {
+    &-hidden {
+      width:0;
+      height:0;
+      overflow:hidden;
+      opacity: 0;
+    }
+    &-visible{
+      display:inherit;
+    }
     &-row {
       margin-left: @font-size*-1px;
       margin-right: @font-size*-1px;
