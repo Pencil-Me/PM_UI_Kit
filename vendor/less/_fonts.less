@@ -17,41 +17,40 @@ html {
 	HEADINGS
 -----------------------------------*/
 
-h1,h2,h3,h4,h5,h6{
+h1,h2,h3,h4,h5,h6 {
   font-weight:bold;
   line-height:140%;
 }
 h1,h2,h3,h4 {
   font-family: @font-family-headline;
 }
-h1{
-  font-size:3.5em;
+h1 {
+  .font-size(@font-size*3.5);
   margin:10px 0 10px 0;
 }
 
-h2{
-  font-size:3em;
+h2 {
+  .font-size(@font-size*3);
   margin:10px 0 10px 0;
 }
 
-h3{
-  font-size:2.5em;
-  margin:10px 0 10px 0;
-  line-height:130%;
-}
-
-h4{
-  font-size:2em;
+h3 {
+  .font-size(@font-size*2.5);
   margin:10px 0 10px 0;
 }
 
-h5{
-  font-size:1.5em;
+h4 {
+  .font-size(@font-size*2);
   margin:10px 0 10px 0;
 }
 
-h6{
-  font-size:1.2em;
+h5 {
+  .font-size(@font-size*1.5);
+  margin:10px 0 10px 0;
+}
+
+h6 {
+  .font-size(@font-size*1.2);
   margin:10px 0 5px 0;
 }
 
@@ -60,7 +59,7 @@ h6{
 	PARAGRAPHS
 -----------------------------------*/
 
-p{
+p {
   margin:10px 0;
 }
 
@@ -68,13 +67,13 @@ p{
 /*---------------------------------
 	PRE & CODE
 -----------------------------------*/
-code{
+code {
   font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
   .font-size(@font-size);
 
   padding:3px;
 
-  color:#518BAB;
+  color:@lightblue;
 }
 
 pre{
@@ -90,14 +89,11 @@ pre{
   margin: 0 0 0 0;
   padding:5px 5px 3px 5px;
 
-  background:#fff;
-  -moz-border-radius:5px;
-  -webkit-border-radius:5px;
-  border-radius:5px;
-  -webkit-box-shadow:inset 0 0 7px rgba(0,0,0,0.2);
-  -moz-box-shadow:inset 0 0 7px rgba(0,0,0,0.2);
-  box-shadow:inset 0 0 7px rgba(0,0,0,0.2);
-  border:1px solid #ddd;
+  background:@white;
+  .border-radius(5px);
+
+  .box-shadow(inset 0 0 7px rgba(0,0,0,0.2));
+  border:1px solid darken(@white,10%);
 }
 xmp{
   font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
@@ -112,14 +108,10 @@ xmp{
   margin: 0 0 0 0;
   padding:@font-size*1px;
 
-  background:#fff;
-  -moz-border-radius:5px;
-  -webkit-border-radius:5px;
-  border-radius:5px;
-  -webkit-box-shadow:inset 0 0 7px rgba(0,0,0,0.2);
-  -moz-box-shadow:inset 0 0 7px rgba(0,0,0,0.2);
-  box-shadow:inset 0 0 7px rgba(0,0,0,0.2);
-  border:1px solid #ddd;
+  background:@white;
+  .border-radius(5px);
+  .box-shadow(inset 0 0 7px fade(@black,20%));
+  border:1px solid darken(@white,10%);
 }
 
 
@@ -181,26 +173,26 @@ xmp{
 
 
 a {
-  transition: color .5s ease;
+  .transition(color .5s ease);
   /* unvisited link */
   &:link {
-    color: lighten(@secondary,30%);
+    color: lighten(@primary,30%);
   }
 
   /* visited link */
   &:visited {
-    color: lighten(@secondary,25%);
+    color: lighten(@primary,25%);
   }
 
   /* mouse over link */
   &:hover {
-    color: lighten(@secondary,40%);
+    color: lighten(@primary,40%);
   }
 
   /* selected link */
   &:active {
-    transition: color .2s ease;
-    color: lighten(@secondary,15%);
+    .transition(color .2s ease);
+    color: lighten(@primary,15%);
   }
 }
 
@@ -215,11 +207,4 @@ a {
 }
 .text-small {
   .font-size(@font-size*0.8);
-}
-
-.text-with-subtitle {
-}
-
-.text-grey {
-  color: @grey;
 }

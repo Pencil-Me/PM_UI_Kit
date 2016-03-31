@@ -37,8 +37,8 @@ body {
 }
 
 blockquote {
-  font-size: 2rem;
-  line-height: 2rem;
+  .font-size(@font-size*2);
+  line-height: (@font-size / 10) * 2.5 + 0rem;
   font-style: italic;
   margin: 30px 30px 30px 0;
   padding: 20px 0 0 20px;
@@ -60,7 +60,7 @@ blockquote {
   }
   footer {
     height: auto;
-    font-size: 1rem;
+    font-size: 1.8rem;
     text-align: right;
     font-style: normal;
     color: @grey;
@@ -70,8 +70,8 @@ blockquote {
   }
 
   &.small {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+    font-size: 1.8rem;
+    line-height: 2rem;
     padding: 10px 0 0 20px;
     p:first-child:before {
       font-size: 3em;

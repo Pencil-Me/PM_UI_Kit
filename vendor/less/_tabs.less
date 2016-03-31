@@ -5,8 +5,7 @@
   box-shadow: none;
   padding: .52857143em .71428571em .428571em .71428571em;
   .tab{
-    .transition(background,0.3s);
-    .transition(padding,0.2s);
+    .transition(background .3s ease, padding .2s ease;);
     background: lighten(@primary,20%);
     margin: 1em 0;
     padding: .42857143em .71428571em @font-size*0.5px .71428571em;
@@ -14,7 +13,7 @@
     border-left: 1px solid @primary;
     border-right: 1px solid @primary;
     box-shadow: none;
-    .border-radius(5px 5px 0 0);
+    .border-radiuses(5px 5px 0 0);
     text-align: left;
     color: @primary;
     border-collapse: separate;
@@ -25,7 +24,7 @@
       padding-top:.52857143em;
     }
     &:active {
-      .transition(padding,0.1s);
+      .transition(padding .1s ease);
       background: lighten(@primary,25%);
       padding-top:.4em;
     }

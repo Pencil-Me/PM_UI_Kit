@@ -5,29 +5,27 @@
   position: relative;
   padding: 0.6em 1.6em;
   background: @btncolor;
-  .border-radius(5px,5px,5px,5px);
+  .border-radiuses(5px,5px,5px,5px);
   border-style:solid;
   border-color:darken(@btncolor, 15%);
   border-width:1px;
   .font-size();
   color: lighten(@btncolor,30%);
-  transition: background .5s ease, color .5s ease, opacity .5s ease, transform .5s ease;
-  * {
-    transition: background .5s ease, color .5s ease, opacity .5s ease, transform .5s ease;
-  }
+  .transition(background .5s ease, color .5s ease, opacity .5s ease, transform .5s ease;);
+
   &:hover {
+    .transition(background .5s ease, color .5s ease, opacity .5s ease, transform .2s ease;);
     background: darken(@btncolor, 5%);
     color: lighten(@btncolor,35%);
     border-color:darken(@btncolor, 20%);
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
+    .scale(1.02);
   }
   &:active {
+    .transition(background .1s ease, color .1s ease, opacity .1s ease, transform .1s ease;);
     background: darken(@btncolor, 10%);
     color: lighten(@btncolor,30%);
     border-color:darken(@btncolor, 15%);
-    -webkit-transform: scale(.95);
-    transform: scale(.95);
+    .scale(.99);
   }
   &:focus {outline:0;}
 
@@ -43,10 +41,10 @@
       display: table-cell;
       &:first-child {
         background: darken(@btncolor, 15%);
-        .border-radius(5px,0,0,5px)
+        .border-radiuses(5px,0,0,5px)
       }
       &:last-child {
-        .border-radius(0,5px,5px,0)
+        .border-radiuses(0,5px,5px,0)
       }
     }
     &:hover * {
@@ -70,11 +68,7 @@
   &.circular {
     padding: 0.6em;
     min-width: 50px;
-    .border-radius(50%,50%,50%,50%);
-    &:active {
-      padding: 0.5em;
-      margin: 0.1em;
-    }
+    .border-radiuses(50%,50%,50%,50%);
     [data-icon] {
       margin-right: 0;
     }
@@ -277,10 +271,10 @@
   }
   &.button-transparent {
     background: @btncolor;
-    opacity: 0.5;
+    .opacity(50);
     &:hover {
       background: @btncolor;
-      opacity: 0.9;
+      .opacity(90);
     }
     &.labeled {
       * {
@@ -368,14 +362,14 @@
     border-width: 3px;
     border-color: @loc-btn-color;
     color: @loc-btn-color;
-    .border-radius(10px,10px,10px,10px);
+    .border-radiuses(10px,10px,10px,10px);
     .button-outliner(@loc-btn-color);
     &:hover, &:hover *, * {
       background: none !important;
     }
 
     &.button-disabled,&.button-disabled * {
-      opacity: 0.5;
+      .opacity(50);
       @loc-btn-color: darken(@grey-2, 15%);
       border-color: @loc-btn-color;
       color: @loc-btn-color;
@@ -416,21 +410,21 @@
     display: inline-block;
     .button {
       margin:0;
-      border-radius: 0;
+      .border-radius();
       &:active {
         padding: 0.5em 1.6em;
         margin: 0.1em 0;
       }
     }
     &:first-child .button {
-      .border-radius(5px,0,0,5px);
+      .border-radiuses(5px,0,0,5px);
       &:active {
         padding: 0.5em 1.6em 0.5em 1.5em;
         margin: 0.1em 0 0.1em 0.1em;
       }
     }
     &:last-of-type .button {
-      .border-radius(0,5px,5px,0);
+      .border-radiuses(0,5px,5px,0);
       &:active {
         padding: 0.5em 1.5em 0.5em 1.5em;
         margin: 0.1em 0.1em 0.1em 0;
@@ -445,7 +439,7 @@
         display: block;
         width:100%;
         margin:0;
-        border-radius: 0;
+        .border-radius();
         &:active {
           width: 94.9%;
           padding: 0.6em 1.5em;
@@ -456,14 +450,14 @@
         }
       }
       &:first-child .button {
-        .border-radius(5px,5px,0,0);
+        .border-radiuses(5px,5px,0,0);
         &:active {
           padding: 0.5em 1.5em 0.6em 1.5em;
           margin: 0.1em 0.1em 0 0.1em;
         }
       }
       &:last-of-type .button {
-        .border-radius(0,0,5px,5px);
+        .border-radiuses(0,0,5px,5px);
         &:active {
           padding: 0.6em 1.5em 0.5em 1.5em;
           margin: 0 0.1em 0.1em 0.1em;

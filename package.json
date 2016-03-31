@@ -5,17 +5,24 @@
   "description": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/XXXX/XXXXXX.git"
+    "url": "git+https://github.com/Pencil-Me/PM_UI_Kit.git"
   },
   "author": "Johannes Kromer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wkda/marketing-landing-pages/issues"
+    "url": ""
   },
   "dependencies": {},
   "devDependencies": {
-    "grunt-combine-media-queries": "^1.0.20"
+    "grunt-combine-media-queries": "^1.0.20",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-imagemagick": "^0.1.5",
+    "grunt-resize-crop": "0.0.1",
+    "less": "^2.6.1"
   },
-  "homepage": "https://github.com/XXXX/XXXXXX#readme",
+  "homepage": "https://github.com/Pencil-Me/PM_UI_Kit#readme",
   "keywords": []
 }

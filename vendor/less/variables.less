@@ -1,8 +1,8 @@
 // templatesettings
-// colors
+// Colorvariables
 @blue:          #094e7a;
 @lightblue:     #a2acf5;
-@orange:        #e87524;
+@orange:        #e86720;
 @green:         #1ae828;
 @red:           #e82531;
 @yellow:        #e8ca2e;
@@ -11,8 +11,15 @@
 
 @darkgrey:      lighten(@black,10%);
 @grey:          lighten(@black,50%);
-@grey-2:        lighten(@black,70%);
-@grey-3:        lighten(@black,90%);
+@grey-1:        lighten(@grey,10%);
+@grey-2:        lighten(@grey,20%);
+@grey-3:        lighten(@grey,30%);
+@grey-4:        lighten(@grey,40%);
+@grey-5:        lighten(@grey,50%);
+@grey-6:        lighten(@grey,60%);
+@grey-7:        lighten(@grey,70%);
+@grey-8:        lighten(@grey,80%);
+@grey-9:        lighten(@grey,90%);
 
 @base:          @blue;
 @complement1:   spin(@base, 180);
@@ -24,21 +31,32 @@
 @subtle3:       darken(spin(@base, -5), 10%);
 @subtle4:       darken(spin(@base, -10), 20%);
 
-@font-size:     18;                 // Your base font-size in pixels
-@max-width:     1400;
-@gutter:        @font-size*2;         // The gutter-width of your grid in pixels
-@em:            @font-size;
-@footerheight:  270px;              // footerheight for stickyfooter
-
 @primary:       @orange;
-@secondary:     lighten(spin(@primary, 180), 5%);
+@secondary:     @blue;
 @tertiary:      #fc6e51;
 @quaternary:    #48cfad;
 
+
+// Layoutvariables
+@font-size:     18; // Your base font-size in pixels
+@max-width:     1400; // Your Maxwidth of the bodycontent in pixels
+
+@footerheight:  270px;              // footerheight for stickyfooter
+
+@base_px: @font-size; //set to the most common base px size used in browsers, should generally be left at default
+@toRems: (1 / @base_px) + 0rem; //allows you to set values as the default px size to target, which is then converted into scalable rem values.
+@toEms: (1 / @base_px) + 0em; //same as above, but with em values
+
+@default-width: @max-width +0px;
+@default-colspan: 1;
+@default-total_cols: 4;
+@default-gutter: @font-size; // The gutter-width of your grid in pixels
+
+//Fontvariables
 @font-family:           'Lato', sans-serif;
 @font-family-headline:  'Lato', sans-serif;
 @font-family-body:      'Lato', sans-serif;
-@font-color:            lighten(@primary,20%);
+@font-color:            darken(@primary,20%);
 
 // media breakpoints
 @mobile-up: ~"(min-width: 480px)";

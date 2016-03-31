@@ -3,17 +3,17 @@
   /* Empty Elements */
   div:empty, span:empty, li:empty, p:empty, td:empty, th:empty {
     padding: 20px;
-    border: 5px dotted yellow !important;
+    border: 5px dotted @yellow !important;
   }
 
   /* Empty Attributes */
   *[alt=""], *[title=""], *[class=""], *[id=""], a[href=""] {
-    border: 5px solid yellow !important;
+    border: 5px solid @yellow !important;
   }
 
   /* Deprecated Elements */
   applet, basefont, center, dir, font, isindex, menu, s, strike, u {
-    border: 5px dotted red !important;
+    border: 5px dotted @red !important;
   }
 
   /* Deprecated Attributes */
@@ -21,16 +21,16 @@
   *[start], *[bottommargin], *[leftmargin], *[rightmargin], *[topmargin], *[marginheight], *[marginwidth],
   *[alink], *[link], *[text], *[vlink], *[align], *[valign], *[hspace], *[vspace], *[height], *[width], ul[type],
   ol[type], li[type] {
-    border: 5px solid red !important;
+    border: 5px solid @red !important;
   }
 
   /* Proposed Deprecated Elements */
   input[type="button"], big, tt {
-    border: 5px dotted #33FF00 !important;
+    border: 5px dotted @green !important;
   }
 
   /* Proposed Deprecated Attributes */
   *[border], table[cellpadding], table[cellspacing] {
-    border: 5px solid #33FF00 !important;
+    border: 5px solid @green !important;
   }
 }

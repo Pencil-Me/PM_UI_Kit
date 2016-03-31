@@ -17,7 +17,7 @@ body {
     margin: -.64285714em 0 0 -.64285714em;
     width: 1.28571429em;
     height: 1.28571429em;
-    border-radius: 500rem;
+    .border-radius(500rem);
     border: .2em solid rgba(0, 0, 0, .15);
   }
   &:after {
@@ -32,8 +32,8 @@ body {
     animation: button-spin .6s linear;
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
-    border-radius: 500rem;
-    border-color: #FFF transparent transparent;
+    .border-radius(500rem);
+    border-color: @white transparent transparent;
     border-style: solid;
     border-width: .2em;
     box-shadow: 0 0 0 1px transparent;
@@ -53,8 +53,7 @@ body {
   display: block;
   background: fade(@white,50%);
   .spinner {
-    width: @size;
-    height: @size;
+    .size(@size,@size);
     line-height: @size;
     position: fixed;
     top: 50%;
@@ -62,7 +61,6 @@ body {
     margin-top: @size/-2;
     margin-left: @size/-2;
     background-color: none;
-    border-radius: 5px;
     text-align: center;
     z-index: 11; /* 1px higher than the overlay layer */
     &:before {
@@ -73,8 +71,8 @@ body {
       margin: @size/-2 0 0 @size/-2;
       width: @size;
       height: @size;
-      border-radius: 500rem;
-      border: .2em solid faden(@primary,15%);
+      .border-radius(500rem);
+      border: .5em solid lighten(@primary,25%);
     }
     &:after {
       position: absolute;
@@ -88,10 +86,10 @@ body {
       animation: button-spin .6s linear;
       -webkit-animation-iteration-count: infinite;
       animation-iteration-count: infinite;
-      border-radius: 500rem;
+      .border-radius(500rem);
       border-color: @primary transparent transparent;
       border-style: solid;
-      border-width: .2em;
+      border-width: .5em;
       box-shadow: 0 0 0 1px transparent;
     }
   }

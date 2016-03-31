@@ -29,7 +29,7 @@ nav.nav {
       width:0;
       height:0;
       overflow:hidden;
-      opacity: 0;
+      .opacity();
       max-height: 0;
     }
 
@@ -171,9 +171,9 @@ nav.nav {
     }
     &.burger {
       label{
-        transition: background .5s ease, box-shadow .5s ease;
+        .transition(background .5s ease, box-shadow .5s ease;);
         &:before {
-          transition: background .5s ease, box-shadow .5s ease;
+          .transition(background .5s ease, box-shadow .5s ease;);
 
           background: @font-color;
           box-shadow: 0 0.25em 0 0 @font-color,
@@ -193,7 +193,7 @@ nav.nav {
           font-size: 1rem;
           content: "\25BC";
           position: absolute;
-          transition: color .5s ease;
+          .transition(color .5s ease);
           text-indent: 0;
           color: @font-color;
         }
@@ -233,7 +233,7 @@ nav.nav {
     width:inherit;
     height:auto;
     overflow:visible;
-    opacity: 1;
+    .opacity(100);
     max-height: inherit;
     @media @tablet-up {
       display: inline-block;
