@@ -14,9 +14,9 @@ body {
     content: '';
     top: 50%;
     left: 50%;
-    margin: -.64285714em 0 0 -.64285714em;
-    width: 1.28571429em;
-    height: 1.28571429em;
+    margin: @loading-button-size/-2 0 0 @loading-button-size/-2;
+    width: @loading-button-size;
+    height: @loading-button-size;
     .border-radius(500rem);
     border: .2em solid rgba(0, 0, 0, .15);
   }
@@ -25,9 +25,9 @@ body {
     content: '';
     top: 50%;
     left: 50%;
-    margin: -.64285714em 0 0 -.64285714em;
-    width: 1.28571429em;
-    height: 1.28571429em;
+    margin: @loading-button-size/-2 0 0 @loading-button-size/-2;
+    width: @loading-button-size;
+    height: @loading-button-size;
     -webkit-animation: button-spin .6s linear;
     animation: button-spin .6s linear;
     -webkit-animation-iteration-count: infinite;
@@ -42,7 +42,7 @@ body {
 
 .loading.fullscreen {
 
-  @size:3.28571429em;
+  @size:@loading-fullscreen-size;
 
   position:absolute;
   z-index:9999;
@@ -51,7 +51,7 @@ body {
   width:100%;
   height: 100%;
   display: block;
-  background: fade(@white,50%);
+  background: @loading-fullscreen-background;
   .spinner {
     .size(@size,@size);
     line-height: @size;
@@ -72,7 +72,7 @@ body {
       width: @size;
       height: @size;
       .border-radius(500rem);
-      border: .5em solid lighten(@primary,25%);
+      border: .5em solid @loading-fullscreen-color2;
     }
     &:after {
       position: absolute;
@@ -87,7 +87,7 @@ body {
       -webkit-animation-iteration-count: infinite;
       animation-iteration-count: infinite;
       .border-radius(500rem);
-      border-color: @primary transparent transparent;
+      border-color: @loading-fullscreen-color transparent transparent;
       border-style: solid;
       border-width: .5em;
       box-shadow: 0 0 0 1px transparent;

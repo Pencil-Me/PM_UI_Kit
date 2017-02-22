@@ -1,42 +1,43 @@
 .table {
   width: 100%;
-  background: fade(lighten(@primary,40%),90%);
+  background: @table-background;
   margin: 1em 0;
-  border: 1px solid @primary;
-  box-shadow: none;
-  .border-radius(5px);
+  border: @table-border;
+  box-shadow: @table-box-shadow;
+  .border-radius(@table-border-radius);
   text-align: left;
-  color: @primary;
+  color: @table-color;
   border-collapse: separate;
   border-spacing: 0;
-  overflow:hidden;
+  overflow: hidden;
+  table-layout: fixed;
   tr {
     td {
       text-align: inherit;
-      padding: .92857143em .71428571em;
+      padding: @table-padding-topbottom @table-padding-leftright;
       vertical-align: inherit;
-      font-weight: inherit;
+      font-weight: @table-font-weight;
       text-transform: none;
-      border-left: 1px solid @primary;
-      border-bottom: 1px solid @primary;
+      border-left: @table-inner-border;
+      border-bottom: @table-inner-border;
       &:first-child {
         border-left:none;
       }
       &.error {
-        background: fade(lighten(@red, 20%),40%);
-        color: @red;
+        background: @table-error-background;
+        color: @table-error-color;
       }
       &.success {
-        background: fade(lighten(@green, 20%),40%);
-        color: @green;
+        background: @table-success-background;
+        color: @table-success-color;
       }
       &.warning {
-        background: fade(lighten(@yellow, 20%),40%);
-        color: @yellow;
+        background: @table-warning-background;
+        color: @table-warning-color;
       }
       &.disabled {
-        background: lighten(@grey-2, 10%);
-        color: @grey-2;
+        background: @table-disabled-background;
+        color: @table-disabled-color;
       }
     }
     &:last-of-type td {
@@ -45,41 +46,41 @@
 
     &.error {
       td {
-        background: fade(lighten(@red, 20%),40%);
-        color: @red;
+        background: @table-error-background;
+        color: @table-error-color;
       }
     }
     &.warning {
       td {
-        background: fade(lighten(@yellow, 20%),40%);
-        color: @yellow;
+        background: @table-warning-background;
+        color: @table-warning-color;
       }
     }
     &.success {
       td {
-        background: fade(lighten(@green, 20%),40%);
-        color: @green;
+        background: @table-success-background;
+        color: @table-success-color;
       }
     }
     &.disabled {
       td {
-        background: lighten(@grey-2, 10%);
-        color: @grey-2;
+        background: @table-disabled-background;
+        color: @table-disabled-color;
       }
     }
   }
   thead {
     th {
       cursor: auto;
-      background: lighten(@primary,10%);
+      background: @table-head-background;
       text-align: inherit;
-      color: lighten(@primary,40%);
+      color: @table-head-color;
       padding: .92857143em .71428571em;
       vertical-align: inherit;
-      font-weight: 700;
+      font-weight: @table-head-font-weight;
       text-transform: none;
-      border-bottom: 1px solid @primary;
-      border-left: 1px solid @primary;
+      border-bottom: @table-head-bottom-border;
+      border-left: @table-head-inner-border;
       &:first-child {
         border-left:none;
       }
@@ -88,7 +89,7 @@
 
   &.striped {
     tr:nth-child(2n) {
-      background: lighten(@primary,30%);
+      background: @table-stripped-secondary-background;
     }
   }
 }

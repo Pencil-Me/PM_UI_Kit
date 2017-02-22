@@ -17,8 +17,8 @@
 .cols ( @colspan: @default-colspan; @gutter: @default-gutter; @total_cols: @default-total_cols ) {
   width: ( @colspan * (100 / @total_cols) ) + 0%;
   float: left;
-  max-width: ( 100 * ( (@max-width / 12 * @colspan) - @gutter - 5 ) ) / @max-width + 0%;
-  padding: @gutter+0px;
+  max-width: (@max-width / 12 * @colspan)+ 0px;
+  padding: 0 @gutter+0px;
 }
 
 .border-radiuses(@topleft: 0, @topright: 0, @bottomright: 0, @bottomleft: 0 ) {
@@ -312,7 +312,7 @@
   }
 }
 
-.font-size(@pxValue:@font-size){
+.font-size(@pxValue:@font-base-size){
   @remValue: (@pxValue / 10);
   font-size: ~"@{pxValue}px";   /* Internet Explorer 6/7/8 + Opera Mini */
   font-size: ~"@{remValue}rem"; /* Other browsers */
@@ -354,4 +354,43 @@
 }
 .square(@size) {
   .size(@size, @size);
+}
+
+.button-color(@-bg-color,@-border-color,@-color,
+@-bg-color-hover,@-border-color-hover,@-color-hover,
+@-bg-color-active,@-border-color-active,@-color-active,
+@-labeled-bg-color,@-labeled-bg-color-hover,@-labeled-bg-color-active){
+
+  background: @-bg-color;
+  border-color: @-border-color;
+  color: @-color;
+  &:hover {
+    color: @-color-hover;
+    background: @-bg-color-hover;
+    border-color: @-border-color-hover;
+  }
+  &:active {
+    color: @-color-active;
+    background: @-bg-color-active;
+    border-color: @-border-color-active;
+  }
+  &.labeled {
+    * {
+      &:first-child {
+        background: @-labeled-bg-color;
+      }
+    }
+    &:hover * {
+      &:first-child {
+        background: @-labeled-bg-color-hover;
+      }
+    }
+    &:active {
+      * {
+        &:first-child {
+          background: @-labeled-bg-color-active;
+        }
+      }
+    }
+  }
 }

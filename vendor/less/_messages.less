@@ -1,13 +1,13 @@
 .message-bar {
-  @loc-color:@grey;
-  padding:@font-size/2px;
+  @loc-color:@grey-0;
+  padding:@font-base-size/2px;
   border:1px @loc-color solid;
   background: fade(darken(@loc-color, 20%),50%);
   .border-radiuses(5px,5px,5px,5px);
   color:@loc-color;
   &-error {
     @loc-color:@red;
-    padding:@font-size/2px;
+    padding:@font-base-size/2px;
     border:1px @loc-color solid;
     background: fade(darken(@loc-color, 20%),50%);
     .border-radiuses(5px,5px,5px,5px);
@@ -15,7 +15,7 @@
   }
   &-info {
     @loc-color:lighten(@primary,20%);
-    padding:@font-size/2px;
+    padding:@font-base-size/2px;
     border:1px @loc-color solid;
     background: fade(darken(@loc-color, 20%),50%);
     .border-radiuses(5px,5px,5px,5px);
@@ -23,7 +23,7 @@
   }
   &-warning {
     @loc-color:@yellow;
-    padding:@font-size/2px;
+    padding:@font-base-size/2px;
     border:1px @loc-color solid;
     background: fade(darken(@loc-color, 20%),50%);
     .border-radiuses(5px,5px,5px,5px);
@@ -31,7 +31,7 @@
   }
   &-success {
     @loc-color:@green;
-    padding:@font-size/2px;
+    padding:@font-base-size/2px;
     border:1px @loc-color solid;
     background: fade(darken(@loc-color, 20%),50%);
     .border-radiuses(5px,5px,5px,5px);

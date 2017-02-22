@@ -1,5 +1,4 @@
-.background-primary {
-  @loccolor:@primary;
+.background-color(@loccolor){
   background:@loccolor;
   &-25 {
     background:fade(@loccolor,25%);
@@ -10,130 +9,44 @@
   &-75 {
     background:fade(@loccolor,75%);
   }
+}
+
+.background-primary {
+  .background-color(@primary);
 }
 
 .background-secondary {
-  @loccolor:@secondary;
-  background:@loccolor;
-  &-25 {
-    background:fade(@loccolor,25%);
-  }
-  &-50 {
-    background:fade(@loccolor,50%);
-  }
-  &-75 {
-    background:fade(@loccolor,75%);
-  }
+  .background-color(@secondary);
 }
 
 .background-success {
-  @loccolor:@green;
-  background:@loccolor;
-  &-25 {
-    background:fade(@loccolor,25%);
-  }
-  &-50 {
-    background:fade(@loccolor,50%);
-  }
-  &-75 {
-    background:fade(@loccolor,75%);
-  }
+  .background-color(@success-color);
 }
 
 .background-info {
-  @loccolor:lighten(@primary,20%);
-  background:@loccolor;
-  &-25 {
-    background:fade(@loccolor,25%);
-  }
-  &-50 {
-    background:fade(@loccolor,50%);
-  }
-  &-75 {
-    background:fade(@loccolor,75%);
-  }
+  .background-color(@info-color);
 }
 
 .background-warning {
-  @loccolor:@yellow;
-  background:@loccolor;
-  &-25 {
-    background:fade(@loccolor,25%);
-  }
-  &-50 {
-    background:fade(@loccolor,50%);
-  }
-  &-75 {
-    background:fade(@loccolor,75%);
-  }
+  .background-color(@warning-color);
 }
 
 .background-error {
-  @loccolor:@red;
-  background:@loccolor;
-  &-25 {
-    background:fade(@loccolor,25%);
-  }
-  &-50 {
-    background:fade(@loccolor,50%);
-  }
-  &-75 {
-    background:fade(@loccolor,75%);
-  }
+  .background-color(@danger-color)
 }
 
 .background-white {
-  @loccolor:@white;
-  background:@loccolor;
-  &-25 {
-    background:fade(@loccolor,25%);
-  }
-  &-50 {
-    background:fade(@loccolor,50%);
-  }
-  &-75 {
-    background:fade(@loccolor,75%);
-  }
+  .background-color(@white);
 }
 
 .background-grey {
-  @loccolor:@grey-3;
-  background:@loccolor;
-  &-25 {
-    background:fade(@loccolor,25%);
-  }
-  &-50 {
-    background:fade(@loccolor,50%);
-  }
-  &-75 {
-    background:fade(@loccolor,75%);
-  }
+  .background-color(@grey-3);
 }
 
 .background-grey-dark {
-  @loccolor:@grey-2;
-  background:@loccolor;
-  &-25 {
-    background:fade(@loccolor,25%);
-  }
-  &-50 {
-    background:fade(@loccolor,50%);
-  }
-  &-75 {
-    background:fade(@loccolor,75%);
-  }
+  .background-color(@grey-2);
 }
 
 .background-dark {
-  @loccolor:@grey;
-  background:@loccolor;
-  &-25 {
-    background:fade(@loccolor,25%);
-  }
-  &-50 {
-    background:fade(@loccolor,50%);
-  }
-  &-75 {
-    background:fade(@loccolor,75%);
-  }
+  .background-color(@grey-0);
 }

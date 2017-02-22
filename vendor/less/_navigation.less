@@ -12,8 +12,8 @@ nav.nav {
   > ul {
     width: auto;
     display:block;
-    line-height: @font-size+16px;
-    min-height: @font-size+16px;
+    line-height: @font-base-size+16px;
+    min-height: @font-base-size+16px;
     float: left;
     background: @primary;
     &:after {
@@ -36,8 +36,8 @@ nav.nav {
     > li {
       background: @primary;
       display:inline-block;
-      line-height: @font-size+16px;
-      height: @font-size+16px;
+      line-height: @font-base-size+16px;
+      height: @font-base-size+16px;
       white-space: nowrap;
       &:after {
         @media @tablet-up {
@@ -58,9 +58,9 @@ nav.nav {
 
       a {
         min-width: 100px;
-        padding: 0 @font-size*2px;
-        line-height: @font-size+16px;
-        height: @font-size+16px;
+        padding: 0 @font-base-size*2px;
+        line-height: @font-base-size+16px;
+        height: @font-base-size+16px;
         @media @mobile-down {
           height: auto;
           width: 100%;
@@ -152,7 +152,7 @@ nav.nav {
       @media @mobile-down {
         position: absolute;
         top:0;
-        padding-top: @font-size+16px;
+        padding-top: @font-base-size+16px;
         height: auto;
         width: 100%;
       }
@@ -175,14 +175,14 @@ nav.nav {
         &:before {
           .transition(background .5s ease, box-shadow .5s ease;);
 
-          background: @font-color;
-          box-shadow: 0 0.25em 0 0 @font-color,
-          0 0.5em 0 0 @font-color;
+          background: @font-base-color;
+          box-shadow: 0 0.25em 0 0 @font-base-color,
+          0 0.5em 0 0 @font-base-color;
         }
         &:hover:before {
-          background: lighten(@font-color, 5%);
-          box-shadow: 0 0.25em 0 0 lighten(@font-color, 5%),
-          0 0.5em 0 0 lighten(@font-color, 5%);
+          background: lighten(@font-base-color, 5%);
+          box-shadow: 0 0.25em 0 0 lighten(@font-base-color, 5%),
+          0 0.5em 0 0 lighten(@font-base-color, 5%);
         }
       }
     }
@@ -195,10 +195,10 @@ nav.nav {
           position: absolute;
           .transition(color .5s ease);
           text-indent: 0;
-          color: @font-color;
+          color: @font-base-color;
         }
         &:hover:before {
-          color: lighten(@font-color, 5%);
+          color: lighten(@font-base-color, 5%);
         }
       }
     }
@@ -209,7 +209,7 @@ nav.nav {
       padding: 5px;
       display: block;
       text-indent: -9999px;
-      width: @font-size+5px;
+      width: @font-base-size+5px;
       font-size: 1.25em;
       &:before {
         content: "";

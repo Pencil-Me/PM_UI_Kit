@@ -1,5 +1,5 @@
 // templatesettings
-// Colorvariables
+// Colors
 @blue:          #094e7a;
 @lightblue:     #a2acf5;
 @orange:        #e86720;
@@ -10,18 +10,19 @@
 @black:         #000000;
 
 @darkgrey:      lighten(@black,10%);
-@grey:          lighten(@black,50%);
-@grey-1:        lighten(@grey,10%);
-@grey-2:        lighten(@grey,20%);
-@grey-3:        lighten(@grey,30%);
-@grey-4:        lighten(@grey,40%);
-@grey-5:        lighten(@grey,50%);
-@grey-6:        lighten(@grey,60%);
-@grey-7:        lighten(@grey,70%);
-@grey-8:        lighten(@grey,80%);
-@grey-9:        lighten(@grey,90%);
+@grey-base:     lighten(@black,50%);
+@grey-0:        lighten(@grey-base,0%);
+@grey-1:        lighten(@grey-base,10%);
+@grey-2:        lighten(@grey-base,20%);
+@grey-3:        lighten(@grey-base,30%);
+@grey-4:        lighten(@grey-base,40%);
+@grey-5:        lighten(@grey-base,50%);
+@grey-6:        lighten(@grey-base,60%);
+@grey-7:        lighten(@grey-base,70%);
+@grey-8:        lighten(@grey-base,80%);
+@grey-9:        lighten(@grey-base,90%);
 
-@base:          @blue;
+@base:          @lightblue;
 @complement1:   spin(@base, 180);
 @complement2:   darken(spin(@base, 180), 5%);
 @lighten1:      lighten(@base, 15%);
@@ -31,32 +32,409 @@
 @subtle3:       darken(spin(@base, -5), 10%);
 @subtle4:       darken(spin(@base, -10), 20%);
 
-@primary:       @orange;
-@secondary:     @blue;
-@tertiary:      #fc6e51;
-@quaternary:    #48cfad;
+@primary:           darken(@orange,10%);
+@primary-feedback:  lighten(@primary,10%);
+@secondary:         spin(@primary, 120);
+@secondary-feedback:lighten(@secondary,10%);
+@tertiary:          spin(@primary, 130);
+@tertiary-feedback: lighten(@tertiary,10%);
+@quaternary:        spin(@primary, 240);
+@quaternary-feedback:lighten(@quaternary,10%);
+
+@success-color:           darken(@green,20%);
+@success-color-feedback:  lighten(@success-color,10%);
+@info-color:              darken(@yellow,20%);
+@info-color-feedback:     lighten(@info-color,10%);
+@warning-color:           lighten(@orange,20%);
+@warning-color-feedback:  lighten(@warning-color,10%);
+@danger-color:            darken(@red,20%);
+@danger-color-feedback:   lighten(@danger-color,10%);
+@disabled-color:          @grey-2;
+@disabled-color-feedback: lighten(@disabled-color,20%);
+
+@text-oncolorbg:     @white;
 
 
 // Layoutvariables
-@font-size:     18; // Your base font-size in pixels
 @max-width:     1400; // Your Maxwidth of the bodycontent in pixels
 
 @footerheight:  270px;              // footerheight for stickyfooter
 
-@base_px: @font-size; //set to the most common base px size used in browsers, should generally be left at default
+@base_px: @font-base-size; //set to the most common base px size used in browsers, should generally be left at default
 @toRems: (1 / @base_px) + 0rem; //allows you to set values as the default px size to target, which is then converted into scalable rem values.
 @toEms: (1 / @base_px) + 0em; //same as above, but with em values
 
 @default-width: @max-width +0px;
 @default-colspan: 1;
-@default-total_cols: 4;
-@default-gutter: @font-size; // The gutter-width of your grid in pixels
+@default-total_cols: 12;
+@default-gutter: @font-base-size; // The gutter-width of your grid in pixels
+
 
 //Fontvariables
-@font-family:           'Lato', sans-serif;
-@font-family-headline:  'Lato', sans-serif;
-@font-family-body:      'Lato', sans-serif;
-@font-color:            darken(@primary,20%);
+@font-base-family:      'Lato', sans-serif;
+@font-base-size:        18;
+@font-base-line-height: 1.4em;
+@font-base-color:       darken(@primary,20%);
+
+@font-h1-size:          @font-base-size*2.5;
+@font-h2-size:          @font-base-size*1.8;
+@font-h3-size:          @font-base-size*1.5;
+@font-h4-size:          @font-base-size*1.2;
+@font-h5-size:          @font-base-size*1;
+@font-h6-size:          @font-base-size*1;
+@font-headline1-range:  h1,h2,h3;
+@font-headline2-range:  h4,h5,h6;
+@font-family-headline1: 'Lato', sans-serif;
+@font-family-headline2: 'Lato', sans-serif;
+@font-headline1-color:  @primary;
+@font-headline2-color:  @primary;
+@font-headline1-weight: 100;
+@font-headline2-weight: bolder;
+@font-headline1-decoration: inherit;
+@font-headline2-decoration: underline;
+
+@text-select-color:     @primary;
+
+@resize-text-huge:      2;
+@resize-text-big:       1.5;
+@resize-text-medium:    1.2;
+@resize-text-small:     0.8;
+
+//base-stuff
+@border-radius-base:  5px;
+@box-shadow-default:  none;
+
+//buttons
+@button-padding:                0 1.6em;
+@button-border-radius:          @border-radius-base;
+
+@button-font-weight:            normal;
+@button-font-family:            @font-base-family;
+@button-font-size:              @font-base-size;
+@button-font-transformation:    inherit;
+@button-font-letter-spacing:    inherit;
+
+@button-height-multipler:       2.5px;
+@button-height:                 @button-font-size*@button-height-multipler;
+@button-small-font-size:        @button-font-size*0.8;
+@button-small-height:           @button-small-font-size*@button-height-multipler;
+@button-big-font-size:          @button-font-size*1.5;
+@button-big-height:             @button-big-font-size*@button-height-multipler;
+@button-huge-font-size:         @button-font-size*2;
+@button-huge-height:            @button-huge-font-size*@button-height-multipler;
+
+@button-border:                 1px solid;
+@button-border-color:           @button-bg-color;
+@button-border-color-hover:     darken(@button-border-color, 20%);
+@button-border-color-active:    darken(@button-border-color, 15%);
+
+@button-outline-border:         3px solid;
+
+@button-bg-color:               lighten(@font-base-color,40%);
+@button-bg-color-hover:         darken(@button-bg-color, 5%);
+@button-bg-color-active:        darken(@button-bg-color, 10%);
+@button-color:                  @text-oncolorbg;
+@button-color-hover:            lighten(@button-color,35%);
+@button-color-active:           lighten(@button-color,30%);
+@button-labeled-bg-color:       darken(@button-bg-color, 15%);
+@button-labeled-bg-color-hover: darken(@button-labeled-bg-color, 5%);
+@button-labeled-bg-color-active:darken(@button-labeled-bg-color, 10%);
+
+@button-primary-bg-color:               @primary;
+@button-primary-bg-color-hover:         darken(@button-primary-bg-color, 5%);
+@button-primary-bg-color-active:        darken(@button-primary-bg-color, 10%);
+@button-primary-labeled-bg-color:       darken(@button-primary-bg-color, 15%);
+@button-primary-labeled-bg-color-hover: darken(@button-primary-labeled-bg-color, 5%);
+@button-primary-labeled-bg-color-active:darken(@button-primary-labeled-bg-color, 10%);
+@button-primary-color:                  @text-oncolorbg;
+@button-primary-color-hover:            lighten(@button-primary-color,35%);
+@button-primary-color-active:           lighten(@button-primary-color,30%);
+@button-primary-border-color:           darken(@button-primary-bg-color, 15%);
+@button-primary-border-color-hover:     darken(@button-primary-border-color, 20%);
+@button-primary-border-color-active:    darken(@button-primary-border-color, 15%);
+
+@button-secondary-bg-color:               @secondary;
+@button-secondary-bg-color-hover:         darken(@button-secondary-bg-color, 5%);
+@button-secondary-bg-color-active:        darken(@button-secondary-bg-color, 10%);
+@button-secondary-labeled-bg-color:       darken(@button-secondary-bg-color, 15%);
+@button-secondary-labeled-bg-color-hover: darken(@button-secondary-labeled-bg-color, 5%);
+@button-secondary-labeled-bg-color-active:darken(@button-secondary-labeled-bg-color, 10%);
+@button-secondary-color:                  @text-oncolorbg;
+@button-secondary-color-hover:            lighten(@button-secondary-color,35%);
+@button-secondary-color-active:           lighten(@button-secondary-color,30%);
+@button-secondary-border-color:           darken(@button-secondary-bg-color, 15%);
+@button-secondary-border-color-hover:     darken(@button-secondary-bg-color, 20%);
+@button-secondary-border-color-active:    darken(@button-secondary-bg-color, 15%);
+
+@button-white-bg-color:               @white;
+@button-white-bg-color-hover:         darken(@button-white-bg-color, 5%);
+@button-white-bg-color-active:        darken(@button-white-bg-color, 10%);
+@button-white-labeled-bg-color:       darken(@button-white-bg-color, 15%);
+@button-white-labeled-bg-color-hover: darken(@button-white-labeled-bg-color, 5%);
+@button-white-labeled-bg-color-active:darken(@button-white-labeled-bg-color, 10%);
+@button-white-color:                  spin(@text-oncolorbg,180);
+@button-white-color-hover:            lighten(@button-white-color,35%);
+@button-white-color-active:           lighten(@button-white-color,30%);
+@button-white-border-color:           darken(@button-white-bg-color, 15%);
+@button-white-border-color-hover:     darken(@button-white-bg-color, 20%);
+@button-white-border-color-active:    darken(@button-white-bg-color, 15%);
+
+@button-grey-bg-color:               @grey-0;
+@button-grey-bg-color-hover:         darken(@button-grey-bg-color, 5%);
+@button-grey-bg-color-active:        darken(@button-grey-bg-color, 10%);
+@button-grey-labeled-bg-color:       darken(@button-grey-bg-color, 15%);
+@button-grey-labeled-bg-color-hover: darken(@button-grey-labeled-bg-color, 5%);
+@button-grey-labeled-bg-color-active:darken(@button-grey-labeled-bg-color, 10%);
+@button-grey-color:                  @text-oncolorbg;
+@button-grey-color-hover:            lighten(@button-grey-color,35%);
+@button-grey-color-active:           lighten(@button-grey-color,30%);
+@button-grey-border-color:           darken(@button-grey-bg-color, 15%);
+@button-grey-border-color-hover:     darken(@button-grey-bg-color, 20%);
+@button-grey-border-color-active:    darken(@button-grey-bg-color, 15%);
+
+@button-green-bg-color:               @green;
+@button-green-bg-color-hover:         darken(@button-green-bg-color, 5%);
+@button-green-bg-color-active:        darken(@button-green-bg-color, 10%);
+@button-green-labeled-bg-color:       darken(@button-green-bg-color, 15%);
+@button-green-labeled-bg-color-hover: darken(@button-green-labeled-bg-color, 5%);
+@button-green-labeled-bg-color-active:darken(@button-green-labeled-bg-color, 10%);
+@button-green-color:                  @text-oncolorbg;
+@button-green-color-hover:            lighten(@button-green-color,35%);
+@button-green-color-active:           lighten(@button-green-color,30%);
+@button-green-border-color:           darken(@button-green-bg-color, 15%);
+@button-green-border-color-hover:     darken(@button-green-bg-color, 20%);
+@button-green-border-color-active:    darken(@button-green-bg-color, 15%);
+
+@button-red-bg-color:               @red;
+@button-red-bg-color-hover:         darken(@button-red-bg-color, 5%);
+@button-red-bg-color-active:        darken(@button-red-bg-color, 10%);
+@button-red-labeled-bg-color:       darken(@button-red-bg-color, 15%);
+@button-red-labeled-bg-color-hover: darken(@button-red-labeled-bg-color, 5%);
+@button-red-labeled-bg-color-active:darken(@button-red-labeled-bg-color, 10%);
+@button-red-color:                  @text-oncolorbg;
+@button-red-color-hover:            lighten(@button-red-color,35%);
+@button-red-color-active:           lighten(@button-red-color,30%);
+@button-red-border-color:           darken(@button-red-bg-color, 15%);
+@button-red-border-color-hover:     darken(@button-red-bg-color, 20%);
+@button-red-border-color-active:    darken(@button-red-bg-color, 15%);
+
+@button-disabled-bg-color:               lighten(@grey-2, 15%);
+@button-disabled-bg-color-hover:         @button-disabled-bg-color;
+@button-disabled-bg-color-active:        @button-disabled-bg-color;
+@button-disabled-labeled-bg-color:       darken(@button-disabled-bg-color, 15%);
+@button-disabled-labeled-bg-color-hover: @button-disabled-labeled-bg-color;
+@button-disabled-labeled-bg-color-active:@button-disabled-labeled-bg-color;
+@button-disabled-color:                  lighten(@grey-2, 5%);
+@button-disabled-color-hover:            @button-disabled-color;
+@button-disabled-color-active:           @button-disabled-color;
+@button-disabled-border-color:           lighten(@grey-2, 0%);
+@button-disabled-border-color-hover:     @button-disabled-border-color;
+@button-disabled-border-color-active:    @button-disabled-border-color;
+
+@button-transparent:        50;
+@button-transparent-hover:  90;
+@button-transparent-active: 95;
+
+@button-scale-active: 0.99;
+@button-scale-hover:  1.02;
+
+//forms
+@form-label-font-weight:     500;
+@form-label-font-style:      normal;
+@form-label-line-height:     2.5em;
+
+@form-icon-color:   fade(@primary,90%);
+@form-icon-size:    1em;
+
+@form-input-font-size:          1em;
+@form-input-line-height:        1.2142em;
+@form-input-font-style:         normal;
+@form-input-font-weight:        400;
+@form-input-color:              @primary;
+@form-input-padding-topbottom:  .67861429em;
+@form-input-padding-leftright:  1em;
+@form-input-background:         fade(lighten(@primary,40%),90%);
+@form-input-border:             1px solid darken(@primary,10%);
+@form-input-border-radius:      @border-radius-base;
+@form-input-placeholder-color:  fade(@primary,50%);
+@form-input-box-shadow:         @box-shadow-default;
+
+@form-input-focus-color:        @primary;
+@form-input-focus-background:   lighten(@primary,50%);
+@form-input-focus-border:       1px solid @primary;
+@form-input-focus-box-shadow:   0 0 5px 1px @primary;
+
+@form-input-error-color:              @danger-color;
+@form-input-error-background:         lighten(@danger-color,30%);
+@form-input-error-border:             1px solid @danger-color;
+@form-input-error-placeholder-color:  fade(@danger-color,50%);
+@form-input-error-box-shadow:         0 0 5px 1px @danger-color;
+
+@form-select-font-size:          @form-input-font-size;
+@form-select-line-height:        @form-input-line-height;
+@form-select-font-style:         @form-input-font-style;
+@form-select-font-weight:        @form-input-font-weight;
+@form-select-color:              @form-input-color;
+@form-select-padding-topbottom:  @form-input-padding-topbottom;
+@form-select-padding-leftright:  @form-input-padding-leftright;
+@form-select-background:         @form-input-background;
+@form-select-border:             @form-input-border;
+@form-select-border-radius:      @form-input-border-radius;
+@form-select-placeholder-color:  @form-input-placeholder-color;
+@form-select-box-shadow:         @form-input-box-shadow;
+@form-select-aftercontent:       '<>';
+
+@form-select-focus-color:        @form-input-focus-color;
+@form-select-focus-background:   @form-input-focus-background;
+@form-select-focus-border:       @form-input-focus-border;
+@form-select-focus-box-shadow:   @form-input-focus-box-shadow;
+
+@form-select-error-color:              @form-input-error-color;
+@form-select-error-background:         @form-input-error-background;
+@form-select-error-border:             @form-input-error-border;
+@form-select-error-placeholder-color:  @form-input-error-placeholder-color;
+@form-select-error-box-shadow:         @form-input-error-box-shadow;
+
+@form-select-menu-color:                  darken(@primary,10%);
+@form-select-menu-background:             lighten(@primary,20%);
+@form-select-menu-border:                 1px solid darken(@primary,10%);
+@form-select-menu-item-padding:           .5em 1em;
+@form-select-menu-item-hover-background:  darken(@primary,20%);
+@form-select-menu-item-hover-color:       @primary;
+@form-select-menu-item-active-background: @form-select-menu-item-hover-background;
+@form-select-menu-item-active-color:      @form-select-menu-item-hover-color;
+
+@form-textarea-font-size:          @form-input-font-size;
+@form-textarea-line-height:        @form-input-line-height;
+@form-textarea-font-style:         @form-input-font-style;
+@form-textarea-font-weight:        @form-input-font-weight;
+@form-textarea-color:              @form-input-color;
+@form-textarea-padding-topbottom:  @form-input-padding-topbottom;
+@form-textarea-padding-leftright:  @form-input-padding-leftright;
+@form-textarea-background:         @form-input-background;
+@form-textarea-border:             @form-input-border;
+@form-textarea-border-radius:      @form-input-border-radius;
+@form-textarea-placeholder-color:  @form-input-placeholder-color;
+@form-textarea-box-shadow:         @form-input-box-shadow;
+
+@form-textarea-focus-color:        @form-input-focus-color;
+@form-textarea-focus-background:   @form-input-focus-background;
+@form-textarea-focus-border:       @form-input-focus-border;
+@form-textarea-focus-box-shadow:   @form-input-focus-box-shadow;
+
+@form-textarea-error-color:              @form-input-error-color;
+@form-textarea-error-background:         @form-input-error-background;
+@form-textarea-error-border:             @form-input-error-border;
+@form-textarea-error-placeholder-color:  @form-input-error-placeholder-color;
+@form-textarea-error-box-shadow:         @form-input-error-box-shadow;
+
+@form-radio-color:                @primary;
+@form-radio-label-color:          @primary;
+@form-radio-hover-label-color:    lighten(@primary,10%);
+@form-radio-active-label-color:   lighten(@primary,15%);
+@form-radio-style:                'style1';
+
+@form-checkbox-color:             @primary;
+@form-checkbox-label-color:       @primary;
+@form-checkbox-hover-label-color: lighten(@primary,10%);
+@form-checkbox-active-label-color:lighten(@primary,15%);
+@form-checkbox-style:             'style1';
+
+//tabs
+@tabs-border:                     1px solid @primary;
+@tabs-box-shadow:                 @box-shadow-default;
+@tabs-active-background:          lighten(@primary,40%);
+@tabs-passive-background:         lighten(@primary,20%);
+@tabs-passive-background-hover:   lighten(@tabs-passive-background,15%);
+@tabs-passive-background-active:  lighten(@tabs-passive-background,5%);
+@tabs-color:                      @font-base-color;
+@tabs-border-radius:              @border-radius-base;
+
+//rating
+@rating-background-passive:     lighten(@primary,20%);
+@rating-background-active:      @primary;
+@rating-background-hover:       lighten(@primary,10%);
+@rating-size-small:             0.8em;
+@rating-size-big:               1.5em;
+
+//images
+@img-rounded-border-radius:     @border-radius-base;
+
+//loadingspinners
+@loading-fullscreen-size:         10em;//3.28571429em;
+@loading-fullscreen-color:        red;//@primary;
+@loading-fullscreen-color2:       lighten(@loading-fullscreen-color,25%);
+@loading-fullscreen-background:   fade(@black,50%);//@primary;
+
+@loading-button-size:       1.28571429em;
+
+//pre and codes
+@code-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+@code-size:   @font-base-size;
+@code-color:  @lightblue;
+@code-bg:     @white;
+@code-radius: @border-radius-base;
+@code-box-shadow: inset 0 0 7px fade(@black,20%);
+@code-padding: @code-size*1px;
+@code-border: 1px solid darken(@code-bg,10%);
+
+//links
+@link-color:            lighten(@primary,10%);
+@link-color-hover:      lighten(@primary-feedback,10%);
+@link-color-visited:    lighten(@primary,15%);
+@link-color-active:     lighten(@primary-feedback,20%);
+
+//blockquotes
+@blockquote-size:         @font-base-size;
+@blockquote-big-size:     @font-base-size*1.5;
+@blockquote-small-size:   @font-base-size*0.8;
+@blockquote-line-height:  1.2em;
+@blockquote-font-style:   italic;
+@blockquote-color:        @font-base-color;
+@blockquote-border-left:  5px solid @grey-2;
+
+@blockquote-quote-color:  @grey-2;
+@blockquote-quote-size:   3em;
+@blockquote-quote-content:open-quote;
+
+@blockquote-footer-color: @grey-0;
+@blockquote-footer-size:  1.8em;
+
+//breadcrumps
+@breadcrumps-size:              @font-base-size;
+@breadcrumps-link-color:        @link-color;
+@breadcrumps-link-color-hover:  @link-color-hover;
+@breadcrumps-arrow-color:       lighten(@secondary,5%);
+
+//tables
+@table-font-weight:       400;
+@table-color:             @primary;
+@table-background:        fade(lighten(@primary,40%),90%);
+@table-border:            3px solid @primary;
+@table-inner-border:      1px solid @primary;
+@table-box-shadow:        @box-shadow-default;
+@table-border-radius:     @border-radius-base;
+@table-padding-topbottom: .92857143em;
+@table-padding-leftright: .71428571em;
+
+@table-head-font-weight:       800;
+@table-head-color:             lighten(@primary,40%);
+@table-head-background:        lighten(@primary,10%);
+@table-head-bottom-border:     3px solid @primary;
+@table-head-inner-border:      1px solid @primary;
+@table-head-padding-topbottom: .92857143em;
+@table-head-padding-leftright: .71428571em;
+
+@table-error-color:         @danger-color;
+@table-error-background:    fade(lighten(@table-error-color,20%),40%);
+@table-success-color:       @success-color;
+@table-success-background:  fade(lighten(@table-success-color,20%),40%);
+@table-warning-color:       @warning-color;
+@table-warning-background:  fade(lighten(@table-warning-color,20%),40%);
+@table-disabled-color:      @disabled-color;
+@table-disabled-background: fade(lighten(@table-disabled-color,20%),40%);
+
+@table-stripped-secondary-background:lighten(@primary,30%);
 
 // media breakpoints
 @mobile-up: ~"(min-width: 480px)";
@@ -82,3 +460,6 @@
             only screen and (        min-device-pixel-ratio: 2),
             only screen and (                min-resolution: 192dpi),
             only screen and (                min-resolution: 2dppx)";
+
+@block-mobile-exeptions: .circular;
+

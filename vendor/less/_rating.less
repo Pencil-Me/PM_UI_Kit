@@ -1,21 +1,24 @@
 .rating {
   .rate {
     display: inline-block;
-    background: lighten(@primary,20%);
+    background: @rating-background-passive;
     width:1em;
     height:1em;
     margin:0;
     margin-right:0.2em;
-    &:hover, &.active {
-      background: @primary;
+    &:hover {
+      background: @rating-background-hover;
+    }
+    &.active {
+      background: @rating-background-active;
     }
   }
   &.small .rate {
-    width:0.8em;
-    height:0.8em;
+    width: @rating-size-small;
+    height: @rating-size-small;
   }
   &.big .rate {
-    width:1.5em;
-    height:1.5em;
+    width:@rating-size-big;
+    height:@rating-size-big;
   }
 }

@@ -1,46 +1,46 @@
 .tabs {
   width: 100%;
   margin: 1em 0 0 0;
-  border-bottom: 1px solid @primary;
-  box-shadow: none;
+  border-bottom: @tabs-border;
+  box-shadow: @tabs-box-shadow;
   padding: .52857143em .71428571em .428571em .71428571em;
   .tab{
     .transition(background .3s ease, padding .2s ease;);
-    background: lighten(@primary,20%);
+    background: @tabs-passive-background;
     margin: 1em 0;
-    padding: .42857143em .71428571em @font-size*0.5px .71428571em;
-    border-top: 1px solid @primary;
-    border-left: 1px solid @primary;
-    border-right: 1px solid @primary;
+    padding: .42857143em .71428571em @font-base-size*0.5px .71428571em;
+    border-top: @tabs-border;
+    border-left: @tabs-border;
+    border-right: @tabs-border;
     box-shadow: none;
-    .border-radiuses(5px 5px 0 0);
+    .border-radiuses(@tabs-border-radius @tabs-border-radius 0 0);
     text-align: left;
-    color: @primary;
+    color: @tabs-color;
     border-collapse: separate;
     border-spacing: 0;
     cursor:pointer;
     &:hover {
-      background: lighten(@primary,30%);
+      background: @tabs-passive-background-hover;
       padding-top:.52857143em;
     }
     &:active {
       .transition(padding .1s ease);
-      background: lighten(@primary,25%);
+      background: @tabs-passive-background-active;
       padding-top:.4em;
     }
     &.active {
-      background: lighten(@primary,40%);
+      background: @tabs-active-background;
       cursor: auto;
-      padding: .52857143em .71428571em @font-size*0.5+1px .71428571em ;
+      padding: .52857143em .71428571em @font-base-size*0.5+1px .71428571em ;
     }
   }
 }
 .tab-content {
-  background: lighten(@primary,40%);
+  background: @tabs-active-background;
   margin: 0;
   padding: .52857143em .71428571em;
   display:none;
-  color: @primary;
+  color: @tabs-color;
   &.selected {
     display:block;
   }

@@ -1,57 +1,66 @@
 html {
-  font-family: @font-family-body;
+  font-family: @font-base-family;
 }
 [data-icon]:before {
   font-style: normal;
-  .font-size(@font-size*1.2);
+  .font-size(@font-base-size*1.2);
 }
 
+// change the color of a selected text
 ::selection {
-  background: @primary; /* WebKit/Blink Browsers */
+  background: @text-select-color; /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: @primary; /* Gecko Browsers */
+  background: @text-select-color; /* Gecko Browsers */
 }
 
 /*---------------------------------
 	HEADINGS
 -----------------------------------*/
 
-h1,h2,h3,h4,h5,h6 {
-  font-weight:bold;
+@{font-headline1-range} {
+  font-weight:@font-headline1-weight;
+  color:@font-headline1-color;
+  font-family: @font-family-headline1;
   line-height:140%;
+  text-decoration: @font-headline1-decoration;
+
 }
-h1,h2,h3,h4 {
-  font-family: @font-family-headline;
+@{font-headline2-range} {
+  font-weight:@font-headline2-weight;
+  color:@font-headline2-color;
+  font-family: @font-family-headline2;
+  line-height:140%;
+  text-decoration: @font-headline2-decoration;
 }
 h1 {
-  .font-size(@font-size*3.5);
-  margin:10px 0 10px 0;
+  .font-size(@font-h1-size);
+  margin:@font-base-size*1px 0 @font-base-size/2px 0;
 }
 
 h2 {
-  .font-size(@font-size*3);
-  margin:10px 0 10px 0;
+  .font-size(@font-h2-size);
+  margin:@font-base-size*1px 0 @font-base-size/2px 0;
 }
 
 h3 {
-  .font-size(@font-size*2.5);
-  margin:10px 0 10px 0;
+  .font-size(@font-h3-size);
+  margin:@font-base-size*1px 0 @font-base-size/2px 0;
 }
 
 h4 {
-  .font-size(@font-size*2);
-  margin:10px 0 10px 0;
+  .font-size(@font-h4-size);
+  margin:@font-base-size*1px 0 @font-base-size/2px 0;
 }
 
 h5 {
-  .font-size(@font-size*1.5);
-  margin:10px 0 10px 0;
+  .font-size(@font-h5-size);
+  margin:@font-base-size*1px 0 @font-base-size/2px 0;
 }
 
 h6 {
-  .font-size(@font-size*1.2);
-  margin:10px 0 5px 0;
+  .font-size(@font-h6-size);
+  margin:@font-base-size*1px 0 @font-base-size/2px 0;
 }
 
 
@@ -60,7 +69,7 @@ h6 {
 -----------------------------------*/
 
 p {
-  margin:10px 0;
+  margin:@font-base-size/2px 0;
 }
 
 
@@ -68,50 +77,50 @@ p {
 	PRE & CODE
 -----------------------------------*/
 code {
-  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-  .font-size(@font-size);
+  font-family: @code-family;
+  .font-size(@code-size);
 
-  padding:3px;
+  padding:@code-padding;
 
-  color:@lightblue;
+  color:@code-color;
 }
 
 pre{
-  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-  .font-size(@font-size);
+  font-family: @code-family;
+  .font-size(@code-size);
 
   white-space: pre-wrap;       /* css-3 */
   white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
   white-space: -pre-wrap;      /* Opera 4-6 */
   white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  word-wrap:   break-word;       /* Internet Explorer 5.5+ */
 
-  margin: 0 0 0 0;
-  padding:5px 5px 3px 5px;
+  margin: 0;
+  padding:@code-padding;
 
-  background:@white;
-  .border-radius(5px);
+  background:@code-bg;
+  .border-radius(@code-radius);
 
-  .box-shadow(inset 0 0 7px rgba(0,0,0,0.2));
-  border:1px solid darken(@white,10%);
+  .box-shadow(@code-box-shadow);
+  border:@code-border;
 }
 xmp{
-  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-  .font-size(@font-size/2);
+  font-family: @code-family;
+  .font-size(@code-size/2);
 
   white-space: pre-wrap;       /* css-3 */
   white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
   white-space: -pre-wrap;      /* Opera 4-6 */
   white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  word-wrap:   break-word;       /* Internet Explorer 5.5+ */
 
   margin: 0 0 0 0;
-  padding:@font-size*1px;
+  padding:@code-padding;
 
-  background:@white;
-  .border-radius(5px);
-  .box-shadow(inset 0 0 7px fade(@black,20%));
-  border:1px solid darken(@white,10%);
+  background:@code-bg;
+  .border-radius(@code-radius);
+  .box-shadow(@code-box-shadow);
+  border:@code-border;
 }
 
 
@@ -130,28 +139,32 @@ xmp{
 }
 
 
-.text-medium {
-  font-size: 1em;
-}
-
-
 .text-black {
   color:@black;
 }
 .text-grey {
-  color:@grey;
+  color:@grey-0;
 }
 .text-primary {
   color:@primary;
 }
-.text-secundary {
+.text-secondary {
   color:@secondary;
 }
 .text-success {
-  color:@green;
+  color:@success-color;
+}
+.text-info {
+  color:@info-color;
+}
+.text-warning {
+  color:@warning-color;
 }
 .text-error {
-  color:@red;
+  color:@danger-color;
+}
+.text-disabled {
+  color:@disabled-color;
 }
 
 
@@ -161,12 +174,9 @@ xmp{
 .text-line-through {
   text-decoration: line-through;
 }
-
-
 .text-italic {
   font-style: italic;
 }
-
 .text-center {
   text-align: center;
 }
@@ -176,35 +186,111 @@ a {
   .transition(color .5s ease);
   /* unvisited link */
   &:link {
-    color: lighten(@primary,30%);
+    color: @link-color;
   }
 
   /* visited link */
   &:visited {
-    color: lighten(@primary,25%);
+    color: @link-color-visited;
   }
 
   /* mouse over link */
   &:hover {
-    color: lighten(@primary,40%);
+    color: @link-color-hover;
   }
 
   /* selected link */
   &:active {
     .transition(color .2s ease);
-    color: lighten(@primary,15%);
+    color: @link-color-active;
   }
 }
 
 .text-huge {
-  .font-size(@font-size*2);
+  @resize: @resize-text-huge;
+  .font-size(@font-base-size*@resize);
+  h1& {
+    .font-size(@font-h1-size*@resize);
+  }
+  h2& {
+    .font-size(@font-h2-size*@resize);
+  }
+  h3& {
+    .font-size(@font-h3-size*@resize);
+  }
+  h4& {
+    .font-size(@font-h4-size*@resize);
+  }
+  h5& {
+    .font-size(@font-h5-size*@resize);
+  }
+  h6& {
+    .font-size(@font-h6-size*@resize);
+  }
 }
 .text-big {
-  .font-size(@font-size*1.5);
+  @resize: @resize-text-big;
+  .font-size(@font-base-size*@resize);
+  h1& {
+    .font-size(@font-h1-size*@resize);
+  }
+  h2& {
+    .font-size(@font-h2-size*@resize);
+  }
+  h3& {
+    .font-size(@font-h3-size*@resize);
+  }
+  h4& {
+    .font-size(@font-h4-size*@resize);
+  }
+  h5& {
+    .font-size(@font-h5-size*@resize);
+  }
+  h6& {
+    .font-size(@font-h6-size*@resize);
+  }
 }
 .text-medium {
-  .font-size(@font-size*1.2);
+  @resize: @resize-text-medium;
+  .font-size(@font-base-size*@resize);
+  h1& {
+    .font-size(@font-h1-size*@resize);
+  }
+  h2& {
+    .font-size(@font-h2-size*@resize);
+  }
+  h3& {
+    .font-size(@font-h3-size*@resize);
+  }
+  h4& {
+    .font-size(@font-h4-size*@resize);
+  }
+  h5& {
+    .font-size(@font-h5-size*@resize);
+  }
+  h6& {
+    .font-size(@font-h6-size*@resize);
+  }
 }
 .text-small {
-  .font-size(@font-size*0.8);
+  @resize: @resize-text-small;
+  .font-size(@font-base-size*@resize);
+  h1& {
+    .font-size(@font-h1-size*@resize);
+  }
+  h2& {
+    .font-size(@font-h2-size*@resize);
+  }
+  h3& {
+    .font-size(@font-h3-size*@resize);
+  }
+  h4& {
+    .font-size(@font-h4-size*@resize);
+  }
+  h5& {
+    .font-size(@font-h5-size*@resize);
+  }
+  h6& {
+    .font-size(@font-h6-size*@resize);
+  }
 }
