@@ -8,7 +8,7 @@
     .transition(background .3s ease, padding .2s ease;);
     background: @tabs-passive-background;
     margin: 1em 0;
-    padding: .42857143em .71428571em @font-base-size*0.5px .71428571em;
+    padding: .42857143em .71428571em (@font-base-size*0.5px) .71428571em;
     border-top: @tabs-border;
     border-left: @tabs-border;
     border-right: @tabs-border;
@@ -31,7 +31,7 @@
     &.active {
       background: @tabs-active-background;
       cursor: auto;
-      padding: .52857143em .71428571em @font-base-size*0.5+1px .71428571em ;
+      padding: .52857143em .71428571em (@font-base-size*0.5+1px) .71428571em ;
     }
   }
 }

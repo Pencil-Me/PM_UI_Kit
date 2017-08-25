@@ -15,30 +15,29 @@
 }
 
 .cols ( @colspan: @default-colspan; @gutter: @default-gutter; @total_cols: @default-total_cols ) {
-  width: ( @colspan * (100 / @total_cols) ) + 0%;
+  width: (( @colspan * (100 / @total_cols) ) + 0%);
   float: left;
-  max-width: (@max-width / 12 * @colspan)+ 0px;
-  padding: 0 @gutter+0px;
+  max-width: ((@max-width / 12 * @colspan)+ 0px);
+  padding: 0 (@gutter+0px);
 }
 
-.border-radiuses(@topleft: 0, @topright: 0, @bottomright: 0, @bottomleft: 0 ) {
-  -moz-border-radius:@topleft @topright @bottomright @bottomleft; /* Firefox - old syntax */
-  -webkit-border-radius:@topleft @topright @bottomright @bottomleft; /* Safari, Chrome - old syntax */
-  border-radius:@topleft @topright @bottomright @bottomleft;
-
+.border-radius-clip(){
   -moz-background-clip:    padding;
   -webkit-background-clip: padding-box;
   background-clip:         padding-box;
+}
+.border-radiuses(@topleft: 0, @topright: 0, @bottomright: 0, @bottomleft: 0 ) {
+  .border-radius-clip();
+  -moz-border-radius:@topleft @topright @bottomright @bottomleft;
+  -webkit-border-radius:@topleft @topright @bottomright @bottomleft;
+  border-radius:@topleft @topright @bottomright @bottomleft;
 }
 
 .border-radius(@radius: 0 ) {
-  -moz-border-radius: @radius; /* Firefox - old syntax */
-  -webkit-border-radius: @radius; /* Safari, Chrome - old syntax */
-  border-radius: @radius; /* all new browser, W3C standard */
-
-  -moz-background-clip:    padding;
-  -webkit-background-clip: padding-box;
-  background-clip:         padding-box;
+  .border-radius-clip();
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
 }
 
 .opacity(@opacity: 0) when (isstring(@opacity)){
@@ -49,10 +48,10 @@
 
 .opacity(@opacity: 0) when (isnumber(@opacity)){
   -ms-filter: e(%("progid:DXImageTransform.Microsoft.Alpha(Opacity=%d)",@opacity));
-  filter: alpha(opacity=@opacity);
-  -webkit-opacity: 	@opacity / 100;
-  -moz-opacity: 	@opacity / 100;
-  opacity: 		    @opacity / 100;
+  //filter: alpha(opacity=@opacity);
+  -webkit-opacity: 	(@opacity / 100);
+  -moz-opacity: 	(@opacity / 100);
+  opacity: 		    (@opacity / 100);
 }
 
 .animation(@animation) {
@@ -319,10 +318,10 @@
 }
 
 .text-glow (@x: 0px, @blur: 5px, @color: rgba(0,0,0,0.2)) {
-  text-shadow:    -1*@x 0 @blur @color,
-  0 @x    @blur @color,
-  @x 0    @blur @color,
-    0 -1*@x @blur @color;
+  text-shadow:    (-1*@x) 0 @blur @color,
+                  0 @x    @blur @color,
+                  @x 0    @blur @color,
+                  0 (-1*@x) @blur @color;
 }
 
 .css3-calc(@property, @operation) {

@@ -9,7 +9,12 @@ table {border-collapse: collapse;border-spacing: 0;}
 a img, img {-ms-interpolation-mode: bicubic;border: 0;}
 input, textarea, button, select {margin: 0;line-height: normal;vertical-align: baseline;}
 button, html input[type="button"], 	input[type="reset"], input[type="submit"] {cursor: pointer;-webkit-appearance: button;}
-input[type="checkbox"],input[type="radio"] {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-o-box-sizing: border-box;-ms-box-sizing: border-box;box-sizing: border-box;}
+input[type="checkbox"],input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;}
 textarea {overflow: auto;}
 
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;vertical-align:baseline;background:transparent}
@@ -33,13 +38,14 @@ img{&::selection,&::-moz-selection {background: transparent;}}
 body {-webkit-tap-highlight-color: rgba(255,0,0, 0.62);}
 
 //usefull things
-.clear {clear: both;*zoom: 1;
+.clear {
+  clear: both;
   &:after {
     content: ".";
     clear: both;
     display: block;
     visibility: hidden;
-    height: 0px;
+    height: 0;
   }
 }
 .clearfix:before,.clearfix:after {content: " ";display: table;}
@@ -47,9 +53,8 @@ body {-webkit-tap-highlight-color: rgba(255,0,0, 0.62);}
   clear: both;
   display: block;
   visibility: hidden;
-  height: 0px;
+  height: 0;
 }
-.clearfix {*zoom: 1;} /* IE6/7 support */
 .left   {float: left;}
 .right  {float: right;}
 .center {margin: 0 auto;text-align: center;}

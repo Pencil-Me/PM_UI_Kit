@@ -167,7 +167,7 @@ button, input, optgroup, select, textarea {
     width: 100%;
     z-index: 99;
     position: absolute;
-    top: @form-select-padding-topbottom * 2 + @form-select-line-height;
+    top: (@form-select-padding-topbottom * 2 + @form-select-line-height);
     left: 0;
     background: @form-select-menu-background;
     color: @form-select-menu-color;
@@ -269,8 +269,8 @@ button, input, optgroup, select, textarea {
   margin: @font-base-size/2.5px 0;
   & when (@form-radio-style = 'style1') {
     input[type=radio] {
-      width: @font-base-size*1.4px;
-      height: @font-base-size*1.4px;
+      width: (@font-base-size*1.4px);
+      height: (@font-base-size*1.4px);
       display:none;
     }
     &:after {
@@ -279,21 +279,21 @@ button, input, optgroup, select, textarea {
       left:0;
       content:'';
       display: block;
-      width: @font-base-size*1.4px;
-      height: @font-base-size*1.4px;
+      width: (@font-base-size*1.4px);
+      height: (@font-base-size*1.4px);
       background: darken(@white,1);
 
       #gradient > .vertical-three-colors(darken(@white,10%),darken(@white,15%),darken(@white,20%));
 
-      .border-radius(@font-base-size*2px);
+      .border-radius((@font-base-size*2px));
 
       .box-shadow(inset 0 1px 1px @white, 0 1px 3px fade(@black,50););
     }
 
     label {
-      padding-left: @font-base-size+@font-base-size*1px;
-      line-height: @font-base-size+@font-base-size/2px;
-      margin: @font-base-size/2px 0;
+      padding-left: (@font-base-size+@font-base-size*1px);
+      line-height: (@font-base-size+@font-base-size/2px);
+      margin: (@font-base-size/2px) 0;
       color: @form-radio-label-color;
       &:hover {
         color: @form-radio-hover-label-color;
@@ -306,19 +306,19 @@ button, input, optgroup, select, textarea {
         color: @form-radio-active-label-color;
       }
       span {
-        width: @font-base-size*1px;
-        height: @font-base-size*1px;
+        width: (@font-base-size*1px);
+        height: (@font-base-size*1px);
         position: absolute;
-        left: @font-base-size*0.1px;
-        top: @font-base-size*0.1px;
+        left: (@font-base-size*0.1px);
+        top: (@font-base-size*0.1px);
         &:before {
           content: '';
           cursor: pointer;
           position: absolute;
-          width: @font-base-size*1px;
-          height: @font-base-size*1px;
+          width: (@font-base-size*1px);
+          height: (@font-base-size*1px);
 
-          .border-radius(@font-base-size*2px);
+          .border-radius((@font-base-size*2px));
           left: 2px;
           top: 2px;
 
@@ -330,14 +330,14 @@ button, input, optgroup, select, textarea {
           .opacity(0);
           content: '';
           position: absolute;
-          width: @font-base-size*0.8px;
-          height: @font-base-size*0.8px;
+          width: (@font-base-size*0.8px);
+          height: (@font-base-size*0.8px);
 
           #gradient > .vertical(darken(@form-radio-color, 10%), lighten(@form-radio-color, 20%));
 
-          .border-radius(@font-base-size*2px);
-          top: @font-base-size*0.2px;
-          left: @font-base-size*0.2px;
+          .border-radius((@font-base-size*2px));
+          top: (@font-base-size*0.2px);
+          left: (@font-base-size*0.2px);
           z-index: 2;
 
           .box-shadow(inset 0 1px 1px @white, 0 1px 3px fade(@black, 50););
@@ -354,17 +354,17 @@ button, input, optgroup, select, textarea {
 }
 
 .checkbox {
-  margin: @font-base-size/2.5px 0;
+  margin: (@font-base-size/2.5px) 0;
   position: relative;
   & when (@form-checkbox-style = 'style1') {
     input[type="checkbox"] {
-      width: @font-base-size*1.4px;
-      height: @font-base-size*1.4px;
+      width: (@font-base-size*1.4px);
+      height: (@font-base-size*1.4px);
       display: none;
     }
     label {
-      padding-left: @font-base-size+@font-base-size*1px;
-      line-height: @font-base-size+@font-base-size/2px;
+      padding-left: (@font-base-size+@font-base-size*1px);
+      line-height: (@font-base-size+@font-base-size/2px);
       .transition(color .2s ease);
       color: @form-checkbox-label-color;
       &:hover {
@@ -379,8 +379,8 @@ button, input, optgroup, select, textarea {
     }
     label span {
       position: absolute;
-      width: @font-base-size*1.4px;
-      height: @font-base-size*1.4px;
+      width: (@font-base-size*1.4px);
+      height: (@font-base-size*1.4px);
       left: 0;
       top: 0;
       .border-radius(4px);
@@ -393,11 +393,11 @@ button, input, optgroup, select, textarea {
         .opacity();
         content: '';
         position: absolute;
-        width: @font-base-size*0.9px;
-        height: @font-base-size*0.6px;
+        width: (@font-base-size*0.9px);
+        height: (@font-base-size*0.6px);
         background: transparent;
-        top: @font-base-size*0.25px;
-        left: @font-base-size*0.3px;
+        top: (@font-base-size*0.25px);
+        left: (@font-base-size*0.3px);
         border: 3px solid @form-checkbox-color;
         border-top: none;
         border-right: none;

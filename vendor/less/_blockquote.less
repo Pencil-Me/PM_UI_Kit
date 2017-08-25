@@ -39,8 +39,8 @@ blockquote {
   .font-size(@blockquote-size);
   line-height: @blockquote-line-height;
   font-style: @blockquote-font-style;
-  margin: @font-base-size*1px @font-base-size*1px @font-base-size*1px 0;
-  padding: @font-base-size*1px 0 0 @font-base-size*1px;
+  margin: (@font-base-size*1px) (@font-base-size*1px) (@font-base-size*1px) 0;
+  padding: (@font-base-size*1px) 0 0 (@font-base-size*1px);
   border-left: @blockquote-border-left;
   color: @blockquote-color;
   p {
@@ -63,7 +63,7 @@ blockquote {
     text-align: right;
     font-style: normal;
     color: @blockquote-footer-color;
-    margin-top: @blockquote-size*1px;
+    margin-top: (@blockquote-size*1px);
     &:before {
       content:'- ';
     }

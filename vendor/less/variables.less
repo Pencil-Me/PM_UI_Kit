@@ -76,12 +76,12 @@
 @font-base-line-height: 1.4em;
 @font-base-color:       darken(@primary,20%);
 
-@font-h1-size:          @font-base-size*2.5;
-@font-h2-size:          @font-base-size*1.8;
-@font-h3-size:          @font-base-size*1.5;
-@font-h4-size:          @font-base-size*1.2;
-@font-h5-size:          @font-base-size*1;
-@font-h6-size:          @font-base-size*1;
+@font-h1-size:          (@font-base-size*2.5);
+@font-h2-size:          (@font-base-size*1.8);
+@font-h3-size:          (@font-base-size*1.5);
+@font-h4-size:          (@font-base-size*1.2);
+@font-h5-size:          (@font-base-size*1);
+@font-h6-size:          (@font-base-size*1);
 @font-headline1-range:  h1,h2,h3;
 @font-headline2-range:  h4,h5,h6;
 @font-family-headline1: 'Lato', sans-serif;
@@ -115,13 +115,13 @@
 @button-font-letter-spacing:    inherit;
 
 @button-height-multipler:       2.5px;
-@button-height:                 @button-font-size*@button-height-multipler;
-@button-small-font-size:        @button-font-size*0.8;
-@button-small-height:           @button-small-font-size*@button-height-multipler;
-@button-big-font-size:          @button-font-size*1.5;
-@button-big-height:             @button-big-font-size*@button-height-multipler;
-@button-huge-font-size:         @button-font-size*2;
-@button-huge-height:            @button-huge-font-size*@button-height-multipler;
+@button-height:                 (@button-font-size*@button-height-multipler);
+@button-small-font-size:        (@button-font-size*0.8);
+@button-small-height:           (@button-small-font-size*@button-height-multipler);
+@button-big-font-size:          (@button-font-size*1.5);
+@button-big-height:             (@button-big-font-size*@button-height-multipler);
+@button-huge-font-size:         (@button-font-size*2);
+@button-huge-height:            (@button-huge-font-size*@button-height-multipler);
 
 @button-border:                 1px solid;
 @button-border-color:           @button-bg-color;
@@ -375,7 +375,7 @@
 @code-bg:     @white;
 @code-radius: @border-radius-base;
 @code-box-shadow: inset 0 0 7px fade(@black,20%);
-@code-padding: @code-size*1px;
+@code-padding: (@code-size*1px);
 @code-border: 1px solid darken(@code-bg,10%);
 
 //links
@@ -386,8 +386,8 @@
 
 //blockquotes
 @blockquote-size:         @font-base-size;
-@blockquote-big-size:     @font-base-size*1.5;
-@blockquote-small-size:   @font-base-size*0.8;
+@blockquote-big-size:     (@font-base-size*1.5);
+@blockquote-small-size:   (@font-base-size*0.8);
 @blockquote-line-height:  1.2em;
 @blockquote-font-style:   italic;
 @blockquote-color:        @font-base-color;
