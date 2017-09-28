@@ -1,0 +1,203 @@
+html {
+  font-family: $font-base-family;
+}
+
+[data-icon] {
+  &:before {
+    @include font-size($font-base-size * 1.2);
+    font-style: normal;
+  }
+}
+
+// change the color of a selected text
+::selection {
+  background: $text-select-color;
+}
+
+///*---------------------------------
+//	HEADINGS
+//-----------------------------------*/
+
+#{$font-headline1-range} {
+  color: $font-headline1-color;
+  font-family: $font-family-headline1;
+  font-weight: $font-headline1-weight;
+  line-height: 140%;
+  text-decoration: $font-headline1-decoration;
+}
+
+#{$font-headline2-range} {
+  color: $font-headline2-color;
+  font-family: $font-family-headline2;
+  font-weight: $font-headline2-weight;
+  line-height: 140%;
+  text-decoration: $font-headline2-decoration;
+}
+
+// generate headlines
+// h1, h2, h3, h4, h5, h6
+h {
+  $i: 6;
+  $font-map: $font-h1-size $font-h2-size $font-h3-size $font-h4-size $font-h5-size $font-h6-size;
+  @while $i > 0 {
+    &#{$i} {
+      @include font-size(nth($font-map, $i));
+      margin: ($font-base-size * 1)px 0 ($font-base-size / 2)px;
+    }
+    $i: $i - 1;
+  }
+}
+
+
+///*---------------------------------
+//	PARAGRAPHS
+//-----------------------------------*/
+
+p {
+  margin: ($font-base-size/2)px 0;
+}
+
+
+///*---------------------------------
+//	PRE & CODE
+//-----------------------------------*/
+code {
+  @include font-size($code-size);
+  color: $code-color;
+  font-family: $code-family;
+  padding: $code-padding;
+}
+
+pre,
+xmp {
+  @include box-shadow($code-box-shadow);
+  background: $code-bg;
+  border: $code-border;
+  font-family: $code-family;
+  margin: 0;
+  padding: $code-padding;
+  white-space: pre-wrap;
+  word-wrap:   break-word;
+}
+
+pre {
+  @include border-radius(8px);
+  @include font-size($code-size);
+}
+
+xmp {
+  @include border-radius($code-radius);
+  @include font-size($code-size/2);
+}
+
+
+///*---------------------------------
+//	Text-transformations
+//-----------------------------------*/
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+
+.text-black {
+  color: $black;
+}
+
+.text-grey {
+  color: $grey-0;
+}
+
+.text-primary {
+  color: $primary;
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.text-success {
+  color: $success-color;
+}
+
+.text-info {
+  color: $info-color;
+}
+
+.text-warning {
+  color: $warning-color;
+}
+
+.text-error {
+  color: $danger-color;
+}
+
+.text-disabled {
+  color: $disabled-color;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-line-through {
+  text-decoration: line-through;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-huge {
+  @include font-size(($font-base-size * $resize-text-huge));
+}
+
+.text-big {
+  @include font-size(($font-base-size * $resize-text-big));
+}
+
+.text-medium {
+  @include font-size(($font-base-size * $resize-text-medium));
+}
+
+.text-small {
+  @include font-size(($font-base-size * $resize-text-small));
+}
+
+
+a {
+  @include transition(color .5s ease);
+
+  // unvisited link
+  &:link {
+    color: $link-color;
+  }
+
+  // visited link
+  &:visited {
+    color: $link-color-visited;
+  }
+
+  // mouse over link
+  &:hover {
+    color: $link-color-hover;
+  }
+
+  // selected link
+  &:active {
+    @include transition(color .2s ease);
+    color: $link-color-active;
+  }
+}

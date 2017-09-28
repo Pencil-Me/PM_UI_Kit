@@ -1,0 +1,32 @@
+.rating {
+  .rate {
+    background: $rating-background-passive;
+    display: inline-block;
+    height: 1em;
+    margin: 0;
+    margin-right: .2em;
+    width: 1em;
+
+    &:hover {
+      background: $rating-background-hover;
+    }
+
+    &.active {
+      background: $rating-background-active;
+    }
+  }
+
+  &.small {
+    .rate {
+      height: $rating-size-small;
+      width: $rating-size-small;
+    }
+  }
+
+  &.big {
+    .rate {
+      height: $rating-size-big;
+      width: $rating-size-big;
+    }
+  }
+}

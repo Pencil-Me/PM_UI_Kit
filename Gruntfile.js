@@ -107,16 +107,16 @@ module.exports = function(grunt) {
 
         jshint: {
             options: {
-                jshintrc: './vendor/js/.jshintrc'
+                jshintrc: './vendor/javascript/.jshintrc'
             },
             core: {
-                src: 'js/*.js'
+                src: 'javascript/*.js'
             }
         },
 
         jscs: {
             options: {
-                config: './vendor/js/.jscsrc'
+                config: './vendor/javascript/.jscsrc'
             },
             core: {
                 src: '<%= jshint.core.src %>'
@@ -125,6 +125,9 @@ module.exports = function(grunt) {
 
         uglify: {
             options: {
+                sourceMap: {
+                    includeSources: true
+                },
                 compress: {
                     warnings: false
                 },
@@ -132,8 +135,8 @@ module.exports = function(grunt) {
                 preserveComments: /^!|@preserve|@license|@cc_on/i
             },
             core: {
-                src: 'vendor/js/*.js',
-                dest: 'dist/js/<%= pkg.name %>.min.js'
+                src: 'vendor/javascript/*.js',
+                dest: 'dist/javascript/<%= pkg.name %>.min.js'
             }
         },
 
@@ -162,13 +165,50 @@ module.exports = function(grunt) {
             }
         },
 
+        sass: {
+            compileCore: {
+                options: {
+                    strictMath: true,
+                    sourceMap: true,
+                    outputSourceFiles: true,
+                    sourceMapURL: '<%= pkg.name %>.css.map',
+                    sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
+                },
+                src: './vendor/scss/<%= pkg.name %>.scss',
+                dest: './dist/css/<%= pkg.name %>.gen.css'
+            }
+        },
+
+        sasslint: {
+            options: {
+                configFile: './grunt/.sass-lint.yml',
+                formatter: 'junit',
+                outputFile: './reports/sasslint-report.xml'
+            },
+            target: ['./vendor/scss/\*.scss']
+        },
+
         csslint: {
             options: {
-                csslintrc: './vendor/less/.csslintrc'
+                csslintrc: './grunt/.csslintrc'
             },
             dist: [
                 'dist/css/<%= pkg.name %>.css'
             ]
+        },
+
+        postcss: {
+            options: {
+                processors: [
+                    require('autoprefixer')()
+                    //require('cssnano')(),
+                    //require('rtlcss')()
+                ]
+            },
+            dist: {
+                src: 'dist/css/<%= pkg.name %>.gen.css',
+                dest: 'dist/css/<%= pkg.name %>.css'
+            }
         },
 
         cssmin: {
@@ -188,7 +228,7 @@ module.exports = function(grunt) {
 
         csscomb: {
             options: {
-                config: './vendor/less/.csscomb.json'
+                config: './grunt/.csscomb.json'
             },
             dist: {
                 expand: true,
@@ -214,13 +254,29 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            src: {
-                files: '<%= jshint.core.src %>',
-                tasks: ['jshint:core', 'qunit', 'concat']
-            },
+            // src: {
+            //     files: '<%= jshint.core.src %>',
+            //     tasks: ['jshint:core', 'qunit', 'concat']
+            // },
             less: {
                 files: './vendor/less/**/*.less',
-                tasks: 'less:compileCore'
+                tasks: 'dist-less-css'
+            },
+            scss: {
+                files: './vendor/scss/**/*.scss',
+                tasks: 'dist-sass-css'
+            }
+        },
+
+        lessToSass: {
+            convert: {
+                files: [{
+                    expand: true,
+                    cwd: 'vendor/less/',
+                    src: ['*.less'],
+                    ext: '.scss',
+                    dest: 'vendor/scss/'
+                }]
             }
         }
 
@@ -241,7 +297,8 @@ module.exports = function(grunt) {
     if (runSubset('core') &&
         // Skip core tests if this is a Savage build
         process.env.TRAVIS_REPO_SLUG !== 'twbs-savage/pm-ui-kit') {
-        testSubtasks = testSubtasks.concat(['dist-css', 'dist-js', 'csslint:dist', 'test-js']);
+        //testSubtasks = testSubtasks.concat(['dist-sass-css', 'dist-js', 'csslint:dist', 'test-js']);
+        testSubtasks = testSubtasks.concat(['dist-sass-css', 'dist-js', 'test-js']);
     }
 
     grunt.registerTask('test', testSubtasks);
@@ -251,8 +308,12 @@ module.exports = function(grunt) {
     grunt.registerTask('dist-js', ['uglify:core']);
 
     // CSS distribution task.
-    grunt.registerTask('less-compile', ['less:compileCore']);
-    grunt.registerTask('dist-css', ['less-compile', 'cssmin:minifyCore']);
+    // grunt.registerTask('less-test', ['lesslint']);
+    // grunt.registerTask('less-compile', ['less:compileCore']);
+    // grunt.registerTask('dist-less-css', ['less-test', 'less-compile', 'cssmin:minifyCore']);
+    grunt.registerTask('sass-test', ['sasslint']);
+    grunt.registerTask('sass-compile', ['sass:compileCore']);
+    grunt.registerTask('dist-sass-css', ['sass-compile', 'sass-test', 'postcss'/*, 'cssmin:minifyCore'*/]);
 
     // Default task.
     grunt.registerTask('default', ['clean:css', 'clean:js', 'test']);

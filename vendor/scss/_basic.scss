@@ -1,0 +1,30 @@
+body {
+  @include font-size($font-base-size * 1);
+  background-size: cover;
+  color: $font-base-color;
+  font-family: $font-base-family;
+  line-height: $font-base-line-height;
+}
+
+header {
+  width: 100%;
+}
+
+.wrapper {
+  display: block;
+  margin: 0 auto;
+  max-width: ($max-width * 1)px;
+}
+
+.section {
+  padding: ($default-gutter * 1)px;
+}
+
+
+[data-icon] {
+  margin-right: .5em;
+}
+
+img {
+  max-width: 100%;
+}

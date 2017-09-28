@@ -1,0 +1,115 @@
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  position: relative; // needed for the overlay to extend when you scroll
+}
+
+[data-pm-type="inline"] {
+  &.loading {
+    text-indent: -9999px;
+
+    &:before {
+      @include border-radius(500rem);
+      border: .2em solid fade-out($black, .15);
+      content: '';
+      height: $loading-button-size;
+      left: 50%;
+      margin: ($loading-button-size / -2) 0 0 ($loading-button-size / -2);
+      position: absolute;
+      top: 50%;
+      width: $loading-button-size;
+    }
+
+    &:after {
+      @include border-radius(500rem);
+      animation: button-spin .6s linear;
+      animation-iteration-count: infinite;
+      border-color: $white transparent transparent;
+      border-style: solid;
+      border-width: .2em;
+      box-shadow: 0 0 0 1px transparent;
+      content: '';
+      height: $loading-button-size;
+      left: 50%;
+      margin: ($loading-button-size / -2) 0 0 ($loading-button-size / -2);
+      position: absolute;
+      top: 50%;
+      width: $loading-button-size;
+    }
+  }
+}
+
+.fullscreen-loader {
+  $size: $loading-fullscreen-size;
+  background: $loading-fullscreen-background;
+  display: none;
+  height: 0;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 0;
+  z-index: -999;
+
+  &.loading {
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  .spinner {
+    @include size($size, $size);
+    background-color: none;
+    left: 50%;
+    line-height: $size;
+    margin-left: ($size / -2);
+    margin-top: ($size / -2);
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    z-index: 11; // 1px higher than the overlay layer
+
+    &:before {
+      @include border-radius(500rem);
+      border: .5em solid $loading-fullscreen-color2;
+      content: '';
+      height: $size;
+      left: 50%;
+      margin: ($size / -2) 0 0 ($size / -2);
+      position: absolute;
+      top: 50%;
+      width: $size;
+    }
+
+    &:after {
+      @include border-radius(500rem);
+      animation: button-spin .6s linear;
+      animation-iteration-count: infinite;
+      border-color: $loading-fullscreen-color transparent transparent;
+      border-style: solid;
+      border-width: .5em;
+      box-shadow: 0 0 0 1px transparent;
+      content: '';
+      height: $size;
+      left: 50%;
+      margin: ($size / -2) 0 0 ($size / -2);
+      position: absolute;
+      top: 50%;
+      width: $size;
+    }
+  }
+}
+
+@keyframes button-spin {
+  from {
+    @include transform(rotate(0));
+  }
+
+  to {
+    @include transform(rotate(360deg));
+  }
+}

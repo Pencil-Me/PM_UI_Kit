@@ -1,0 +1,111 @@
+.table {
+  @include border-radius($table-border-radius);
+  @include box-shadow($table-box-shadow);
+  background: $table-background;
+  border: $table-border;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: $table-color;
+  margin: 1em 0;
+  overflow: hidden;
+  table-layout: fixed;
+  text-align: left;
+  width: 100%;
+
+  tr {
+    td {
+      border-bottom: $table-inner-border;
+      border-left: $table-inner-border;
+      font-weight: $table-font-weight;
+      padding: $table-padding-topbottom $table-padding-leftright;
+      text-align: inherit;
+      text-transform: none;
+      vertical-align: inherit;
+
+      &:first-child {
+        border-left: 0;
+      }
+
+      &.error {
+        background: $table-error-background;
+        color: $table-error-color;
+      }
+
+      &.success {
+        background: $table-success-background;
+        color: $table-success-color;
+      }
+
+      &.warning {
+        background: $table-warning-background;
+        color: $table-warning-color;
+      }
+
+      &.disabled {
+        background: $table-disabled-background;
+        color: $table-disabled-color;
+      }
+    }
+
+    &:last-of-type {
+      td {
+        border-bottom: 0;
+      }
+    }
+
+    &.error {
+      td {
+        background: $table-error-background;
+        color: $table-error-color;
+      }
+    }
+
+    &.warning {
+      td {
+        background: $table-warning-background;
+        color: $table-warning-color;
+      }
+    }
+
+    &.success {
+      td {
+        background: $table-success-background;
+        color: $table-success-color;
+      }
+    }
+
+    &.disabled {
+      td {
+        background: $table-disabled-background;
+        color: $table-disabled-color;
+      }
+    }
+  }
+
+  thead {
+    th {
+      background: $table-head-background;
+      border-bottom: $table-head-bottom-border;
+      border-left: $table-head-inner-border;
+      color: $table-head-color;
+      cursor: auto;
+      font-weight: $table-head-font-weight;
+      padding: .92857143em .71428571em;
+      text-align: inherit;
+      text-transform: none;
+      vertical-align: inherit;
+
+      &:first-child {
+        border-left: 0;
+      }
+    }
+  }
+
+  &.striped {
+    tr {
+      &:nth-child(2n) {
+        background: $table-stripped-secondary-background;
+      }
+    }
+  }
+}

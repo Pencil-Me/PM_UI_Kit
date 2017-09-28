@@ -40,18 +40,24 @@ body {
   }
 }
 
-.loading.fullscreen {
+.fullscreenLoader {
 
   @size:@loading-fullscreen-size;
 
-  position:absolute;
-  z-index:9999;
+  position:fixed;
   left:0;
   top:0;
-  width:100%;
-  height: 100%;
-  display: block;
+  display: none;
+  z-index: -999;
+  width: 0;
+  height: 0;
   background: @loading-fullscreen-background;
+  &.loading{
+    z-index:9999;
+    width:100%;
+    height: 100%;
+    display: block;
+  }
   .spinner {
     .size(@size,@size);
     line-height: @size;

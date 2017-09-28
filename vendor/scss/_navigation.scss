@@ -1,0 +1,337 @@
+nav {
+  &.nav {
+    display: block;
+    width: auto;
+
+    &:after {
+      clear: both;
+      content: ".";
+      display: block;
+      height: 0;
+      visibility: hidden;
+    }
+
+    > ul {
+      background: $primary;
+      display: block;
+      float: left;
+      line-height: ($font-base-size + 16)px;
+      min-height: ($font-base-size + 16)px;
+      width: auto;
+      @media #{$mobile-down} {
+        @include opacity();
+        display: none;
+        height: 0;
+        max-height: 0;
+        overflow: hidden;
+        width: 0;
+      }
+
+      &:after {
+        clear: both;
+        height: 0;
+        visibility: hidden;
+        @media #{$tablet-up} {
+          content: ".";
+        }
+      }
+
+      > li {
+        background: $primary;
+        display: inline-block;
+        height: ($font-base-size + 16)px;
+        line-height: ($font-base-size + 16)px;
+        white-space: nowrap;
+        @media #{$mobile-down} {
+          bottom: auto;
+          display: block;
+          height: auto;
+          left: auto;
+          width: 100%;
+        }
+
+        &:after {
+          clear: both;
+          height: 0;
+          visibility: hidden;
+          @media #{$tablet-up} {
+            content: ".";
+          }
+        }
+
+        &.divider {
+          background: darken($primary, 5%);
+          height: 1px;
+        }
+
+        &.active {
+          background: lighten($primary, 10%);
+        }
+
+        &:hover {
+          background: lighten($primary, 5%);
+        }
+
+        a {
+          height: ($font-base-size + 16)px;
+          line-height: ($font-base-size + 16)px;
+          min-width: 100px;
+          padding: 0 ($font-base-size * 2)px;
+          @media #{$mobile-down} {
+            bottom: auto;
+            display: inline-block;
+            height: auto;
+            left: auto;
+            padding-right: 1.5em;
+            width: 100%;
+          }
+        }
+
+        ul {
+          li {
+            &.divider {
+              background: darken($secondary, 5%);
+            }
+          }
+        }
+
+        > ul {
+          background: $secondary;
+          display: none;
+          left: 0;
+          min-width: unset;
+          position: absolute;
+          top: 100%;
+          width: auto;
+          z-index: 2;
+          @media #{$mobile-down} {
+            position: relative;
+            width: 100%;
+          }
+
+          &:after {
+            clear: both;
+            display: block;
+            height: 0;
+            visibility: hidden;
+            @media #{$tablet-up} {
+              content: ".";
+            }
+          }
+
+          li {
+            display: block;
+            white-space: nowrap;
+
+            &:hover {
+              background: lighten($secondary, 5%);
+            }
+
+            &:after {
+              clear: both;
+              content: ".";
+              height: 0;
+              visibility: hidden;
+            }
+
+            ul {
+              background: $secondary;
+              display: none;
+              left: 100%;
+              position: absolute;
+              top: 0;
+              z-index: 3;
+              @media #{$mobile-down} {
+                left: auto;
+                position: relative;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.vertical {
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: auto;
+      @media #{$mobile-down} {
+        bottom: auto;
+        height: auto;
+        left: auto;
+        width: 100%;
+      }
+
+      > ul {
+        background: $primary;
+        height: 100%;
+        position: fixed;
+        width: auto;
+        @media #{$mobile-down} {
+          height: auto;
+          padding-top: ($font-base-size + 16)px;
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+
+        > li {
+          display: block;
+        }
+      }
+    }
+
+    .show-menu {
+      display: none;
+      z-index: 1;
+      @media #{$mobile-down} {
+        display: block;
+      }
+
+      &.burger {
+        label {
+          @include transition(background .5s ease, box-shadow .5s ease);
+
+          &:before {
+            @include box-shadow(0 .25em 0 0 $font-base-color, 0 .5em 0 0 $font-base-color);
+            @include transition(background .5s ease, box-shadow .5s ease);
+            background: $font-base-color;
+          }
+
+          &:hover {
+            &:before {
+              @include box-shadow(0 .25em 0 0 lighten($font-base-color, 5%), 0 .5em 0 0 lighten($font-base-color, 5%));
+              background: lighten($font-base-color, 5%);
+            }
+          }
+        }
+      }
+
+      &.arrow {
+        label {
+          &:before {
+            @include transition(color .5s ease);
+            color: $font-base-color;
+            content: "\25BC";
+            display: inline-block;
+            font-size: 1rem;
+            position: absolute;
+            text-indent: 0;
+          }
+
+          &:hover {
+            &:before {
+              color: lighten($font-base-color, 5%);
+            }
+          }
+        }
+      }
+
+      label {
+        background: transparent;
+        display: block;
+        font-size: 1.25em;
+        padding: 5px;
+        text-align: center;
+        text-decoration: none;
+        text-indent: -9999px;
+        width: ($font-base-size + 5)px;
+
+        &:before {
+          content: "";
+          height: .15em;
+          left: .4em;
+          position: absolute;
+          top: .4em;
+          width: 1em;
+        }
+      }
+    }
+
+    input {
+      // Hide checkbox
+      &[type="checkbox"] {
+        .show-menu {
+          display: none;
+
+          // Show menu when invisible checkbox is checked
+          &:checked ~ ul {
+            @include opacity(100);
+            display: block;
+            height: auto;
+            max-height: inherit;
+            overflow: visible;
+            width: inherit;
+            @media #{$tablet-up} {
+              display: inline-block;
+              width: auto;
+            }
+          }
+        }
+      }
+    }
+
+    li {
+      .show-menu {
+        display: inline-block;
+        position: absolute;
+        right: 5px;
+        top: 0;
+
+        label {
+          &:before {
+            top: 0;
+          }
+        }
+      }
+    }
+
+
+    &.z-index {
+      z-index: 9;
+    }
+
+    &.fullsize {
+      background: $primary;
+      width: 100%;
+
+      > ul {
+        width: auto;
+      }
+    }
+
+    ul {
+      &.navbar-left {
+        float: left;
+
+        > li {
+          ul {
+            left: 0;
+          }
+        }
+      }
+
+      &.navbar-right {
+        float: right;
+
+        > li {
+          > ul {
+            left: auto;
+            right: 0;
+
+            > li {
+              ul {
+                left: auto;
+                right: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

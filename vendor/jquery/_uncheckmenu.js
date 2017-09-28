@@ -1,7 +1,7 @@
 $(function() {
 
    $('#menu').on('click','li', function(){
-       $('#show-menu').prop( "checked", false );;
+       $('#show-menu').prop( "checked", false );
    })
 
 });

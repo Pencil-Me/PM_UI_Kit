@@ -1,0 +1,18 @@
+// sticky footer HTML5
+* {
+  margin: 0;
+}
+
+body {
+  height: 100%;
+}
+
+main {
+  margin: 0 auto ($footerheight * -1)px;
+  min-height: 100%;
+}
+
+footer,
+.push {
+  height: ($footerheight * 1)px;
+}

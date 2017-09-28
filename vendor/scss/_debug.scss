@@ -1,0 +1,110 @@
+.debug {
+
+  // Empty Elements
+  div,
+  span,
+  li,
+  p,
+  td,
+  th {
+    &:empty {
+      border: 5px dotted $yellow !important;
+      padding: 20px;
+    }
+  }
+
+  // Empty Attributes
+  [alt=""],
+  [title=""],
+  [class=""],
+  [id=""],
+  [href=""] {
+    border: 5px solid $yellow !important;
+  }
+
+  // Deprecated Elements
+  applet,
+  basefont,
+  center,
+  dir,
+  font,
+  isindex,
+  menu,
+  s,
+  strike,
+  u {
+    border: 5px dotted $red !important;
+  }
+
+  // Deprecated Attributes
+  *[background],
+  *[bgcolor],
+  *[clear],
+  *[color],
+  *[compact],
+  *[noshade],
+  *[nowrap],
+  *[size],
+  *[start],
+  *[bottommargin],
+  *[leftmargin],
+  *[rightmargin],
+  *[topmargin],
+  *[marginheight],
+  *[marginwidth],
+  *[alink],
+  *[link],
+  *[text],
+  *[vlink],
+  *[align],
+  *[valign],
+  *[hspace],
+  *[vspace],
+  *[height],
+  *[width] {
+    border: 5px solid $red !important;
+  }
+
+  ul,
+  ol,
+  li {
+
+    &[type] {
+      border: 5px solid $red !important;
+    }
+  }
+
+  // Proposed Deprecated Elements
+  big,
+  tt {
+    border: 5px dotted $green !important;
+  }
+
+  input {
+
+    &[type="button"] {
+      border: 5px dotted $green !important;
+    }
+  }
+
+  // Proposed Deprecated Attributes
+  table {
+
+    &[cellpadding],
+    &[cellspacing] {
+      border: 5px solid $green !important;
+    }
+  }
+
+  *[border] {
+    border: 5px solid $green !important;
+  }
+
+  // empty links
+  a {
+
+    &:not([href]) {
+      color: $yellow !important;
+    }
+  }
+}

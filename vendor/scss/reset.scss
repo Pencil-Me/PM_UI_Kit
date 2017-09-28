@@ -1,0 +1,367 @@
+// Basics and reset
+
+$fallbackcolor1: #ffff99;
+$fallbackcolor2: #000000;
+$fallbackcolor3: #cccccc;
+$fallbackcolorred: #ff0000;
+$fallbackcolorwhite: #ffffff;
+
+* {
+  box-sizing: border-box;
+  position: relative;
+
+  &,
+  &:before,
+  &:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+audio,
+canvas,
+video {
+  display: block;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 62.5%; // switching to base 10 for the ease of calculations (default 16px * 62.5 / 100 = 10)
+  height: 100%;
+}
+
+body {
+  -webkit-tap-highlight-color: fade-out($fallbackcolorred, .62);
+  line-height: 1;
+  min-height: 100%;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  &,
+  a & {
+    // Using width or height tags to resize images in your markup can create a problem in Internet Explorer browsers. If your reader is viewing an email
+    // in-browser, and that email happens to have fluid images in it, they’ll look pretty ugly as they resize. Using -ms-interpolation-mode:bicubic; ensures
+    // that your images look a little better.
+    -ms-interpolation-mode: bicubic;
+    border: 0;
+  }
+
+  &::selection,
+  &::-moz-selection {
+    background: transparent;
+  }
+}
+
+input,
+textarea,
+button,
+select {
+  line-height: normal;
+  margin: 0;
+  vertical-align: baseline;
+}
+
+button {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+input {
+  &[type="button"],
+  &[type="reset"],
+  &[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+
+  &[type="checkbox"],
+  &[type="radio"] {
+    box-sizing: border-box;
+  }
+}
+
+textarea {
+  overflow: auto;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  background: transparent;
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+nav {
+  ul {
+    list-style: none;
+  }
+}
+
+blockquote,
+q {
+  quotes: none;
+
+  &:before,
+  &:after {
+    content: none;
+  }
+}
+
+a {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: baseline;
+}
+
+ins {
+  background-color: $fallbackcolor1;
+  color: $fallbackcolor2;
+  text-decoration: none;
+}
+
+mark {
+  background-color: $fallbackcolor1;
+  color: $fallbackcolor2;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr,
+dfn {
+  [title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+  }
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid $fallbackcolor3;
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+::selection,
+::-moz-selection {
+  background: $fallbackcolorred;
+  color: $fallbackcolorwhite;
+}
+
+
+//usefull things
+.clear {
+  clear: both;
+
+  &:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+html,
+body {
+  // Prevent iOS text size adjust after orientation change, without disabling user zoom.
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+div,
+p,
+a,
+li,
+td {
+  ///* on IE for Windows Phone 8.1, Internet Explorer for Windows Phone supports "-webkit-text-size-adjust"*/
+  -ms-text-size-adjust: none;
+  ///* Big fonts */
+  ///* in iPhone*/
+  -webkit-text-size-adjust: none;
+}

@@ -1,0 +1,53 @@
+.tabs {
+  @include box-shadow($tabs-box-shadow);
+  border-bottom: $tabs-border;
+  margin: 1em 0 0;
+  padding: .52857143em .71428571em .428571em;
+  width: 100%;
+
+  .tab {
+    @include transition(background .3s ease, padding .2s ease);
+    @include border-radiuses($tabs-border-radius $tabs-border-radius 0 0);
+    @include box-shadow(none);
+    background: $tabs-passive-background;
+    border-collapse: separate;
+    border-left: $tabs-border;
+    border-right: $tabs-border;
+    border-spacing: 0;
+    border-top: $tabs-border;
+    color: $tabs-color;
+    cursor: pointer;
+    margin: 1em 0;
+    padding: .42857143em .71428571em ($font-base-size * .5)px;
+    text-align: left;
+
+    &:hover {
+      background: $tabs-passive-background-hover;
+      padding-top: .52857143em;
+    }
+
+    &:active {
+      @include transition(padding .1s ease);
+      background: $tabs-passive-background-active;
+      padding-top: .4em;
+    }
+
+    &.active {
+      background: $tabs-active-background;
+      cursor: auto;
+      padding: .52857143em .71428571em ($font-base-size * .5 + 1)px;
+    }
+  }
+}
+
+.tab-content {
+  background: $tabs-active-background;
+  color: $tabs-color;
+  display: none;
+  margin: 0;
+  padding: .52857143em .71428571em;
+
+  &.selected {
+    display: block;
+  }
+}

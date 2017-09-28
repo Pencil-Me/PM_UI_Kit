@@ -1,0 +1,58 @@
+@mixin background-color($loccolor) {
+  background: $loccolor;
+
+  &-25 {
+    $loccolor25: fade($loccolor, (25/100));
+    background: $loccolor25;
+  }
+
+  &-50 {
+    $loccolor50: fade($loccolor, (50/100));
+    background: $loccolor50;
+  }
+
+  &-75 {
+    $loccolor75: fade($loccolor, (75/100));
+    background: $loccolor75;
+  }
+}
+
+.background-primary {
+  @include background-color($primary);
+}
+
+.background-secondary {
+  @include background-color($secondary);
+}
+
+.background-success {
+  @include background-color($success-color);
+}
+
+.background-info {
+  @include background-color($info-color);
+}
+
+.background-warning {
+  @include background-color($warning-color);
+}
+
+.background-error {
+  @include background-color($danger-color);
+}
+
+.background-white {
+  @include background-color($white);
+}
+
+.background-grey {
+  @include background-color($grey-3);
+}
+
+.background-grey-dark {
+  @include background-color($grey-2);
+}
+
+.background-dark {
+  @include background-color($grey-0);
+}

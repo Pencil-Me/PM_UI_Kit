@@ -1,0 +1,638 @@
+.button {
+  @include border-radius($button-border-radius);
+  @include font-size($button-font-size);
+  @include transition(background .5s ease, color .5s ease, opacity .5s ease, transform .5s ease);
+  background: $button-bg-color;
+  border: $button-border;
+  border-color: $button-border-color;
+  color: $button-color;
+  display: inline-block;
+  line-height: $button-height;
+  padding: $button-padding;
+  position: relative;
+
+  &:hover {
+    @include scale($button-scale-hover);
+    @include transition(background .5s ease, color .5s ease, opacity .5s ease, transform .2s ease);
+    background: $button-bg-color-hover;
+    border-color: $button-border-color-hover;
+    color: $button-color-hover;
+  }
+
+  &:active {
+    @include scale($button-scale-active);
+    @include transition(background .1s ease, color .1s ease, opacity .1s ease, transform .1s ease);
+    background: $button-bg-color-active;
+    border-color: $button-border-color-active;
+    color: $button-color-active;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.fluid {
+    width: 100%;
+  }
+
+  [data-icon] {
+
+    &,
+    &:before {
+      @include transition(background .5s ease, color .5s ease, opacity .5s ease, transform .5s ease);
+    }
+  }
+
+  &.labeled {
+    overflow: hidden;
+    padding: 0;
+
+    * {
+      display: table-cell;
+      padding: $button-padding;
+
+      &:first-child {
+        @include border-radiuses($border-radius-base, 0, 0, $border-radius-base);
+        background: $button-labeled-bg-color;
+      }
+
+      &:last-child {
+        @include border-radiuses(0, $border-radius-base, $border-radius-base, 0);
+      }
+    }
+
+    &:hover * {
+
+      &:first-child {
+        background: $button-labeled-bg-color-hover;
+      }
+    }
+
+    &:active {
+      padding: 0;
+
+      * {
+
+        &:first-child {
+          background: $button-labeled-bg-color-active;
+        }
+      }
+    }
+  }
+
+  &.circular {
+    @include border-radiuses(50%, 50%, 50%, 50%);
+    min-width: ($button-height + 2);
+    padding: 0;
+
+    [data-icon] {
+      margin-right: 0;
+    }
+  }
+
+  // sizing
+  &.button-huge {
+    @include font-size($button-huge-font-size);
+    line-height: $button-huge-height;
+  }
+
+  &.button-big {;
+    @include font-size($button-big-font-size);
+    line-height: $button-big-height;
+  }
+
+  &.button-small {
+    @include font-size($button-small-font-size);
+    line-height: $button-small-height;
+  }
+
+  // coloring
+  &.button-primary {
+    @include button-color($button-primary-bg-color, $button-primary-border-color, $button-primary-color, $button-primary-bg-color-hover, $button-primary-border-color-hover, $button-primary-color-hover, $button-primary-bg-color-active, $button-primary-border-color-active, $button-primary-color-active, $button-primary-labeled-bg-color, $button-primary-labeled-bg-color-hover, $button-primary-labeled-bg-color-active);
+  }
+
+  &.button-secondary {
+    @include button-color($button-secondary-bg-color, $button-secondary-border-color, $button-secondary-color, $button-secondary-bg-color-hover, $button-secondary-border-color-hover, $button-secondary-color-hover, $button-secondary-bg-color-active, $button-secondary-border-color-active, $button-secondary-color-active, $button-secondary-labeled-bg-color, $button-secondary-labeled-bg-color-hover, $button-secondary-labeled-bg-color-active);
+  }
+
+  &.button-white {
+    @include button-color($button-white-bg-color, $button-white-border-color, $button-white-color, $button-white-bg-color-hover, $button-white-border-color-hover, $button-white-color-hover, $button-white-bg-color-active, $button-white-border-color-active, $button-white-color-active, $button-white-labeled-bg-color, $button-white-labeled-bg-color-hover, $button-white-labeled-bg-color-active);
+  }
+
+  &.button-grey {
+    @include button-color($button-grey-bg-color, $button-grey-border-color, $button-grey-color, $button-grey-bg-color-hover, $button-grey-border-color-hover, $button-grey-color-hover, $button-grey-bg-color-active, $button-grey-border-color-active, $button-grey-color-active, $button-grey-labeled-bg-color, $button-grey-labeled-bg-color-hover, $button-grey-labeled-bg-color-active);
+  }
+
+  &.button-green {
+    @include button-color($button-green-bg-color, $button-green-border-color, $button-green-color, $button-green-bg-color-hover, $button-green-border-color-hover, $button-green-color-hover, $button-green-bg-color-active, $button-green-border-color-active, $button-green-color-active, $button-green-labeled-bg-color, $button-green-labeled-bg-color-hover, $button-green-labeled-bg-color-active);
+  }
+
+  &.button-red {
+    @include button-color($button-red-bg-color, $button-red-border-color, $button-red-color, $button-red-bg-color-hover, $button-red-border-color-hover, $button-red-color-hover, $button-red-bg-color-active, $button-red-border-color-active, $button-red-color-active, $button-red-labeled-bg-color, $button-red-labeled-bg-color-hover, $button-red-labeled-bg-color-active);
+  }
+
+  &.button-disabled {
+    @include button-color($button-disabled-bg-color, $button-disabled-border-color, $button-disabled-color, $button-disabled-bg-color-hover, $button-disabled-border-color-hover, $button-disabled-color-hover, $button-disabled-bg-color-active, $button-disabled-border-color-active, $button-disabled-color-active, $button-disabled-labeled-bg-color, $button-disabled-labeled-bg-color-hover, $button-disabled-labeled-bg-color-active);
+  }
+
+  &.button-transparent {
+    @include opacity($button-transparent);
+
+    &:hover {
+      @include opacity($button-transparent-hover);
+    }
+
+    &:active {
+      @include opacity($button-transparent-active);
+    }
+  }
+
+  &.button-caps {
+    text-transform: uppercase;
+  }
+
+  &.button-block {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  &.button-outline {
+
+    @mixin button-outliner($loc-btn-color: $button-bg-color, $loc-btn-color-hover: $button-bg-color-hover, $loc-btn-color-active: $button-bg-color-active) {
+      border-color: $loc-btn-color;
+      color: $loc-btn-color;
+    }
+    @mixin button-outliner-hover($loc-btn-color: $button-bg-color, $loc-btn-color-hover: $button-bg-color-hover, $loc-btn-color-active: $button-bg-color-active) {
+      border-color: $loc-btn-color-hover;
+      color: $loc-btn-color-hover;
+    }
+    @mixin button-outliner-active($loc-btn-color: $button-bg-color, $loc-btn-color-hover: $button-bg-color-hover, $loc-btn-color-active: $button-bg-color-active) {
+      border-color: $loc-btn-color-active;
+      color: $loc-btn-color-active;
+    }
+
+    @include border-radius(($button-border-radius * 2));
+    @include button-outliner();
+    background: none;
+    border: $button-outline-border;
+
+    &:hover,
+    &:hover * {
+      @include button-outliner-hover();
+    }
+
+    &:active,
+    &:active * {
+      @include button-outliner-active();
+    }
+
+    *,
+    &:hover,
+    &:hover * {
+      background: none;
+    }
+
+    &.button-primary,
+    &.button-primary * {
+      @include button-outliner($button-primary-bg-color, $button-primary-bg-color-hover, $button-primary-bg-color-active);
+
+      &:hover,
+      &:hover * {
+        @include button-outliner-hover($button-primary-bg-color, $button-primary-bg-color-hover, $button-primary-bg-color-active);
+      }
+
+      &:active,
+      &:active * {
+        @include button-outliner-active($button-primary-bg-color, $button-primary-bg-color-hover, $button-primary-bg-color-active);
+      }
+    }
+
+    &.button-secondary,
+    &.button-secondary * {
+      @include button-outliner($button-secondary-bg-color, $button-secondary-bg-color-hover, $button-secondary-bg-color-active);
+
+      &:hover,
+      &:hover * {
+        @include button-outliner-hover($button-secondary-bg-color, $button-secondary-bg-color-hover, $button-secondary-bg-color-active);
+      }
+
+      &:active,
+      &:active * {
+        @include button-outliner-active($button-secondary-bg-color, $button-secondary-bg-color-hover, $button-secondary-bg-color-active);
+      }
+    }
+
+    &.button-grey,
+    &.button-grey * {
+      @include button-outliner($button-grey-bg-color, $button-grey-bg-color-hover, $button-grey-bg-color-active);
+
+      &:hover,
+      &:hover * {
+        @include button-outliner-hover($button-grey-bg-color, $button-grey-bg-color-hover, $button-grey-bg-color-active);
+      }
+
+      &:active,
+      &:active * {
+        @include button-outliner-active($button-grey-bg-color, $button-grey-bg-color-hover, $button-grey-bg-color-active);
+      }
+    }
+
+    &.button-white,
+    &.button-white * {
+      @include button-outliner($button-white-bg-color, $button-white-bg-color-hover, $button-white-bg-color-active);
+
+      &:hover,
+      &:hover * {
+        @include button-outliner-hover($button-white-bg-color, $button-white-bg-color-hover, $button-white-bg-color-active);
+      }
+
+      &:active,
+      &:active * {
+        @include button-outliner-active($button-white-bg-color, $button-white-bg-color-hover, $button-white-bg-color-active);
+      }
+    }
+
+    &.button-green,
+    &.button-green * {
+      @include button-outliner($button-green-bg-color, $button-green-bg-color-hover, $button-green-bg-color-active);
+
+      &:hover,
+      &:hover * {
+        @include button-outliner-hover($button-green-bg-color, $button-green-bg-color-hover, $button-green-bg-color-active);
+      }
+
+      &:active,
+      &:active * {
+        @include button-outliner-active($button-green-bg-color, $button-green-bg-color-hover, $button-green-bg-color-active);
+      }
+    }
+
+    &.button-red,
+    &.button-red * {
+      @include button-outliner($button-red-bg-color, $button-red-bg-color-hover, $button-red-bg-color-active);
+
+      &:hover,
+      &:hover * {
+        @include button-outliner-hover($button-red-bg-color, $button-red-bg-color-hover, $button-red-bg-color-active);
+      }
+
+      &:active,
+      &:active * {
+        @include button-outliner-active($button-red-bg-color, $button-red-bg-color-hover, $button-red-bg-color-active);
+      }
+    }
+
+    &.button-disabled,
+    &.button-disabled * {
+      @include button-outliner($button-disabled-bg-color, $button-disabled-bg-color-hover, $button-disabled-bg-color-active);
+
+      &:hover,
+      &:hover * {
+        @include button-outliner-hover($button-disabled-bg-color, $button-disabled-bg-color-hover, $button-disabled-bg-color-active);
+      }
+
+      &:active,
+      &:active * {
+        @include button-outliner-active($button-disabled-bg-color, $button-disabled-bg-color-hover, $button-disabled-bg-color-active);
+      }
+    }
+  }
+
+
+  &.icon-right [data-icon] {
+    margin-left: .5em;
+    margin-right: 0;
+  }
+
+  &.button-only-icon [data-icon] {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @media #{$mobile-down} {
+    &.block-mobile {
+
+      &:not(#{$block-mobile-exeptions}) {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.button-group {
+  $scale-active: $button-scale-active;
+  $scale-hover: $button-scale-hover;
+
+  @include font-size(0);
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  position: relative;
+
+  li {
+    display: inline-block;
+
+    .button {
+      @include border-radius();
+      margin: 0;
+
+      &:active {
+        @include scale-xy(1, $scale-active);
+
+        [data-icon] {
+
+          &,
+          &:before {
+            @include scale-xy(.9, (.9 / $scale-active));
+          }
+        }
+      }
+
+      &:hover {
+        @include scale-xy(1, $scale-hover);
+
+        [data-icon] {
+
+          &,
+          &:before {
+            @include scale-xy(1.2, (1.2 / $scale-hover));
+          }
+        }
+      }
+    }
+
+    &:first-child {
+
+      .button {
+        @include border-radiuses($button-border-radius, 0, 0, $button-border-radius);
+
+        &:active {
+          @include scale-xy(1, $scale-active);
+
+          [data-icon] {
+
+            &,
+            &:before {
+              @include scale-xy(.9, (.9 / $scale-active));
+            }
+          }
+        }
+
+        &:hover {
+          @include scale-xy(1, $scale-hover);
+
+          [data-icon] {
+
+            &,
+            &:before {
+              @include scale-xy(1.2, (1.2/$scale-hover));
+            }
+          }
+        }
+      }
+    }
+
+    &:last-of-type {
+
+      .button {
+        @include border-radiuses(0, $button-border-radius, $button-border-radius, 0);
+
+        &:active {
+          @include scale-xy(1, $scale-active);
+
+          [data-icon] {
+
+            &,
+            &:before {
+              @include scale-xy(.9, (.9 / $scale-active));
+            }
+          }
+        }
+
+        &:hover {
+          @include scale-xy(1, $scale-hover);
+
+          [data-icon] {
+
+            &,
+            &:before {
+              @include scale-xy(1.2, (1.2 / $scale-hover));
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.vertical {
+
+    li {
+      display: block;
+
+      .button {
+        @include border-radius();
+        display: block;
+        margin: 0;
+        width: 100%;
+
+
+        [data-icon] {
+
+          &,
+          &:before {
+            margin-right: 0;
+          }
+        }
+
+        &:active {
+          @include scale-xy($scale-active, 1);
+
+          [data-icon] {
+
+            &,
+            &:before {
+              @include scale-xy((.9 / $scale-active), .9);
+            }
+          }
+        }
+
+        &:hover {
+          @include scale-xy($scale-hover, 1);
+
+          [data-icon] {
+
+            &,
+            &:before {
+              @include scale-xy((1.2 / $scale-hover), 1.2);
+            }
+          }
+        }
+      }
+
+      &:first-child {
+
+        .button {
+          @include border-radiuses($button-border-radius, $button-border-radius, 0, 0);
+
+          &:active {
+            @include scale-xy($scale-active, 1);
+
+            [data-icon] {
+
+              &,
+              &:before {
+                @include scale-xy((.9 / $scale-active), .9);
+              }
+            }
+          }
+
+          &:hover {
+            @include scale-xy($scale-hover, 1);
+
+            [data-icon] {
+
+              &,
+              &:before {
+                @include scale-xy((1.2 / $scale-hover), 1.2);
+              }
+            }
+          }
+        }
+      }
+
+      &:last-of-type {
+
+        .button {
+          @include border-radiuses(0, 0, $button-border-radius, $button-border-radius);
+
+          &:active {
+            @include scale-xy($scale-active, 1);
+
+            [data-icon] {
+
+              &,
+              &:before {
+                @include scale-xy((.9 / $scale-active), .9);
+              }
+            }
+          }
+
+          &:hover {
+            @include scale-xy($scale-hover, 1);
+
+            [data-icon] {
+
+              &,
+              &:before {
+                @include scale-xy((1.2 / $scale-hover), 1.2);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.button-navbar {
+
+  .button {
+    @include font-size($font-base-size);
+  }
+
+  .active {
+    background: $primary;
+    color: $white;
+
+    &:hover {
+      background: darken($primary, 5%);
+    }
+  }
+}
+
+.shiny-effect {
+  &:after {
+    @include transform(rotate(10deg));
+    background: linear-gradient(to right, fade($button-shiny-effect-color, .13) 0%, fade($button-shiny-effect-color, .13) 77%, fade($button-shiny-effect-color, .5) 92%, fade($button-shiny-effect-color, 0) 100%);
+    content: '';
+    height: 200%;
+    left: -210%;
+    opacity: 0;
+    position: absolute;
+    top: -110%;
+    width: 200%;
+  }
+
+  // Hover state - trigger effect
+  &:hover {
+
+    &:after {
+      @include transition-property(left, top, opacity);
+      @include transition-duration(.7s, .7s, .15s);
+      @include transition-timing-function(ease);
+      left: -10%;
+      opacity: 1;
+      top: -10%;
+    }
+  }
+}
+
+.splash-effect {
+  display: inline-block;
+  overflow: hidden;
+
+  .effect-wave {
+    @include translate(-50%, -50%);
+    @include opacity(.5);
+    @include border-radius(50%);
+    background-color: $button-splash-effect-color;
+    display: block;
+    height: 0;
+    position: absolute;
+    width: 0;
+  }
+}
+
+.paper-flatten {
+  border: 1px solid transparent;
+
+  &:before,
+  &:after {
+    @include box-shadow(0 15px 12px fade(rgb(31, 31, 31), .7));
+    bottom: 15px;
+    height: 20%;
+    max-height: 100px;
+    max-width: 300px;
+    width: 50%;
+  }
+
+  &:before {
+    @include rotate(-3deg);
+    left: 10px;
+  }
+
+  &:after {
+    @include rotate(3deg);
+    right: 10px;
+  }
+
+  &:hover {
+    border-color: $button-border-color;
+
+    &:before,
+    &:after {
+      @include box-shadow(0 8px 8px fade(rgb(31, 31, 31), .5));
+      @include transition(box-shadow 600ms ease-out, left 200ms, right 200ms);
+    }
+
+    &:before {
+      left: 5px;
+    }
+
+    &:after {
+      right: 5px;
+    }
+  }
+}

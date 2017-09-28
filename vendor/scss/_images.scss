@@ -1,0 +1,9 @@
+img {
+  &.rounded {
+    @include border-radiuses(50%, 50%, 50%, 50%);
+  }
+
+  &.rounded-corners {
+    @include border-radiuses($img-rounded-border-radius, $img-rounded-border-radius, $img-rounded-border-radius, $img-rounded-border-radius);
+  }
+}

@@ -1,0 +1,56 @@
+.breadcrumbs {
+  font-size: 0;
+  line-height: 0;
+  margin: 10px 0;
+  padding: 0;
+
+  li {
+    @include font-size($breadcrumps-size);
+    display: inline-block;
+    line-height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0 ($font-base-size * .5)px 0 0;
+    position: relative;
+    zoom: 1;
+
+    a {
+      color: $breadcrumps-link-color;
+      display: inline-block;
+      margin: 0;
+      padding: 5px ($font-base-size * .5)px 5px 5px;
+      position: relative;
+
+      &:hover {
+        color: $breadcrumps-link-color-hover;
+      }
+
+      &:after {
+        border: solid transparent;
+        border-left-color: $breadcrumps-arrow-color;
+        border-width: ($breadcrumps-size * .45px);
+        content: " ";
+        height: 0;
+        left: 100%;
+        margin-top: ($breadcrumps-size * -.45px);
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        width: 0;
+      }
+    }
+
+    &:last-of-type {
+      padding: 0;
+
+      a {
+
+        &:after {
+          border: transparent;
+          border-width: 0;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.message-bar {
+
+  @mixin message-bar($loc-color) {
+    @include border-radiuses(5px, 5px, 5px, 5px);
+    background: fade-out(darken($loc-color, 20%), (50 / 100));
+    border: 1px $loc-color solid;
+    color: $loc-color;
+    padding: ($font-base-size / 2)px;
+  }
+
+  @include message-bar($grey-0);
+
+  &-error {
+    @include message-bar($red);
+  }
+
+  &-info {
+    @include message-bar(lighten($primary, 20%));
+  }
+
+  &-warning {
+    @include message-bar($yellow);
+  }
+
+  &-success {
+    @include message-bar($green);
+  }
+}

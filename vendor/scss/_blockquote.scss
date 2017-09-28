@@ -1,0 +1,95 @@
+$basicquote: '"';
+
+body {
+  quotes: $basicquote $basicquote;
+  @media #{$mobile-down} {
+    quotes: $basicquote $basicquote;
+  }
+}
+
+:lang(en),
+:lang(es),
+:lang(nl) {
+  $quotel: '\201C';
+  $quoter: '\201D';
+  quotes: $quotel $quoter;
+  @media #{$mobile-down} {
+    quotes: $basicquote $basicquote;
+  }
+}
+
+:lang(sv) {
+  $quotel: '\201D';
+  $quoter: '\201D';
+  quotes: $quotel $quoter;
+  @media #{$mobile-down} {
+    quotes: $basicquote $basicquote;
+  }
+}
+
+:lang(fr),
+:lang(it) {
+  $quotel: '\00AB';
+  $quoter: '\00BB';
+  quotes: $quotel $quoter;
+  @media #{$mobile-down} {
+    quotes: $basicquote $basicquote;
+  }
+}
+
+:lang(pl),
+:lang(de) {
+  $quotel: '\201E';
+  $quoter: '\201C';
+  quotes: $quotel $quoter;
+  @media #{$mobile-down} {
+    quotes: $basicquote $basicquote;
+  }
+}
+
+blockquote {
+  @include font-size($blockquote-size);
+  border-left: $blockquote-border-left;
+  color: $blockquote-color;
+  font-style: $blockquote-font-style;
+  line-height: $blockquote-line-height;
+  margin: ($font-base-size * 1)px ($font-base-size * 1)px ($font-base-size * 1)px 0;
+  padding: ($font-base-size * 1)px 0 0 ($font-base-size * 1)px;
+
+  p {
+    &:first-child {
+      display: inline;
+
+      &:before {
+        @include font-size($blockquote-quote-size);
+        color: $blockquote-quote-color;
+        content: $blockquote-quote-content;
+        font-style: normal;
+        line-height: 0;
+        margin-right: .1em;
+        vertical-align: -.4em;
+      }
+    }
+  }
+
+  footer {
+    @include font-size($blockquote-footer-size);
+    color: $blockquote-footer-color;
+    font-style: normal;
+    height: auto;
+    margin-top: ($blockquote-size*1)px;
+    text-align: right;
+
+    &:before {
+      content: '- ';
+    }
+  }
+
+  &.big {
+    @include font-size($blockquote-big-size);
+  }
+
+  &.small {
+    @include font-size($blockquote-small-size);
+  }
+}
