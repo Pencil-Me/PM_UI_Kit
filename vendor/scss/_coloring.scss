@@ -1,25 +1,53 @@
 .background- {
-  $i: 6;
-  $class-map: primary secondary success info warning error white grey grey-dark dark;
-  $color-map: $primary $secondary $success-color $info-color $warning-color $danger-color $white $grey-3 $grey-2 $grey-0;
-  @while $i > 0 {
-    $loccolor: nth($color-map, $i);
+  // needed to be splited cause sourcemaps will throw minus colmns when more than 6 elements will iterate with ampersand
+  $class-map: (
+          white: $white,
+          grey: $grey-3,
+          grey-dark: $grey-2,
+          dark: $grey-0
+  );
+  $class-map2: (
+          primary: $primary,
+          secondary: $secondary,
+          success: $success-color,
+          info: $info-color,
+          warning: $warning-color,
+          error: $danger-color
+  );
 
-    &#{nth($class-map, $i)}{
-      background: $loccolor;
+  @each $class, $color in $class-map {
+    &#{$class}{
+      background: $color;
 
       &-25 {
-        background: fade-out($loccolor, (25/100));
+        background: fade-out($color, (25/100));
       }
 
       &-50 {
-        background: fade-out($loccolor, (50/100));
+        background: fade-out($color, (50/100));
       }
 
       &-75 {
-        background: fade-out($loccolor, (75/100));
+        background: fade-out($color, (75/100));
       }
     }
-    $i: $i - 1;
+  }
+
+  @each $class, $color in $class-map2 {
+    &#{$class}{
+      background: $color;
+
+      &-25 {
+        background: fade-out($color, (25/100));
+      }
+
+      &-50 {
+        background: fade-out($color, (50/100));
+      }
+
+      &-75 {
+        background: fade-out($color, (75/100));
+      }
+    }
   }
 }
