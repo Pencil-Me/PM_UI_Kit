@@ -555,7 +555,7 @@
 .shiny-effect {
   &:after {
     @include transform(rotate(10deg));
-    background: linear-gradient(to right, fade($button-shiny-effect-color, .13) 0%, fade($button-shiny-effect-color, .13) 77%, fade($button-shiny-effect-color, .5) 92%, fade($button-shiny-effect-color, 0) 100%);
+    background: linear-gradient(to right, fade-out($button-shiny-effect-color, .13) 0%, fade-out($button-shiny-effect-color, .13) 77%, fade-out($button-shiny-effect-color, .5) 92%, fade-out($button-shiny-effect-color, 0) 100%);
     content: '';
     height: 200%;
     left: -210%;
@@ -596,11 +596,12 @@
 }
 
 .paper-flatten {
+  $paper-flatten-color: #1F1F1F;
   border: 1px solid transparent;
 
   &:before,
   &:after {
-    @include box-shadow(0 15px 12px fade(rgb(31, 31, 31), .7));
+    @include box-shadow(0 15px 12px fade-out($paper-flatten-color, .7));
     bottom: 15px;
     height: 20%;
     max-height: 100px;
@@ -623,7 +624,7 @@
 
     &:before,
     &:after {
-      @include box-shadow(0 8px 8px fade(rgb(31, 31, 31), .5));
+      @include box-shadow(0 8px 8px fade-out($paper-flatten-color, .5));
       @include transition(box-shadow 600ms ease-out, left 200ms, right 200ms);
     }
 

@@ -1,4 +1,4 @@
-background- {
+.background- {
   $i: 6;
   $class-map: primary secondary success info warning error white grey grey-dark dark;
   $color-map: $primary $secondary $success-color $info-color $warning-color $danger-color $white $grey-3 $grey-2 $grey-0;
@@ -9,15 +9,15 @@ background- {
       background: $loccolor;
 
       &-25 {
-        background: fade($loccolor, (25/100));
+        background: fade-out($loccolor, (25/100));
       }
 
       &-50 {
-        background: fade($loccolor, (50/100));
+        background: fade-out($loccolor, (50/100));
       }
 
       &-75 {
-        background: fade($loccolor, (75/100));
+        background: fade-out($loccolor, (75/100));
       }
     }
     $i: $i - 1;
