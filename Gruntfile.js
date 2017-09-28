@@ -322,7 +322,6 @@ module.exports = function(grunt) {
     // Default task.
     grunt.registerTask('default', ['clean:css', 'clean:js', 'test']);
 
-    //grunt.registerTask('default', ['uglify:vendor','less:compileCore','cssmin:minifyCore']);
     grunt.registerTask('image', ['resize_crop:image_group','imagemagick-resize','imagemin:dynamic']);
 
 };
