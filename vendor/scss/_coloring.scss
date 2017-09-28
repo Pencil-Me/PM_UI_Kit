@@ -1,58 +1,25 @@
-@mixin background-color($loccolor) {
-  background: $loccolor;
+background- {
+  $i: 6;
+  $class-map: primary secondary success info warning error white grey grey-dark dark;
+  $color-map: $primary $secondary $success-color $info-color $warning-color $danger-color $white $grey-3 $grey-2 $grey-0;
+  @while $i > 0 {
+    $loccolor: nth($color-map, $i);
 
-  &-25 {
-    $loccolor25: fade($loccolor, (25/100));
-    background: $loccolor25;
+    &#{nth($class-map, $i)}{
+      background: $loccolor;
+
+      &-25 {
+        background: fade($loccolor, (25/100));
+      }
+
+      &-50 {
+        background: fade($loccolor, (50/100));
+      }
+
+      &-75 {
+        background: fade($loccolor, (75/100));
+      }
+    }
+    $i: $i - 1;
   }
-
-  &-50 {
-    $loccolor50: fade($loccolor, (50/100));
-    background: $loccolor50;
-  }
-
-  &-75 {
-    $loccolor75: fade($loccolor, (75/100));
-    background: $loccolor75;
-  }
-}
-
-.background-primary {
-  @include background-color($primary);
-}
-
-.background-secondary {
-  @include background-color($secondary);
-}
-
-.background-success {
-  @include background-color($success-color);
-}
-
-.background-info {
-  @include background-color($info-color);
-}
-
-.background-warning {
-  @include background-color($warning-color);
-}
-
-.background-error {
-  @include background-color($danger-color);
-}
-
-.background-white {
-  @include background-color($white);
-}
-
-.background-grey {
-  @include background-color($grey-3);
-}
-
-.background-grey-dark {
-  @include background-color($grey-2);
-}
-
-.background-dark {
-  @include background-color($grey-0);
 }

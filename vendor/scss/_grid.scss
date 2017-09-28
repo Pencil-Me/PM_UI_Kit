@@ -2,7 +2,7 @@
 [class*="col-"] {
   box-sizing: border-box;
   display: inline-block;
-  margin-bottom: ($default-gutter * 1)px;
+  margin-bottom: #{($default-gutter * 1)}px;
   vertical-align: top;
 }
 
@@ -106,8 +106,8 @@
   }
 
   .row {
-    margin-left: ($font-base-size * -1)px;
-    margin-right: ($font-base-size * -1)px;
+    margin-left: #{($font-base-size * -1)}px;
+    margin-right: #{($font-base-size * -1)}px;
   }
 }
 
@@ -161,8 +161,8 @@
 }
 
 @mixin media-row {
-  margin-left: ($font-base-size * -1)px;
-  margin-right: ($font-base-size * -1)px;
+  margin-left: #{($font-base-size * -1)}px;
+  margin-right: #{($font-base-size * -1)}px;
 }
 
 @mixin media-center {

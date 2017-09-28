@@ -10,7 +10,7 @@
     line-height: 100%;
     list-style-type: none;
     margin: 0;
-    padding: 0 ($font-base-size * .5)px 0 0;
+    padding: 0 #{($font-base-size * .5)}px 0 0;
     position: relative;
     zoom: 1;
 
@@ -18,7 +18,7 @@
       color: $breadcrumps-link-color;
       display: inline-block;
       margin: 0;
-      padding: 5px ($font-base-size * .5)px 5px 5px;
+      padding: 5px #{($font-base-size * .5)}px 5px 5px;
       position: relative;
 
       &:hover {
@@ -28,11 +28,11 @@
       &:after {
         border: solid transparent;
         border-left-color: $breadcrumps-arrow-color;
-        border-width: ($breadcrumps-size * .45px);
+        border-width: #{($breadcrumps-size * .45)}px;
         content: " ";
         height: 0;
         left: 100%;
-        margin-top: ($breadcrumps-size * -.45px);
+        margin-top: #{($breadcrumps-size * -.45)}px;
         pointer-events: none;
         position: absolute;
         top: 50%;

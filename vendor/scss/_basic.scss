@@ -13,11 +13,11 @@ header {
 .wrapper {
   display: block;
   margin: 0 auto;
-  max-width: ($max-width * 1)px;
+  max-width: #{($max-width * 1)}px;
 }
 
 .section {
-  padding: ($default-gutter * 1)px;
+  padding: #{($default-gutter * 1)}px;
 }
 
 

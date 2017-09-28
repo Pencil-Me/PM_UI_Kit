@@ -1,9 +1,9 @@
 // Grid mixins
 @mixin cols($colspan: $default-colspan, $gutter: $default-gutter, $total-cols: $default-total-cols) {
   float: left;
-  max-width: (($max-width / 12 * $colspan)+ 0)px;
-  padding: 0 ($gutter + 0)px;
-  width: (($colspan * (100 / $total-cols)) + 0%);
+  max-width: #{(($max-width / 12 * $colspan)+ 0)}px;
+  padding: 0 #{($gutter + 0)}px;
+  width: unquote("#{(($colspan * (100 / $total-cols)) + 0)}%");
 }
 
 @mixin border-radius-clip() {
@@ -303,9 +303,8 @@
 }
 
 @mixin font-size($px-value: $font-base-size) {
-  $rem-value: ($px-value / 10) ;
-  font-size: unquote("#{$px-value}px");   // Internet Explorer 6/7/8 + Opera Mini
-  font-size: unquote("#{$rem-value}rem"); // Other browsers
+  font-size: #{$px-value}px;   // Internet Explorer 6/7/8 + Opera Mini
+  font-size: #{($px-value / 10)}rem; // Other browsers
 }
 
 @mixin text-glow($x: 0, $blur: 5px, $color: fade-out($black, .2)) {

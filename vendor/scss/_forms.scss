@@ -292,36 +292,36 @@ textarea {
 }
 
 .radio {
-  margin: ($font-base-size/2.5)px 0;
+  margin: #{($font-base-size/2.5)}px 0;
 
   @if $form-radio-style == 'style1' {
     input {
       &[type=radio] {
         display: none;
-        height: ($font-base-size * 1.4)px;
-        width: ($font-base-size * 1.4)px;
+        height: #{($font-base-size * 1.4)}px;
+        width: #{($font-base-size * 1.4)}px;
       }
     }
 
     &:after {
       @include vertical-three-colors-gradient(darken($white, 10%), darken($white, 15%), darken($white, 20%));
-      @include border-radius(($font-base-size * 2)px);
+      @include border-radius(#{($font-base-size * 2)}px);
       @include box-shadow(inset 0 1px 1px $white, 0 1px 3px fade-out($black, .5));
       background: darken($white, 1);
       content: '';
       display: block;
-      height: ($font-base-size * 1.4)px;
+      height: #{($font-base-size * 1.4)}px;
       left: 0;
       position: absolute;
       top: 3px;
-      width: ($font-base-size * 1.4)px;
+      width: #{($font-base-size * 1.4)}px;
     }
 
     label {
       color: $form-radio-label-color;
-      line-height: ($font-base-size+$font-base-size/2)px;
-      margin: ($font-base-size/2)px 0;
-      padding-left: ($font-base-size+$font-base-size*1)px;
+      line-height: #{($font-base-size+$font-base-size/2)}px;
+      margin: #{($font-base-size/2)}px 0;
+      padding-left: #{($font-base-size+$font-base-size*1)}px;
 
       &:hover {
         color: $form-radio-hover-label-color;
@@ -339,36 +339,36 @@ textarea {
       }
 
       span {
-        height: ($font-base-size * 1)px;
-        left: ($font-base-size * .1)px;
+        height: #{($font-base-size * 1)}px;
+        left: #{($font-base-size * .1)}px;
         position: absolute;
-        top: ($font-base-size * .1)px;
-        width: ($font-base-size * 1)px;
+        top: #{($font-base-size * .1)}px;
+        width: #{($font-base-size * 1)}px;
 
         &:before {
-          @include border-radius(($font-base-size * 2)px);
+          @include border-radius(#{($font-base-size * 2)}px);
           @include box-shadow(inset 0 1px 1px fade-out($black, .1), 0 1px 0 fade-out($white, 1));
           @include vertical-gradient(darken($grey-0, 20%), darken($grey-0, 30%));
           content: '';
           cursor: pointer;
-          height: ($font-base-size * 1)px;
+          height: #{($font-base-size * 1)}px;
           left: 2px;
           position: absolute;
           top: 2px;
-          width: ($font-base-size * 1)px;
+          width: #{($font-base-size * 1)}px;
         }
 
         &:after {
-          @include border-radius(($font-base-size * 2)px);
+          @include border-radius(#{($font-base-size * 2)}px);
           @include box-shadow(inset 0 1px 1px $white, 0 1px 3px fade-out($black, .5));
           @include opacity(0);
           @include vertical-gradient(darken($form-radio-color, 10%), lighten($form-radio-color, 20%));
           content: '';
-          height: ($font-base-size * .8)px;
-          left: ($font-base-size * .2)px;
+          height: #{($font-base-size * .8)}px;
+          left: #{($font-base-size * .2)}px;
           position: absolute;
-          top: ($font-base-size * .2)px;
-          width: ($font-base-size * .8)px;
+          top: #{($font-base-size * .2)}px;
+          width: #{($font-base-size * .8)}px;
           z-index: 2;
         }
 
@@ -397,23 +397,23 @@ textarea {
 }
 
 .checkbox {
-  margin: ($font-base-size / 2.5)px 0;
+  margin: #{($font-base-size / 2.5)}px 0;
   position: relative;
 
   @if $form-checkbox-style == 'style1' {
     input {
       &[type="checkbox"] {
         display: none;
-        height: ($font-base-size * 1.4)px;
-        width: ($font-base-size * 1.4)px;
+        height: #{($font-base-size * 1.4)}px;
+        width: #{($font-base-size * 1.4)}px;
       }
     }
 
     label {
       @include transition(color .2s ease);
       color: $form-checkbox-label-color;
-      line-height: ($font-base-size + $font-base-size / 2)px;
-      padding-left: ($font-base-size + $font-base-size * 1)px;
+      line-height: #{($font-base-size + $font-base-size / 2)}px;
+      padding-left: #{($font-base-size + $font-base-size * 1)}px;
 
       &:hover {
         color: $form-checkbox-hover-label-color;
@@ -435,11 +435,11 @@ textarea {
         @include border-radius(4px);
         @include box-shadow(inset 0 1px 1px $white, 0 1px 3px fade-out($black, .5));
         @include vertical-three-colors-gradient(darken($white, 10%), darken($white, 15%), darken($white, 20%));
-        height: ($font-base-size * 1.4)px;
+        height: #{($font-base-size * 1.4)}px;
         left: 0;
         position: absolute;
         top: 0;
-        width: ($font-base-size * 1.4)px;
+        width: #{($font-base-size * 1.4)}px;
 
         &:after {
           @include opacity();
@@ -449,11 +449,11 @@ textarea {
           border-right: 0;
           border-top: 0;
           content: '';
-          height: ($font-base-size * .6)px;
-          left: ($font-base-size * .3)px;
+          height: #{($font-base-size * .6)}px;
+          left: #{($font-base-size * .3)}px;
           position: absolute;
-          top: ($font-base-size * .25)px;
-          width: ($font-base-size * .9)px;
+          top: #{($font-base-size * .25)}px;
+          width: #{($font-base-size * .9)}px;
         }
 
         &:hover {

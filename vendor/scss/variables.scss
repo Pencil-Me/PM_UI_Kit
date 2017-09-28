@@ -93,7 +93,7 @@ $base-px: $font-base-size; //set to the most common base px size used in browser
 $to-rems: (1 / $base-px)rem; //allows you to set values as the default px size to target, which is then converted into scalable rem values.
 $to-ems: (1 / $base-px)em; //same as above, but with em values
 
-$default-width: ($max-width + 0)px;
+$default-width: #{($max-width + 0)}px;
 $default-colspan: 1;
 $default-total-cols: 12;
 $default-gutter: $font-base-size; // The gutter-width of your grid in pixels

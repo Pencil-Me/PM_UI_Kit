@@ -15,8 +15,8 @@ nav {
       background: $primary;
       display: block;
       float: left;
-      line-height: ($font-base-size + 16)px;
-      min-height: ($font-base-size + 16)px;
+      line-height: #{($font-base-size + 16)}px;
+      min-height: #{($font-base-size + 16)}px;
       width: auto;
       @media #{$mobile-down} {
         @include opacity();
@@ -39,8 +39,8 @@ nav {
       > li {
         background: $primary;
         display: inline-block;
-        height: ($font-base-size + 16)px;
-        line-height: ($font-base-size + 16)px;
+        height: #{($font-base-size + 16)}px;
+        line-height: #{($font-base-size + 16)}px;
         white-space: nowrap;
         @media #{$mobile-down} {
           bottom: auto;
@@ -73,10 +73,10 @@ nav {
         }
 
         a {
-          height: ($font-base-size + 16)px;
-          line-height: ($font-base-size + 16)px;
+          height: #{($font-base-size + 16)}px;
+          line-height: #{($font-base-size + 16)}px;
           min-width: 100px;
-          padding: 0 ($font-base-size * 2)px;
+          padding: 0 #{($font-base-size * 2)}px;
           @media #{$mobile-down} {
             bottom: auto;
             display: inline-block;
@@ -173,7 +173,7 @@ nav {
         width: auto;
         @media #{$mobile-down} {
           height: auto;
-          padding-top: ($font-base-size + 16)px;
+          padding-top: #{($font-base-size + 16)}px;
           position: absolute;
           top: 0;
           width: 100%;
@@ -239,7 +239,7 @@ nav {
         text-align: center;
         text-decoration: none;
         text-indent: -9999px;
-        width: ($font-base-size + 5)px;
+        width: #{($font-base-size + 5)}px;
 
         &:before {
           content: "";
@@ -255,7 +255,7 @@ nav {
     input {
       // Hide checkbox
       &[type="checkbox"] {
-        .show-menu {
+        &.show-menu {
           display: none;
 
           // Show menu when invisible checkbox is checked

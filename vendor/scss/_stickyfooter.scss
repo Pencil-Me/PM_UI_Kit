@@ -8,11 +8,11 @@ body {
 }
 
 main {
-  margin: 0 auto ($footerheight * -1)px;
+  margin: 0 auto #{($footerheight * -1)}px;
   min-height: 100%;
 }
 
 footer,
 .push {
-  height: ($footerheight * 1)px;
+  height: #{($footerheight * 1)}px;
 }

@@ -171,8 +171,8 @@ module.exports = function(grunt) {
                     strictMath: true,
                     sourceMap: true,
                     outputSourceFiles: true,
-                    sourceMapURL: '<%= pkg.name %>.css.map',
-                    sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
+                    sourceMapURL: '<%= pkg.name %>.gen.css.map',
+                    sourceMapFilename: 'dist/css/<%= pkg.name %>.gen.css.map'
                 },
                 src: './vendor/scss/<%= pkg.name %>.scss',
                 dest: './dist/css/<%= pkg.name %>.gen.css'
@@ -199,6 +199,10 @@ module.exports = function(grunt) {
 
         postcss: {
             options: {
+                map: {
+                    inline: false, // save all sourcemaps as separate files...
+                    annotation: 'dist/css/maps/' // ...to the specified directory
+                },
                 processors: [
                     require('autoprefixer')()
                     //require('cssnano')(),
@@ -313,7 +317,7 @@ module.exports = function(grunt) {
     // grunt.registerTask('dist-less-css', ['less-test', 'less-compile', 'cssmin:minifyCore']);
     grunt.registerTask('sass-test', ['sasslint']);
     grunt.registerTask('sass-compile', ['sass:compileCore']);
-    grunt.registerTask('dist-sass-css', ['sass-compile', 'sass-test', 'postcss'/*, 'cssmin:minifyCore'*/]);
+    grunt.registerTask('dist-sass-css', ['sass-compile', 'sass-test', 'postcss', 'cssmin:minifyCore']);
 
     // Default task.
     grunt.registerTask('default', ['clean:css', 'clean:js', 'test']);

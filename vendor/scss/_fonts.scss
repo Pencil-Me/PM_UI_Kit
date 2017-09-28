@@ -42,7 +42,7 @@ h {
   @while $i > 0 {
     &#{$i} {
       @include font-size(nth($font-map, $i));
-      margin: ($font-base-size * 1)px 0 ($font-base-size / 2)px;
+      margin: #{($font-base-size * 1)}px 0 #{($font-base-size / 2)}px;
     }
     $i: $i - 1;
   }
@@ -54,7 +54,7 @@ h {
 //-----------------------------------*/
 
 p {
-  margin: ($font-base-size/2)px 0;
+  margin: #{($font-base-size / 2)}px 0;
 }
 
 

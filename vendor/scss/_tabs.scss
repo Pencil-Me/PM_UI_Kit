@@ -18,7 +18,7 @@
     color: $tabs-color;
     cursor: pointer;
     margin: 1em 0;
-    padding: .42857143em .71428571em ($font-base-size * .5)px;
+    padding: .42857143em .71428571em #{($font-base-size * .5)}px;
     text-align: left;
 
     &:hover {
@@ -35,7 +35,7 @@
     &.active {
       background: $tabs-active-background;
       cursor: auto;
-      padding: .52857143em .71428571em ($font-base-size * .5 + 1)px;
+      padding: .52857143em .71428571em #{($font-base-size * .5 + 1)}px;
     }
   }
 }

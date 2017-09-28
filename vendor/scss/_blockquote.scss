@@ -53,8 +53,8 @@ blockquote {
   color: $blockquote-color;
   font-style: $blockquote-font-style;
   line-height: $blockquote-line-height;
-  margin: ($font-base-size * 1)px ($font-base-size * 1)px ($font-base-size * 1)px 0;
-  padding: ($font-base-size * 1)px 0 0 ($font-base-size * 1)px;
+  margin: #{($font-base-size * 1)}px #{($font-base-size * 1)}px #{($font-base-size * 1)}px 0;
+  padding: #{($font-base-size * 1)}px 0 0 #{($font-base-size * 1)}px;
 
   p {
     &:first-child {
@@ -77,7 +77,7 @@ blockquote {
     color: $blockquote-footer-color;
     font-style: normal;
     height: auto;
-    margin-top: ($blockquote-size*1)px;
+    margin-top: #{($blockquote-size*1)}px;
     text-align: right;
 
     &:before {
