@@ -38,7 +38,7 @@ textarea {
     &[type="date"] {
       line-height: 1.1142em;
 
-      &::-webkit-inner-spin-button {
+      &::-webkit-inner-spin-button {  // sass-lint:disable-line no-vendor-prefixes
         @include appearance(none);
         display: none;
       }
@@ -53,7 +53,7 @@ textarea {
         color: $form-input-placeholder-color;
         opacity: 1;
       }
-      -webkit-tap-highlight-color: fade-out($white, 0);
+      -webkit-tap-highlight-color: fade-out($white, 0); // sass-lint:disable-line no-vendor-prefixes
       background: $form-input-background;
       border: $form-input-border;
       color: $form-input-color;
@@ -148,7 +148,7 @@ textarea {
     @include border-radius($form-select-border-radius);
     @include box-shadow($form-select-box-shadow);
     @include transition(box-shadow .3s ease, border-color .3s ease, background .5s ease);
-    -webkit-tap-highlight-color: fade-out($text-select-color, 0);
+    -webkit-tap-highlight-color: fade-out($text-select-color, 0); // sass-lint:disable-line no-vendor-prefixes
     background: $form-select-background;
     border: $form-select-border;
     color: $form-select-color;
@@ -236,7 +236,7 @@ textarea {
       @include appearance(none);
       width: 100%;
 
-      &::-ms-expand {
+      &::-ms-expand { // sass-lint:disable-line no-vendor-prefixes
         display: none;
       }
     }
@@ -248,7 +248,7 @@ textarea {
     @include border-radius($form-textarea-border-radius);
     @include transition(box-shadow .3s ease, border-color .3s ease, background .5s ease);
     @include box-shadow($form-textarea-box-shadow);
-    -webkit-tap-highlight-color: fade-out($white, 0);
+    -webkit-tap-highlight-color: fade-out($white, 0); // sass-lint:disable-line no-vendor-prefixes
     background: $form-textarea-background;
     border: $form-textarea-border;
     color: $form-textarea-color;

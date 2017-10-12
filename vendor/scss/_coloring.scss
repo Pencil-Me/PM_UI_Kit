@@ -1,22 +1,22 @@
-.background- {
+.background {
   // needed to be splited cause sourcemaps will throw minus colmns when more than 6 elements will iterate with ampersand
   $class-map: (
-          white: $white,
-          grey: $grey-3,
-          grey-dark: $grey-2,
-          dark: $grey-0
+    -white: $white,
+    -grey: $grey-3,
+    -grey-dark: $grey-2,
+    -dark: $grey-0
   );
   $class-map2: (
-          primary: $primary,
-          secondary: $secondary,
-          success: $success-color,
-          info: $info-color,
-          warning: $warning-color,
-          error: $danger-color
+    -primary: $primary,
+    -secondary: $secondary,
+    -success: $success-color,
+    -info: $info-color,
+    -warning: $warning-color,
+    -error: $danger-color
   );
 
   @each $class, $color in $class-map {
-    &#{$class}{
+    &#{$class} {
       background: $color;
 
       &-25 {
@@ -34,7 +34,7 @@
   }
 
   @each $class, $color in $class-map2 {
-    &#{$class}{
+    &#{$class} {
       background: $color;
 
       &-25 {

@@ -260,13 +260,13 @@
 }
 
 @mixin vertical-gradient($start-color: $white, $end-color: $white, $start-percent: 0%, $end-percent: 100%) {
-  background-color: $start-color;
+  background-color: $start-color; // sass-lint:disable-line property-sort-order
   //background: -webkit-gradient(linear, left top, left bottom, from($start-color), to($end-color));
   //background: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);
   //background: -moz-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);
   //background: -ms-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);
   //background: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);
-  background: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent);
+  background: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // sass-lint:disable-line property-sort-order
 }
 
 @mixin horizontal-gradient($start-color: $white, $end-color: $white, $start-percent: 0%, $end-percent: 100%) {
@@ -303,8 +303,10 @@
 }
 
 @mixin font-size($px-value: $font-base-size) {
-  font-size: #{$px-value}px;   // Internet Explorer 6/7/8 + Opera Mini
-  font-size: #{($px-value / 10)}rem; // Other browsers
+  // Internet Explorer 6/7/8 + Opera Mini
+  font-size: #{$px-value}px; // sass-lint:disable-line no-duplicate-properties
+  // Other browsers
+  font-size: #{($px-value / 10)}rem; // sass-lint:disable-line no-duplicate-properties
 }
 
 @mixin text-glow($x: 0, $blur: 5px, $color: fade-out($black, .2)) {

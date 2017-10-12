@@ -1,5 +1,4 @@
 .debug {
-
   // Empty Elements
   div,
   span,
@@ -8,7 +7,7 @@
   td,
   th {
     &:empty {
-      border: 5px dotted $yellow !important;
+      border: 5px dotted $yellow !important; // sass-lint:disable-line no-important
       padding: 20px;
     }
   }
@@ -19,7 +18,7 @@
   [class=""],
   [id=""],
   [href=""] {
-    border: 5px solid $yellow !important;
+    border: 5px solid $yellow !important; // sass-lint:disable-line no-important
   }
 
   // Deprecated Elements
@@ -33,7 +32,7 @@
   s,
   strike,
   u {
-    border: 5px dotted $red !important;
+    border: 5px dotted $red !important; // sass-lint:disable-line no-important
   }
 
   // Deprecated Attributes
@@ -62,7 +61,7 @@
   *[vspace],
   *[height],
   *[width] {
-    border: 5px solid $red !important;
+    border: 5px solid $red !important; // sass-lint:disable-line no-important
   }
 
   ul,
@@ -70,20 +69,20 @@
   li {
 
     &[type] {
-      border: 5px solid $red !important;
+      border: 5px solid $red !important; // sass-lint:disable-line no-important
     }
   }
 
   // Proposed Deprecated Elements
   big,
   tt {
-    border: 5px dotted $green !important;
+    border: 5px dotted $green !important; // sass-lint:disable-line no-important
   }
 
   input {
 
     &[type="button"] {
-      border: 5px dotted $green !important;
+      border: 5px dotted $green !important; // sass-lint:disable-line no-important
     }
   }
 
@@ -92,19 +91,19 @@
 
     &[cellpadding],
     &[cellspacing] {
-      border: 5px solid $green !important;
+      border: 5px solid $green !important; // sass-lint:disable-line no-important
     }
   }
 
   *[border] {
-    border: 5px solid $green !important;
+    border: 5px solid $green !important; // sass-lint:disable-line no-important
   }
 
   // empty links
   a {
 
     &:not([href]) {
-      color: $yellow !important;
+      color: $yellow !important; // sass-lint:disable-line no-important
     }
   }
 }

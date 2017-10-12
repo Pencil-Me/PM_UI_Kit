@@ -1,10 +1,10 @@
 @media print {
   * {
-    @include box-shadow(none !important);
-    background: none !important;
-    color: $black !important;
+    @include box-shadow(none !important); // sass-lint:disable-line no-important
+    background: none !important; // sass-lint:disable-line no-important
+    color: $black !important; // sass-lint:disable-line no-important
     filter: grayscale(100%);
-    text-shadow: none !important;
+    text-shadow: none !important; // sass-lint:disable-line no-important
   }
 
   a {
